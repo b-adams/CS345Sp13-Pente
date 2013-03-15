@@ -71,6 +71,14 @@
     assertThat(sut, isNot(equalTo(nil)));
     assertThat([sut placement], isNot(equalTo(nil)));
 }
+-(void)testNewStoneHasNoNeighbors
+{
+    id<CSPMoveInterface> placement = [CSPMove moveWithPlayer:CSPID_PlayerBlack
+                                                         atX:3 andY:4];
 
+    sut = [[CSPStone alloc] initWithPlacement:placement];
+
+    assertThat([sut neighbors], empty());
+}
 
 @end
