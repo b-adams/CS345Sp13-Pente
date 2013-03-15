@@ -120,7 +120,19 @@
 
 - (NSSet *)bookendedStones
 {
-    return [self bookendedStonesIn:CSDID_SouthEast];
+
+    NSMutableSet* allCaptures = [NSMutableSet set];
+    
+    [allCaptures unionSet:[self bookendedStonesIn:CSDID_North]];
+    [allCaptures unionSet:[self bookendedStonesIn:CSDID_NorthEast]];
+    [allCaptures unionSet:[self bookendedStonesIn:CSDID_NorthWest]];
+    [allCaptures unionSet:[self bookendedStonesIn:CSDID_South]];
+    [allCaptures unionSet:[self bookendedStonesIn:CSDID_SouthEast]];
+    [allCaptures unionSet:[self bookendedStonesIn:CSDID_SouthWest]];
+    [allCaptures unionSet:[self bookendedStonesIn:CSDID_East]];
+    [allCaptures unionSet:[self bookendedStonesIn:CSDID_West]];
+
+    return allCaptures;
 }
 
 @end
