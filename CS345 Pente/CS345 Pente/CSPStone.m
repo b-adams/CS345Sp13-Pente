@@ -28,7 +28,7 @@
 - (void)setNeighborTo:(CSPStone *)newNeighbor
           inDirection:(CSPDirectionID)whichWay
 {
-
+    [[self neighbors] addObject:self];
 }
 
 - (int)chainLengthIn:(CSPDirectionID)whichDirection
