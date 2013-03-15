@@ -75,7 +75,7 @@
     CSPLocation* coord = [sut coordinateInDirection:CSDID_NorthEast];
     
     // then
-    [self assertThatCoord:coord hasX:@1 andY:@1];
+    [self assertThatCoord:coord hasX:1 andY:1];
 }
 
 - (void)assertThatCoord:(id <CSPCoordinateInterface>)coord
