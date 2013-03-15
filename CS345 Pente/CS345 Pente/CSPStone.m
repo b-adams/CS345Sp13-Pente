@@ -21,6 +21,10 @@
     if (self) {
         [self setPlacement:whoAndWhere];
         [self setNeighbors:[NSMutableArray arrayWithCapacity:8]];
+        for(int i=0; i<8; i++)
+        {
+            [[self neighbors] addObject:[NSNull null]];
+        }
     }
     return self;
 }
@@ -28,7 +32,17 @@
 - (void)setNeighborTo:(CSPStone *)newNeighbor
           inDirection:(CSPDirectionID)whichWay
 {
-    [[self neighbors] addObject:self];
+    [[self neighbors] setObject:newNeighbor
+             atIndexedSubscript:whichWay];
+}
+-(int) neighborCount
+{
+    int neighbors=0;
+    for(id nbr in [self neighbors])
+    {
+        if(nbr!=[NSNull null]) neighbors+=1;
+    }
+    return neighbors;
 }
 
 - (int)chainLengthIn:(CSPDirectionID)whichDirection

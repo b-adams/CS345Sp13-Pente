@@ -69,7 +69,7 @@
 }
 -(void)testNewStoneHasNoNeighbors
 {
-    assertThat([sut neighbors], empty());
+    assertThatInt([sut neighborCount], is(@0));
 }
 -(void)testAddingNeighborToNewStoneMakesNeighborSetNonempty
 {
@@ -78,7 +78,7 @@
     [sut setNeighborTo:buddy
            inDirection:CSDID_SouthEast];
 
-    assertThat([sut neighbors], isNot(empty()));
+    assertThatInt([sut neighborCount], isNot(@0));
 }
 -(void)testAddingNeighborLeavesAddedNeighborInRightDirection
 {

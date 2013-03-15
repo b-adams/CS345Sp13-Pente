@@ -32,7 +32,7 @@ typedef enum {
 -(int) chainLengthIn:(CSPDirectionID) whichDirection;
 -(NSSet*) bookendedStonesIn:(CSPDirectionID) whichDirection;
 -(NSSet*) bookendedStones;
-
+-(int) neighborCount;
 
 @end
 
