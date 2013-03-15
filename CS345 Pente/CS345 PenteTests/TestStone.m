@@ -152,5 +152,9 @@
     assertThat([sut bookendedStones], is(empty()));
 }
 
+-(void)testNewStoneBookendsNothingToTheSE
+{
+    assertThat([sut bookendedStonesIn:CSDID_SouthEast], is(empty()));
+}
 
 @end

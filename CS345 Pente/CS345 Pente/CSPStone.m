@@ -97,7 +97,7 @@
 
 - (NSSet *)bookendedStones
 {
-    return nil;
+    return [NSSet set];
 }
 
 @end
