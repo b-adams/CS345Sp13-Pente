@@ -25,5 +25,5 @@ typedef enum {
 @property (readonly, assign) int y;
 -(id)initWithX:(int) initialX andY:(int) initialY;
 +(id)coordinateWithX:(int) initialX andY:(int) initialY;
-
+-(id<CSPCoordinateInterface>) coordinateInDirection:(CSPDirectionID)whichDirection;
 @end

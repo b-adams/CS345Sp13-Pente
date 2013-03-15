@@ -66,6 +66,18 @@
     [self assertThatCoord:sut hasX:@3 andY:@2];
 }
 
+- (void)testCoordNEofZeroZeroIsOneOne
+{
+    // given
+    sut = [[CSPLocation alloc] initWithX:0 andY:0];
+    
+    // when
+    CSPLocation* coord = [sut coordinateInDirection:CSDID_NorthEast];
+    
+    // then
+    [self assertThatCoord:coord hasX:@1 andY:@1];
+}
+
 - (void)assertThatCoord:(id <CSPCoordinateInterface>)coord
                    hasX:(NSNumber *)targX
                    andY:(NSNumber *)targY
@@ -78,5 +90,6 @@
     assertThatInt(x, is(targX));
     assertThatInt(y, is(targY));
 }
+
 
 @end

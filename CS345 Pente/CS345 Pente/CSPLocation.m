@@ -29,4 +29,10 @@
 {
     return [[[self class] alloc] initWithX:initialX andY:initialY];
 }
+
+- (id <CSPCoordinateInterface>)coordinateInDirection:(CSPDirectionID)whichDirection
+{
+    return nil;
+}
+
 @end
