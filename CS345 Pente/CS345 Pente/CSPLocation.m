@@ -9,8 +9,6 @@
 #import "CSPLocation.h"
 
 @implementation CSPLocation
-@synthesize x;
-@synthesize y;
 
 - (id)initWithX:(int)initialX andY:(int)initialY
 {

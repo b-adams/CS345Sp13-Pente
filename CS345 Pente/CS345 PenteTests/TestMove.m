@@ -62,7 +62,7 @@
 - (void)testMoveWhiteX4Y3HasPlayerWhiteWithCoordinatesX4Y3
 {
     // given
-    sut = [[CSPLocation alloc] initWithPlayer:CS345PlayerWhite
+    sut = [[CSPMove alloc] initWithPlayer:CS345PlayerWhite
                                           atX:4
                                          andY:3];
     
@@ -71,7 +71,7 @@
     [self assertThatMove:sut
                 hasPlayer:CS345PlayerWhite
                      forX:@4
-                     andY:@3]
+                    andY:@3];
 }
 
 - (void)assertThatMove:(id <CSPMoveInterface>)move

@@ -16,7 +16,7 @@ typedef enum {
 
 @protocol CSPMoveInterface <CSPCoordinateInterface>
 
-@property (readonly, assign) CS345PlayerID player;
+@property (readonly, assign) CSPPlayerID player;
 -(id)initWithPlayer:(CSPPlayerID) who
                 atX:(int) initialX
                andY:(int) initialY;
