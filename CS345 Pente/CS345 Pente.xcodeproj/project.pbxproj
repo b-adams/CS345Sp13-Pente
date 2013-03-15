@@ -1,0 +1,511 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E9834D5016F3877700DC7E56 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9834D4F16F3877700DC7E56 /* Cocoa.framework */; };
+		E9834D5A16F3877700DC7E56 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E9834D5816F3877700DC7E56 /* InfoPlist.strings */; };
+		E9834D5C16F3877700DC7E56 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E9834D5B16F3877700DC7E56 /* main.m */; };
+		E9834D6016F3877700DC7E56 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = E9834D5E16F3877700DC7E56 /* Credits.rtf */; };
+		E9834D6316F3877700DC7E56 /* CSPDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = E9834D6216F3877700DC7E56 /* CSPDocument.m */; };
+		E9834D6616F3877700DC7E56 /* CSPDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9834D6416F3877700DC7E56 /* CSPDocument.xib */; };
+		E9834D6916F3877700DC7E56 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9834D6716F3877700DC7E56 /* MainMenu.xib */; };
+		E9834D7116F3877700DC7E56 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9834D7016F3877700DC7E56 /* SenTestingKit.framework */; };
+		E9834D7216F3877700DC7E56 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9834D4F16F3877700DC7E56 /* Cocoa.framework */; };
+		E9834D7A16F3877700DC7E56 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E9834D7816F3877700DC7E56 /* InfoPlist.strings */; };
+		E9834D7D16F3877700DC7E56 /* CS345_PenteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E9834D7C16F3877700DC7E56 /* CS345_PenteTests.m */; };
+		E9834D8816F3879700DC7E56 /* OCHamcrest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9834D8616F3879700DC7E56 /* OCHamcrest.framework */; };
+		E9834D8916F3879700DC7E56 /* OCMockito.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9834D8716F3879700DC7E56 /* OCMockito.framework */; };
+		E9834D8B16F387BA00DC7E56 /* OCHamcrest.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E9834D8616F3879700DC7E56 /* OCHamcrest.framework */; };
+		E9834D8C16F387BA00DC7E56 /* OCMockito.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E9834D8716F3879700DC7E56 /* OCMockito.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E9834D7316F3877700DC7E56 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E9834D4416F3877700DC7E56 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E9834D4B16F3877700DC7E56;
+			remoteInfo = "CS345 Pente";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E9834D8A16F387B500DC7E56 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				E9834D8B16F387BA00DC7E56 /* OCHamcrest.framework in CopyFiles */,
+				E9834D8C16F387BA00DC7E56 /* OCMockito.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		E9834D4C16F3877700DC7E56 /* CS345 Pente.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CS345 Pente.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9834D4F16F3877700DC7E56 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		E9834D5216F3877700DC7E56 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		E9834D5316F3877700DC7E56 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		E9834D5416F3877700DC7E56 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E9834D5716F3877700DC7E56 /* CS345 Pente-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CS345 Pente-Info.plist"; sourceTree = "<group>"; };
+		E9834D5916F3877700DC7E56 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E9834D5B16F3877700DC7E56 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E9834D5D16F3877700DC7E56 /* CS345 Pente-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CS345 Pente-Prefix.pch"; sourceTree = "<group>"; };
+		E9834D5F16F3877700DC7E56 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		E9834D6116F3877700DC7E56 /* CSPDocument.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CSPDocument.h; sourceTree = "<group>"; };
+		E9834D6216F3877700DC7E56 /* CSPDocument.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CSPDocument.m; sourceTree = "<group>"; };
+		E9834D6516F3877700DC7E56 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CSPDocument.xib; sourceTree = "<group>"; };
+		E9834D6816F3877700DC7E56 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		E9834D6F16F3877700DC7E56 /* CS345 PenteTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CS345 PenteTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9834D7016F3877700DC7E56 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		E9834D7716F3877700DC7E56 /* CS345 PenteTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CS345 PenteTests-Info.plist"; sourceTree = "<group>"; };
+		E9834D7916F3877700DC7E56 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E9834D7B16F3877700DC7E56 /* CS345_PenteTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CS345_PenteTests.h; sourceTree = "<group>"; };
+		E9834D7C16F3877700DC7E56 /* CS345_PenteTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CS345_PenteTests.m; sourceTree = "<group>"; };
+		E9834D8616F3879700DC7E56 /* OCHamcrest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCHamcrest.framework; sourceTree = "<group>"; };
+		E9834D8716F3879700DC7E56 /* OCMockito.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCMockito.framework; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E9834D4916F3877700DC7E56 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9834D5016F3877700DC7E56 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E9834D6B16F3877700DC7E56 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9834D7116F3877700DC7E56 /* SenTestingKit.framework in Frameworks */,
+				E9834D7216F3877700DC7E56 /* Cocoa.framework in Frameworks */,
+				E9834D8816F3879700DC7E56 /* OCHamcrest.framework in Frameworks */,
+				E9834D8916F3879700DC7E56 /* OCMockito.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E9834D4316F3877700DC7E56 = {
+			isa = PBXGroup;
+			children = (
+				E9834D5516F3877700DC7E56 /* CS345 Pente */,
+				E9834D7516F3877700DC7E56 /* CS345 PenteTests */,
+				E9834D4E16F3877700DC7E56 /* Frameworks */,
+				E9834D4D16F3877700DC7E56 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E9834D4D16F3877700DC7E56 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E9834D4C16F3877700DC7E56 /* CS345 Pente.app */,
+				E9834D6F16F3877700DC7E56 /* CS345 PenteTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E9834D4E16F3877700DC7E56 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E9834D8616F3879700DC7E56 /* OCHamcrest.framework */,
+				E9834D8716F3879700DC7E56 /* OCMockito.framework */,
+				E9834D4F16F3877700DC7E56 /* Cocoa.framework */,
+				E9834D7016F3877700DC7E56 /* SenTestingKit.framework */,
+				E9834D5116F3877700DC7E56 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E9834D5116F3877700DC7E56 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E9834D5216F3877700DC7E56 /* AppKit.framework */,
+				E9834D5316F3877700DC7E56 /* CoreData.framework */,
+				E9834D5416F3877700DC7E56 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		E9834D5516F3877700DC7E56 /* CS345 Pente */ = {
+			isa = PBXGroup;
+			children = (
+				E9834D6116F3877700DC7E56 /* CSPDocument.h */,
+				E9834D6216F3877700DC7E56 /* CSPDocument.m */,
+				E9834D6416F3877700DC7E56 /* CSPDocument.xib */,
+				E9834D6716F3877700DC7E56 /* MainMenu.xib */,
+				E9834D5616F3877700DC7E56 /* Supporting Files */,
+			);
+			path = "CS345 Pente";
+			sourceTree = "<group>";
+		};
+		E9834D5616F3877700DC7E56 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E9834D5716F3877700DC7E56 /* CS345 Pente-Info.plist */,
+				E9834D5816F3877700DC7E56 /* InfoPlist.strings */,
+				E9834D5B16F3877700DC7E56 /* main.m */,
+				E9834D5D16F3877700DC7E56 /* CS345 Pente-Prefix.pch */,
+				E9834D5E16F3877700DC7E56 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E9834D7516F3877700DC7E56 /* CS345 PenteTests */ = {
+			isa = PBXGroup;
+			children = (
+				E9834D7B16F3877700DC7E56 /* CS345_PenteTests.h */,
+				E9834D7C16F3877700DC7E56 /* CS345_PenteTests.m */,
+				E9834D7616F3877700DC7E56 /* Supporting Files */,
+			);
+			path = "CS345 PenteTests";
+			sourceTree = "<group>";
+		};
+		E9834D7616F3877700DC7E56 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E9834D7716F3877700DC7E56 /* CS345 PenteTests-Info.plist */,
+				E9834D7816F3877700DC7E56 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E9834D4B16F3877700DC7E56 /* CS345 Pente */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E9834D8016F3877700DC7E56 /* Build configuration list for PBXNativeTarget "CS345 Pente" */;
+			buildPhases = (
+				E9834D4816F3877700DC7E56 /* Sources */,
+				E9834D4916F3877700DC7E56 /* Frameworks */,
+				E9834D4A16F3877700DC7E56 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CS345 Pente";
+			productName = "CS345 Pente";
+			productReference = E9834D4C16F3877700DC7E56 /* CS345 Pente.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E9834D6E16F3877700DC7E56 /* CS345 PenteTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E9834D8316F3877700DC7E56 /* Build configuration list for PBXNativeTarget "CS345 PenteTests" */;
+			buildPhases = (
+				E9834D6A16F3877700DC7E56 /* Sources */,
+				E9834D6B16F3877700DC7E56 /* Frameworks */,
+				E9834D6C16F3877700DC7E56 /* Resources */,
+				E9834D8A16F387B500DC7E56 /* CopyFiles */,
+				E9834D6D16F3877700DC7E56 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E9834D7416F3877700DC7E56 /* PBXTargetDependency */,
+			);
+			name = "CS345 PenteTests";
+			productName = "CS345 PenteTests";
+			productReference = E9834D6F16F3877700DC7E56 /* CS345 PenteTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E9834D4416F3877700DC7E56 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = CSP;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Wells CS345: GUI programming";
+			};
+			buildConfigurationList = E9834D4716F3877700DC7E56 /* Build configuration list for PBXProject "CS345 Pente" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E9834D4316F3877700DC7E56;
+			productRefGroup = E9834D4D16F3877700DC7E56 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E9834D4B16F3877700DC7E56 /* CS345 Pente */,
+				E9834D6E16F3877700DC7E56 /* CS345 PenteTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E9834D4A16F3877700DC7E56 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9834D5A16F3877700DC7E56 /* InfoPlist.strings in Resources */,
+				E9834D6016F3877700DC7E56 /* Credits.rtf in Resources */,
+				E9834D6616F3877700DC7E56 /* CSPDocument.xib in Resources */,
+				E9834D6916F3877700DC7E56 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E9834D6C16F3877700DC7E56 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9834D7A16F3877700DC7E56 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E9834D6D16F3877700DC7E56 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E9834D4816F3877700DC7E56 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9834D5C16F3877700DC7E56 /* main.m in Sources */,
+				E9834D6316F3877700DC7E56 /* CSPDocument.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E9834D6A16F3877700DC7E56 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9834D7D16F3877700DC7E56 /* CS345_PenteTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E9834D7416F3877700DC7E56 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E9834D4B16F3877700DC7E56 /* CS345 Pente */;
+			targetProxy = E9834D7316F3877700DC7E56 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E9834D5816F3877700DC7E56 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E9834D5916F3877700DC7E56 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		E9834D5E16F3877700DC7E56 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E9834D5F16F3877700DC7E56 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		E9834D6416F3877700DC7E56 /* CSPDocument.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E9834D6516F3877700DC7E56 /* en */,
+			);
+			name = CSPDocument.xib;
+			sourceTree = "<group>";
+		};
+		E9834D6716F3877700DC7E56 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E9834D6816F3877700DC7E56 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		E9834D7816F3877700DC7E56 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E9834D7916F3877700DC7E56 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E9834D7E16F3877700DC7E56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		E9834D7F16F3877700DC7E56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		E9834D8116F3877700DC7E56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CS345 Pente/CS345 Pente-Prefix.pch";
+				INFOPLIST_FILE = "CS345 Pente/CS345 Pente-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		E9834D8216F3877700DC7E56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CS345 Pente/CS345 Pente-Prefix.pch";
+				INFOPLIST_FILE = "CS345 Pente/CS345 Pente-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		E9834D8416F3877700DC7E56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CS345 Pente.app/Contents/MacOS/CS345 Pente";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CS345 Pente/CS345 Pente-Prefix.pch";
+				INFOPLIST_FILE = "CS345 PenteTests/CS345 PenteTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		E9834D8516F3877700DC7E56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CS345 Pente.app/Contents/MacOS/CS345 Pente";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CS345 Pente/CS345 Pente-Prefix.pch";
+				INFOPLIST_FILE = "CS345 PenteTests/CS345 PenteTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E9834D4716F3877700DC7E56 /* Build configuration list for PBXProject "CS345 Pente" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E9834D7E16F3877700DC7E56 /* Debug */,
+				E9834D7F16F3877700DC7E56 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E9834D8016F3877700DC7E56 /* Build configuration list for PBXNativeTarget "CS345 Pente" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E9834D8116F3877700DC7E56 /* Debug */,
+				E9834D8216F3877700DC7E56 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		E9834D8316F3877700DC7E56 /* Build configuration list for PBXNativeTarget "CS345 PenteTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E9834D8416F3877700DC7E56 /* Debug */,
+				E9834D8516F3877700DC7E56 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E9834D4416F3877700DC7E56 /* Project object */;
+}

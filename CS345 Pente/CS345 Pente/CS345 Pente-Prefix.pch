@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'CS345 Pente' target in the 'CS345 Pente' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
