@@ -66,13 +66,9 @@
 }
 - (int)totalChainLengthAlong:(CSPDirectionID)dir
 {
-    int foreLen;
-    int backLen;
-    int totLen;
-    foreLen=[self chainLengthIn:dir];
-    backLen=[self chainLengthIn:oppositeDirectionOf(dir)];
-    totLen = foreLen + 1 + backLen;
-    return totLen;
+    int foreLen=[self chainLengthIn:dir];
+    int backLen=[self chainLengthIn:oppositeDirectionOf(dir)];
+    return foreLen + 1 + backLen;
 }
 
 -(int) longestChainLength
