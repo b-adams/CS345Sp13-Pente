@@ -11,6 +11,7 @@
 #import "CSPStone.h"
 
     // Collaborators
+#import "CSPMove.h"
 
     // Test support
 #import <SenTestingKit/SenTestingKit.h>
@@ -24,7 +25,7 @@
 #import <OCMockito/OCMockito.h>
 
 /**
- @brief For testing <#TestStone#>
+ @brief For testing Stone
  */
 @interface TestStone : SenTestCase
 @end
@@ -32,28 +33,31 @@
 @implementation TestStone
 {
     // test fixture ivars go here
+    CSPStone *sut;
 }
 
 - (void)setUp
 {
     [super setUp];
-    <#set up#>
 }
 
 - (void)tearDown
 {
-    <#tear down#>
     [super tearDown];
 }
 
-- (void)test<#FooShouldBar#>
+- (void)testStoneInitStoresPlacement
 {
     // given
-    
+    id<CSPMoveInterface> placement = [CSPMove moveWithPlayer:CSPID_PlayerBlack
+                                                         atX:3 andY:4];
+
+    sut = [[CSPStone alloc] initWithPlacement:placement];
     // when
     
     // then
-    STFail(@"Unit tests are not implemented yet in TestStone");
+    assertThat(sut, isNot(equalTo(nil)));
+    assertThat([sut placement], isNot(equalTo(nil)));
 }
 
 

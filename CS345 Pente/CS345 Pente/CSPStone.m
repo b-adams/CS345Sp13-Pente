@@ -41,15 +41,15 @@ CSPDirectionID oppositeDirectionOf(CSPDirectionID aDirection)
 {
     switch(aDirection)
     {
-        case: CSDID_East: return CSDID_West; break;
-        case: CSDID_West: return CSDID_East; break;
-        case: CSDID_South: return CSDID_North; break;
-        case: CSDID_North: return CSDID_South; break;
-        case: CSDID_SouthEast: return CSDID_NorthWest; break;
-        case: CSDID_SouthWest: return CSDID_NorthEast; break;
-        case: CSDID_NorthEast: return CSDID_SouthWest; break;
-        case: CSDID_NorthWest: return CSDID_SouthEast; break;
-        case: CSDID_NONE:
+        case CSDID_East: return CSDID_West; break;
+        case CSDID_West: return CSDID_East; break;
+        case CSDID_South: return CSDID_North; break;
+        case CSDID_North: return CSDID_South; break;
+        case CSDID_SouthEast: return CSDID_NorthWest; break;
+        case CSDID_SouthWest: return CSDID_NorthEast; break;
+        case CSDID_NorthEast: return CSDID_SouthWest; break;
+        case CSDID_NorthWest: return CSDID_SouthEast; break;
+        case CSDID_NONE:
         default: return CSDID_NONE; break;
     }
 }
