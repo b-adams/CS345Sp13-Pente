@@ -41,7 +41,7 @@
 
 - (int)boardWidth
 {
-    return 0;
+    return 19;
 }
 
 - (int)longestChainForStoneAt:(id)id1
