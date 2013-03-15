@@ -27,4 +27,52 @@
 {
     return [[[self class] alloc] initWithX:initialX andY:initialY];
 }
+
+- (id <CSPCoordinateInterface>)coordinateInDirection:(CSPDirectionID)whichDirection
+{
+    int coordX = [self x] + directionOffsetX(whichDirection);
+    int coordY = [self y] + directionOffsetY(whichDirection);
+
+    return [[self class] coordinateWithX:coordX
+                                    andY:coordY];
+}
+
 @end
+
+int directionOffsetX(CSPDirectionID dir)
+{
+    switch(dir)
+    {
+        case CSDID_NorthWest:
+        case CSDID_West:
+        case CSDID_SouthWest:
+            return -1; break;
+            
+        case CSDID_SouthEast:
+        case CSDID_East:
+        case CSDID_NorthEast:
+            return 1; break;
+            
+        default:
+            return 0; break;
+    }
+   
+}
+int directionOffsetY(CSPDirectionID dir)
+{
+    switch(dir)
+    {
+        case CSDID_NorthWest:
+        case CSDID_North:
+        case CSDID_NorthEast:
+            return 1; break;
+            
+        case CSDID_SouthEast:
+        case CSDID_South:
+        case CSDID_SouthWest:
+            return -1; break;
+            
+        default:
+            return 0; break;
+    }
+}
