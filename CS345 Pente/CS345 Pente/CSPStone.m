@@ -92,7 +92,25 @@
 }
 - (NSSet *)bookendedStonesIn:(CSPDirectionID)whichDirection
 {
-    return [NSSet set];
+    CSPStone* theBookend = nil;
+    CSPStone* captiveTwo = nil;
+    CSPStone* captiveOne = nil;
+    NSSet* captives = [NSSet set];
+    
+    captiveOne = [self neighborInDirection:whichDirection];
+    if(!captiveOne) return captives;
+    if([[captiveOne placement] player] == [[self placement] player]) return captives;
+    
+    captiveTwo = [captiveOne neighborInDirection:whichDirection];
+    if(!captiveTwo) return captives;
+    if([[captiveTwo placement] player] == [[self placement] player]) return captives;
+    
+    theBookend = [captiveTwo neighborInDirection:whichDirection];
+    if(!theBookend) return captives;
+    if([[theBookend placement] player] != [[self placement] player]) return captives;
+    
+    captives = [NSSet setWithObjects:captiveOne, captiveTwo, nil];
+    return captives;
 }
 
 - (NSSet *)bookendedStones
