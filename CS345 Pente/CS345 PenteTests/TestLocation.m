@@ -52,7 +52,7 @@
 
     // when
     // then
-    [self assertThatCoord:sut hasX:@-1 andY:@-1];
+    [self assertThatCoord:sut hasX:-1 andY:-1];
 }
 
 
@@ -63,20 +63,20 @@
 
     // when
     // then
-    [self assertThatCoord:sut hasX:@3 andY:@2];
+    [self assertThatCoord:sut hasX:3 andY:2];
 }
 
 - (void)assertThatCoord:(id <CSPCoordinateInterface>)coord
-                   hasX:(NSNumber *)targX
-                   andY:(NSNumber *)targY
+                   hasX:(int)targX
+                   andY:(int)targY
 {
     // when
     int x = [coord x];
     int y = [coord y];
 
     // then
-    assertThatInt(x, is(targX));
-    assertThatInt(y, is(targY));
+    assertThatInt(x, equalToInt(targX));
+    assertThatInt(y, equalToInt(targY));
 }
 
 @end

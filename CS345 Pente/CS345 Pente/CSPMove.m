@@ -24,7 +24,7 @@
 
 - (id)init
 {
-    return [self initWithPlayer:CS345NOBODY atX:-1 andY:-1];
+    return [self initWithPlayer:CSPID_NOBODY atX:-1 andY:-1];
 }
 
 + (id)moveWithPlayer:(CSPPlayerID)who

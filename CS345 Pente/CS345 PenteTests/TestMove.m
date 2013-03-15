@@ -53,39 +53,39 @@
     // when
     // then
     [self assertThatMove:sut
-                hasPlayer:CS345NOBODY
-                     forX:@-1
-                     andY:@-1];
+                hasPlayer:CSPID_NOBODY
+                     forX:-1
+                     andY:-1];
 }
 
 
 - (void)testMoveWhiteX4Y3HasPlayerWhiteWithCoordinatesX4Y3
 {
     // given
-    sut = [[CSPMove alloc] initWithPlayer:CS345PlayerWhite
+    sut = [[CSPMove alloc] initWithPlayer:CSPID_PlayerWhite
                                           atX:4
                                          andY:3];
     
     // when
     // then
     [self assertThatMove:sut
-                hasPlayer:CS345PlayerWhite
-                     forX:@4
-                    andY:@3];
+                hasPlayer:CSPID_PlayerWhite
+                     forX:4
+                    andY:3];
 }
 
 - (void)assertThatMove:(id <CSPMoveInterface>)move
               hasPlayer:(CSPPlayerID) plrID
-                   forX:(NSNumber *)targX
-                   andY:(NSNumber *)targY
+                   forX:(int) targX
+                   andY:(int) targY
 {
     // when
     int x = [move x];
     int y = [move y];
     CSPPlayerID plr = [move player];
     // then
-    assertThatInt(x, is(targX));
-    assertThatInt(y, is(targY));
+    assertThatInt(x, equalToInt(targX));
+    assertThatInt(y, equalToInt(targY));
     assertThatInt(plr, equalToInt(plrID));
 }
 
