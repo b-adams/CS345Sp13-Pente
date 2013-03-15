@@ -34,50 +34,41 @@
 {
     // test fixture ivars go here
     CSPStone *sut;
+    id<CSPMoveInterface> placement;
 }
 
 - (void)setUp
 {
     [super setUp];
+    placement = [CSPMove moveWithPlayer:CSPID_PlayerBlack
+                                    atX:3 andY:4];
+    sut = [[CSPStone alloc] initWithPlacement:placement];
 }
 
 - (void)tearDown
 {
+    placement=nil;
+    sut=nil;
     [super tearDown];
 }
 
 - (void)testDumbInitYieldsNil
 {
-    //given
     sut = [[CSPStone alloc] init];
     assertThat(sut, is(equalTo(nil)));
 }
 - (void)testNilInitYieldsNil
 {
-    //given
     sut = [[CSPStone alloc] initWithPlacement:nil];
     assertThat(sut, is(equalTo(nil)));
 }
 - (void)testStoneInitStoresPlacement
 {
-    // given
-    id<CSPMoveInterface> placement = [CSPMove moveWithPlayer:CSPID_PlayerBlack
-                                                         atX:3 andY:4];
-
-    sut = [[CSPStone alloc] initWithPlacement:placement];
-    // when
-
-    // then
     assertThat(sut, isNot(equalTo(nil)));
     assertThat([sut placement], isNot(equalTo(nil)));
 }
 -(void)testNewStoneHasNoNeighbors
 {
-    id<CSPMoveInterface> placement = [CSPMove moveWithPlayer:CSPID_PlayerBlack
-                                                         atX:3 andY:4];
-
-    sut = [[CSPStone alloc] initWithPlacement:placement];
-
     assertThat([sut neighbors], empty());
 }
 
