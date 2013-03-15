@@ -9,14 +9,14 @@
 #import "CSPCoordinateInterface.h"
 
 typedef enum {
-    CS345NOBODY,
-    CS345PlayerBlack,
-    CS345PlayerWhite
+    CSPID_NOBODY,
+    CSPID_PlayerBlack,
+    CSPID_PlayerWhite
 } CSPPlayerID;
 
 @protocol CSPMoveInterface <CSPCoordinateInterface>
 
-@property (readonly, assign) CS345PlayerID player;
+@property (readonly, assign) CSPPlayerID player;
 -(id)initWithPlayer:(CSPPlayerID) who
                 atX:(int) initialX
                andY:(int) initialY;

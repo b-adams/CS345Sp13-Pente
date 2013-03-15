@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E966658616F38B9C00F9EC96 /* TestLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = E966658416F38B9C00F9EC96 /* TestLocation.m */; };
+		E966658A16F38DC600F9EC96 /* CSPLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = E966658916F38DC600F9EC96 /* CSPLocation.m */; };
+		E966658D16F3979600F9EC96 /* TestMove.m in Sources */ = {isa = PBXBuildFile; fileRef = E966658B16F3979600F9EC96 /* TestMove.m */; };
+		E966659116F39B1D00F9EC96 /* CSPMove.m in Sources */ = {isa = PBXBuildFile; fileRef = E966659016F39B1D00F9EC96 /* CSPMove.m */; };
+		E966659416F3A3B800F9EC96 /* TestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E966659216F3A3B800F9EC96 /* TestModel.m */; };
+		E966659816F3A3E200F9EC96 /* CSPGollumInTheCloset.m in Sources */ = {isa = PBXBuildFile; fileRef = E966659716F3A3E200F9EC96 /* CSPGollumInTheCloset.m */; };
 		E9834D5016F3877700DC7E56 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9834D4F16F3877700DC7E56 /* Cocoa.framework */; };
 		E9834D5A16F3877700DC7E56 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E9834D5816F3877700DC7E56 /* InfoPlist.strings */; };
 		E9834D5C16F3877700DC7E56 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E9834D5B16F3877700DC7E56 /* main.m */; };
@@ -52,6 +58,15 @@
 		E966658116F3897200F9EC96 /* CSPCoordinateInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CSPCoordinateInterface.h; sourceTree = "<group>"; };
 		E966658216F389E000F9EC96 /* CSPMoveInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CSPMoveInterface.h; sourceTree = "<group>"; };
 		E966658316F38A8500F9EC96 /* CSPPenteGameModelInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CSPPenteGameModelInterface.h; sourceTree = "<group>"; };
+		E966658416F38B9C00F9EC96 /* TestLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestLocation.m; sourceTree = "<group>"; };
+		E966658816F38DC600F9EC96 /* CSPLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPLocation.h; sourceTree = "<group>"; };
+		E966658916F38DC600F9EC96 /* CSPLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPLocation.m; sourceTree = "<group>"; };
+		E966658B16F3979600F9EC96 /* TestMove.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestMove.m; sourceTree = "<group>"; };
+		E966658F16F39B1D00F9EC96 /* CSPMove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPMove.h; sourceTree = "<group>"; };
+		E966659016F39B1D00F9EC96 /* CSPMove.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPMove.m; sourceTree = "<group>"; };
+		E966659216F3A3B800F9EC96 /* TestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestModel.m; sourceTree = "<group>"; };
+		E966659616F3A3E200F9EC96 /* CSPGollumInTheCloset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPGollumInTheCloset.h; sourceTree = "<group>"; };
+		E966659716F3A3E200F9EC96 /* CSPGollumInTheCloset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPGollumInTheCloset.m; sourceTree = "<group>"; };
 		E9834D4C16F3877700DC7E56 /* CS345 Pente.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CS345 Pente.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9834D4F16F3877700DC7E56 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		E9834D5216F3877700DC7E56 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -123,6 +138,12 @@
 				E966658116F3897200F9EC96 /* CSPCoordinateInterface.h */,
 				E966658216F389E000F9EC96 /* CSPMoveInterface.h */,
 				E966658316F38A8500F9EC96 /* CSPPenteGameModelInterface.h */,
+				E966658816F38DC600F9EC96 /* CSPLocation.h */,
+				E966658916F38DC600F9EC96 /* CSPLocation.m */,
+				E966658F16F39B1D00F9EC96 /* CSPMove.h */,
+				E966659016F39B1D00F9EC96 /* CSPMove.m */,
+				E966659616F3A3E200F9EC96 /* CSPGollumInTheCloset.h */,
+				E966659716F3A3E200F9EC96 /* CSPGollumInTheCloset.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -194,6 +215,9 @@
 		E9834D7516F3877700DC7E56 /* CS345 PenteTests */ = {
 			isa = PBXGroup;
 			children = (
+				E966658416F38B9C00F9EC96 /* TestLocation.m */,
+				E966658B16F3979600F9EC96 /* TestMove.m */,
+				E966659216F3A3B800F9EC96 /* TestModel.m */,
 				E9834D7B16F3877700DC7E56 /* CS345_PenteTests.h */,
 				E9834D7C16F3877700DC7E56 /* CS345_PenteTests.m */,
 				E9834D7616F3877700DC7E56 /* Supporting Files */,
@@ -323,6 +347,9 @@
 			files = (
 				E9834D5C16F3877700DC7E56 /* main.m in Sources */,
 				E9834D6316F3877700DC7E56 /* CSPDocument.m in Sources */,
+				E966658A16F38DC600F9EC96 /* CSPLocation.m in Sources */,
+				E966659116F39B1D00F9EC96 /* CSPMove.m in Sources */,
+				E966659816F3A3E200F9EC96 /* CSPGollumInTheCloset.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,6 +358,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9834D7D16F3877700DC7E56 /* CS345_PenteTests.m in Sources */,
+				E966658616F38B9C00F9EC96 /* TestLocation.m in Sources */,
+				E966658D16F3979600F9EC96 /* TestMove.m in Sources */,
+				E966659416F3A3B800F9EC96 /* TestModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
