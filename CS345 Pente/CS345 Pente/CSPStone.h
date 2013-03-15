@@ -9,18 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "CSPMoveInterface.h"
 
-typedef enum {
-    CSDID_North,
-    CSDID_NorthEast,
-    CSDID_East,
-    CSDID_SouthEast,
-    CSDID_South,
-    CSDID_SouthWest,
-    CSDID_West,
-    CSDID_NorthWest,
-    CSDID_NONE
-} CSPDirectionID;
-
 @interface CSPStone : NSObject
 @property (strong) id<CSPMoveInterface> placement;
 @property (strong) NSMutableArray* neighbors;
