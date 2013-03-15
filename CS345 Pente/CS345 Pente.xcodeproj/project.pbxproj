@@ -49,6 +49,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E966658116F3897200F9EC96 /* CSPCoordinateInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CSPCoordinateInterface.h; sourceTree = "<group>"; };
+		E966658216F389E000F9EC96 /* CSPMoveInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CSPMoveInterface.h; sourceTree = "<group>"; };
+		E966658316F38A8500F9EC96 /* CSPPenteGameModelInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CSPPenteGameModelInterface.h; sourceTree = "<group>"; };
 		E9834D4C16F3877700DC7E56 /* CS345 Pente.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CS345 Pente.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9834D4F16F3877700DC7E56 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		E9834D5216F3877700DC7E56 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -96,6 +99,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E966657E16F3891D00F9EC96 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E9834D6116F3877700DC7E56 /* CSPDocument.h */,
+				E9834D6216F3877700DC7E56 /* CSPDocument.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		E966657F16F3892500F9EC96 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E9834D6416F3877700DC7E56 /* CSPDocument.xib */,
+				E9834D6716F3877700DC7E56 /* MainMenu.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		E966658016F3894100F9EC96 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E966658116F3897200F9EC96 /* CSPCoordinateInterface.h */,
+				E966658216F389E000F9EC96 /* CSPMoveInterface.h */,
+				E966658316F38A8500F9EC96 /* CSPPenteGameModelInterface.h */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		E9834D4316F3877700DC7E56 = {
 			isa = PBXGroup;
 			children = (
@@ -140,10 +171,9 @@
 		E9834D5516F3877700DC7E56 /* CS345 Pente */ = {
 			isa = PBXGroup;
 			children = (
-				E9834D6116F3877700DC7E56 /* CSPDocument.h */,
-				E9834D6216F3877700DC7E56 /* CSPDocument.m */,
-				E9834D6416F3877700DC7E56 /* CSPDocument.xib */,
-				E9834D6716F3877700DC7E56 /* MainMenu.xib */,
+				E966658016F3894100F9EC96 /* Model */,
+				E966657E16F3891D00F9EC96 /* Controller */,
+				E966657F16F3892500F9EC96 /* View */,
 				E9834D5616F3877700DC7E56 /* Supporting Files */,
 			);
 			path = "CS345 Pente";
@@ -496,6 +526,7 @@
 				E9834D8216F3877700DC7E56 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E9834D8316F3877700DC7E56 /* Build configuration list for PBXNativeTarget "CS345 PenteTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +535,7 @@
 				E9834D8516F3877700DC7E56 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
