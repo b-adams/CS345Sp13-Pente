@@ -52,19 +52,19 @@
     sut = [[CSPStone alloc] init];
     assertThat(sut, is(equalTo(nil)));
 }
-//- (void)testStoneInitStoresPlacement
-//{
-//    // given
-//    id<CSPMoveInterface> placement = [CSPMove moveWithPlayer:CSPID_PlayerBlack
-//                                                         atX:3 andY:4];
-//
-//    sut = [[CSPStone alloc] initWithPlacement:placement];
-//    // when
-//
-//    // then
-//    assertThat(sut, isNot(equalTo(nil)));
-//    assertThat([sut placement], isNot(equalTo(nil)));
-//}
+- (void)testStoneInitStoresPlacement
+{
+    // given
+    id<CSPMoveInterface> placement = [CSPMove moveWithPlayer:CSPID_PlayerBlack
+                                                         atX:3 andY:4];
+
+    sut = [[CSPStone alloc] initWithPlacement:placement];
+    // when
+
+    // then
+    assertThat(sut, isNot(equalTo(nil)));
+    assertThat([sut placement], isNot(equalTo(nil)));
+}
 
 
 @end
