@@ -54,6 +54,8 @@
     [super tearDown];
 }
 
+#pragma mark Tests
+
 - (void)testDumbInitYieldsNil
 {
     sut = [[CSPStone alloc] init];
@@ -216,4 +218,7 @@
 
     assertThat([sut bookendedStones], containsInAnyOrder(captiveOne, captiveTwo, nil));
 }
+
+#pragma mark Helper methods
+
 @end

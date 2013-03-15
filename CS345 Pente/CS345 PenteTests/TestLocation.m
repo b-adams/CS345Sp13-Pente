@@ -45,6 +45,8 @@
     [super tearDown];
 }
 
+#pragma mark Tests
+
 - (void)testNewLocationHasNegativeCoords
 {
     // given
@@ -77,6 +79,8 @@
     // then
     [self assertThatCoord:coord hasX:1 andY:1];
 }
+
+#pragma mark Helper Methods
 
 - (void)assertThatCoord:(id <CSPCoordinateInterface>)coord
                    hasX:(int)targX

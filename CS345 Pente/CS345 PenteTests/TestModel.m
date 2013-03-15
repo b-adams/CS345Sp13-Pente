@@ -46,6 +46,8 @@
     [super tearDown];
 }
 
+#pragma mark Tests
+
 //- (void)testBoardSizeIsReasonable
 //{
 //    // given
@@ -57,5 +59,6 @@
 //    assertThatInt(boardsize, is(closeTo(19, 5)));
 //}
 
+#pragma mark Helper Methods
 
 @end

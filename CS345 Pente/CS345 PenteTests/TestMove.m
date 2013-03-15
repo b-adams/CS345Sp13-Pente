@@ -45,6 +45,8 @@
     [super tearDown];
 }
 
+#pragma mark Tests
+
 - (void)testNewMoveHasNoPlayerAndNegativeCoords
 {
     // given
@@ -94,6 +96,8 @@
                     forX:5
                     andY:9];
 }
+
+#pragma mark Helper methods
 
 - (void)assertThatMove:(id <CSPMoveInterface>)move
               hasPlayer:(CSPPlayerID) plrID
