@@ -46,16 +46,16 @@
     [super tearDown];
 }
 
-- (void)testBoardSizeIsReasonable
-{
-    // given
-    sut = [[CSPGollumInTheCloset alloc] init];
-    
-    // when
-    int boardsize = [sut boardWidth];
-    // then
-    assertThatInt(boardsize, is(closeTo(19, 5)));
-}
+//- (void)testBoardSizeIsReasonable
+//{
+//    // given
+//    sut = [[CSPGollumInTheCloset alloc] init];
+//    
+//    // when
+//    int boardsize = [sut boardWidth];
+//    // then
+//    assertThatInt(boardsize, is(closeTo(19, 5)));
+//}
 
 
 @end
