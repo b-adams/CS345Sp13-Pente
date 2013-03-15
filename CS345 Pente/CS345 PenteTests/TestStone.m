@@ -115,5 +115,14 @@
            inDirection:CSDID_SouthEast];
     assertThatInt([sut chainLengthIn:CSDID_SouthEast], is(@1));
 }
+-(void)testAddingSEStoneWithSENeighborIncreasesSEChainToTwo
+{
+    CSPStone * buddybuddy = [[CSPStone alloc] initWithPlacement:placement];
+    [buddy setNeighborTo:buddybuddy
+             inDirection:CSDID_SouthEast];
+    [sut setNeighborTo:buddy
+           inDirection:CSDID_SouthEast];
+    assertThatInt([sut chainLengthIn:CSDID_SouthEast], is(@2));
+}
 
 @end
