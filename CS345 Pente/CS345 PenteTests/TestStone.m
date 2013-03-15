@@ -109,5 +109,11 @@
 {
     assertThatInt([sut chainLengthIn:CSDID_SouthEast], is(@0));
 }
+-(void)testAddingSEStoneIncreasesSEChainToOne
+{
+    [sut setNeighborTo:buddy
+           inDirection:CSDID_SouthEast];
+    assertThatInt([sut chainLengthIn:CSDID_SouthEast], is(@1));
+}
 
 @end
