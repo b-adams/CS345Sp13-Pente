@@ -92,7 +92,7 @@
 }
 - (NSSet *)bookendedStonesIn:(CSPDirectionID)whichDirection
 {
-    return nil;
+    return [NSSet set];
 }
 
 - (NSSet *)bookendedStones
