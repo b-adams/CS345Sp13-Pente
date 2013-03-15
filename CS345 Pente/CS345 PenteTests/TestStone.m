@@ -128,5 +128,11 @@
 {
     assertThatInt([sut longestChainLength], is(@1));
 }
+-(void)testAddingSEStoneIncreasesMaxChainToTwo
+{
+    [sut setNeighborTo:buddy
+           inDirection:CSDID_SouthEast];
+    assertThatInt([sut longestChainLength], is(@2));
+}
 
 @end

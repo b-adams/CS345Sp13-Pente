@@ -37,6 +37,7 @@
     if(!newNeighbor) addition = [NSNull null];
     [[self neighbors] setObject:addition
              atIndexedSubscript:whichWay];
+    [self setLongestChainLength:2];
 }
 -(CSPStone*) neighborInDirection:(CSPDirectionID) whichDirection
 {
