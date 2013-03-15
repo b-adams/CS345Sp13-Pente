@@ -15,6 +15,8 @@
 }
 - (id)initWithPlacement:(id <CSPMoveInterface>)whoAndWhere
 {
+    if(!whoAndWhere) return nil;
+    
     self = [super init];
     if (self) {
         [self setPlacement:whoAndWhere];
