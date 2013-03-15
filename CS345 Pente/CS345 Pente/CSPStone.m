@@ -20,6 +20,7 @@
     self = [super init];
     if (self) {
         [self setPlacement:whoAndWhere];
+        [self setNeighbors:[NSMutableArray arrayWithCapacity:8]];
     }
     return self;
 }
