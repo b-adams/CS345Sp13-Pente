@@ -32,7 +32,43 @@
 
 - (id <CSPCoordinateInterface>)coordinateInDirection:(CSPDirectionID)whichDirection
 {
-    return nil;
+    int currentX = [self x];
+    int currentY = [self y];
+    switch(whichDirection)
+    {
+        case CSDID_NorthWest:
+        case CSDID_North:
+        case CSDID_NorthEast:
+            currentY+=1;
+            break;
+
+        case CSDID_SouthEast:
+        case CSDID_South:
+        case CSDID_SouthWest:
+            currentY-=1;
+            break;
+
+        default: break;
+    }
+    switch(whichDirection)
+    {
+        case CSDID_NorthWest:
+        case CSDID_West:
+        case CSDID_SouthWest:
+            currentX-=1;
+            break;
+
+        case CSDID_SouthEast:
+        case CSDID_East:
+        case CSDID_NorthEast:
+            currentX+=1;
+            break;
+
+        default: break;
+    }
+
+    return [[self class] coordinateWithX:currentX
+                                    andY:currentY];
 }
 
 @end
