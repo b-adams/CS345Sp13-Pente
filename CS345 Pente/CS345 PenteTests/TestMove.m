@@ -74,6 +74,27 @@
                     andY:3];
 }
 
+
+- (void)testConvenienceCreationWithPlayerAndLocation
+{
+    // given
+    
+    //Mocking Move instead of Location since a move is a location
+    id<CSPCoordinateInterface> loc = mock([CSPMove class]);
+    
+    [given([loc x]) willReturnInt:5];
+    [given([loc x]) willReturnInt:9];
+
+    sut = [CSPMove moveWithPlayer:CSPID_PlayerBlack
+                       atLocation:loc];
+    // when
+    // then
+    [self assertThatMove:sut
+               hasPlayer:CSPID_PlayerBlack
+                    forX:5
+                    andY:9];
+}
+
 - (void)assertThatMove:(id <CSPMoveInterface>)move
               hasPlayer:(CSPPlayerID) plrID
                    forX:(int) targX
