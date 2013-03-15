@@ -35,6 +35,7 @@
     // test fixture ivars go here
     CSPStone *sut;
     id<CSPMoveInterface> placement;
+    CSPStone * buddy;
 }
 
 - (void)setUp
@@ -43,6 +44,7 @@
     placement = [CSPMove moveWithPlayer:CSPID_PlayerBlack
                                     atX:3 andY:4];
     sut = [[CSPStone alloc] initWithPlacement:placement];
+    buddy = [[CSPStone alloc] initWithPlacement:placement];
 }
 
 - (void)tearDown
@@ -73,7 +75,6 @@
 }
 -(void)testAddingNeighborToNewStoneMakesNeighborSetNonempty
 {
-    CSPStone * buddy = [[CSPStone alloc] initWithPlacement:placement];
 
     [sut setNeighborTo:buddy
            inDirection:CSDID_SouthEast];
@@ -82,8 +83,6 @@
 }
 -(void)testAddingNeighborLeavesAddedNeighborInRightDirection
 {
-    CSPStone * buddy = [[CSPStone alloc] initWithPlacement:placement];
-
     [sut setNeighborTo:buddy
            inDirection:CSDID_SouthEast];
 
