@@ -9,6 +9,10 @@
 #import "CSPStone.h"
 
 @implementation CSPStone
+- (id)init
+{
+    return nil;
+}
 - (id)initWithPlacement:(id <CSPMoveInterface>)whoAndWhere
 {
     return nil;
