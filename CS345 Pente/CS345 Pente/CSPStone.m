@@ -15,7 +15,11 @@
 }
 - (id)initWithPlacement:(id <CSPMoveInterface>)whoAndWhere
 {
-    return nil;
+    self = [super init];
+    if (self) {
+        [self setPlacement:whoAndWhere];
+    }
+    return self;
 }
 
 - (void)setNeighborTo:(CSPStone *)newNeighbor
