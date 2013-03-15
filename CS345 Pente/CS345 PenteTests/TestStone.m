@@ -79,7 +79,7 @@
     [sut setNeighborTo:buddy
            inDirection:CSDID_SouthEast];
 
-    assertThatInt([sut neighborCount], isNot(@0));
+    assertThatInt([sut neighborCount], is(@1));
 }
 -(void)testAddingNeighborLeavesAddedNeighborInRightDirection
 {
@@ -94,8 +94,16 @@
     [sut setNeighborTo:nil
            inDirection:CSDID_SouthEast];
 
-    id theNeighbor = [sut neighborInDirection:CSDID_SouthEast];
-    assertThat(theNeighbor, is(equalTo(nil)));
+    assertThat([sut neighborInDirection:CSDID_SouthEast],
+               is(equalTo(nil)));
 }
+-(void)testRemovingNeighborReducesCount
+{
+    [sut setNeighborTo:nil
+           inDirection:CSDID_SouthEast];
+    
+    assertThatInt([sut neighborCount], is(@0));
+}
+
 
 @end
