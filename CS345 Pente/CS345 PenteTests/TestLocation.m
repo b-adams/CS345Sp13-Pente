@@ -59,5 +59,18 @@
     assertThatInt(y, is(@-1));
 }
 
+- (void)testLocationX3Y2HasCoordinatesX3Y2
+{
+    // given
+    sut = [[CSPLocation alloc] initWithX:3 andY:2];
+
+    // when
+    int x = [sut x];
+    int y = [sut y];
+    
+    // then
+    assertThatInt(x, is(@3));
+    assertThatInt(y, is(@2));
+}
 
 @end
