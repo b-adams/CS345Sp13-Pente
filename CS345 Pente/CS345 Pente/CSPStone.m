@@ -11,7 +11,7 @@
 @implementation CSPStone
 - (id)init
 {
-    return nil;
+    return [self initWithPlacement:nil];
 }
 - (id)initWithPlacement:(id <CSPMoveInterface>)whoAndWhere
 {
