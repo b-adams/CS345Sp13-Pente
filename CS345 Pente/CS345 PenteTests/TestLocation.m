@@ -49,15 +49,12 @@
 {
     // given
     sut = [[CSPLocation alloc] init];
-    
+
     // when
-    int x = [sut x];
-    int y = [sut y];
-    
     // then
-    assertThatInt(x, is(@-1));
-    assertThatInt(y, is(@-1));
+    [self assertThatCoord:sut hasX:@-1 andY:@-1];
 }
+
 
 - (void)testLocationX3Y2HasCoordinatesX3Y2
 {
@@ -65,12 +62,21 @@
     sut = [[CSPLocation alloc] initWithX:3 andY:2];
 
     // when
-    int x = [sut x];
-    int y = [sut y];
-    
     // then
-    assertThatInt(x, is(@3));
-    assertThatInt(y, is(@2));
+    [self assertThatCoord:sut hasX:@3 andY:@2];
+}
+
+- (void)assertThatCoord:(id <CSPCoordinateInterface>)coord
+                   hasX:(NSNumber *)targX
+                   andY:(NSNumber *)targY
+{
+    // when
+    int x = [coord x];
+    int y = [coord y];
+
+    // then
+    assertThatInt(x, is(targX));
+    assertThatInt(y, is(targY));
 }
 
 @end
