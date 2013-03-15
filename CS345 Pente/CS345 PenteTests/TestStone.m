@@ -71,7 +71,7 @@
 {
     assertThat([sut neighbors], empty());
 }
--(void)testAddingNeighborWorks
+-(void)testAddingNeighborToNewStoneMakesNeighborSetNonempty
 {
     CSPStone * buddy = [[CSPStone alloc] initWithPlacement:placement];
 
@@ -79,6 +79,15 @@
            inDirection:CSDID_SouthEast];
 
     assertThat([sut neighbors], isNot(empty()));
+}
+-(void)testAddingNeighborLeavesAddedNeighborInRightDirection
+{
+    CSPStone * buddy = [[CSPStone alloc] initWithPlacement:placement];
+
+    [sut setNeighborTo:buddy
+           inDirection:CSDID_SouthEast];
+
+    assertThat([[sut neighbors] objectAtIndex:CSDID_SouthEast], is(buddy));
 }
 
 @end
