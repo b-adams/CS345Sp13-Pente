@@ -15,3 +15,6 @@
 
 
 @end
+
+int directionOffsetX(CSPDirectionID dir);
+int directionOffsetY(CSPDirectionID dir);
