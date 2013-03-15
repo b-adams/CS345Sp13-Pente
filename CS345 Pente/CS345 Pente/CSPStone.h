@@ -33,7 +33,7 @@ typedef enum {
 -(NSSet*) bookendedStonesIn:(CSPDirectionID) whichDirection;
 -(NSSet*) bookendedStones;
 -(int) neighborCount;
-
+-(CSPStone*) neighborInDirection:(CSPDirectionID) whichDirection;
 @end
 
 CSPDirectionID oppositeDirectionOf(CSPDirectionID aDirection);

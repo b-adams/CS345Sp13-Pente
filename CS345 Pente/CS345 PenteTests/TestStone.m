@@ -86,14 +86,16 @@
     [sut setNeighborTo:buddy
            inDirection:CSDID_SouthEast];
 
-    assertThat([[sut neighbors] objectAtIndex:CSDID_SouthEast], is(buddy));
+    assertThat([sut neighborInDirection:CSDID_SouthEast],
+               is(buddy));
 }
 -(void)testRemovingNeighborClearsDirection
 {
     [sut setNeighborTo:nil
            inDirection:CSDID_SouthEast];
 
-    assertThat([[sut neighbors] objectAtIndex:CSDID_SouthEast], is(nil));
+    id theNeighbor = [sut neighborInDirection:CSDID_SouthEast];
+    assertThat(theNeighbor, is(equalTo(nil)));
 }
 
 @end

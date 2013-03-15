@@ -32,9 +32,18 @@
 - (void)setNeighborTo:(CSPStone *)newNeighbor
           inDirection:(CSPDirectionID)whichWay
 {
-    [[self neighbors] setObject:newNeighbor
+    id addition = newNeighbor;
+    if(!newNeighbor) addition = [NSNull null];
+    [[self neighbors] setObject:addition
              atIndexedSubscript:whichWay];
 }
+-(CSPStone*) neighborInDirection:(CSPDirectionID) whichDirection
+{
+    id theNeighbor = [[self neighbors] objectAtIndex:whichDirection];
+    if(theNeighbor == [NSNull null]) theNeighbor=nil;
+    return theNeighbor;    
+}
+
 -(int) neighborCount
 {
     int neighbors=0;
