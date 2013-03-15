@@ -71,5 +71,14 @@
 {
     assertThat([sut neighbors], empty());
 }
+-(void)testAddingNeighborWorks
+{
+    CSPStone * buddy = [[CSPStone alloc] initWithPlacement:placement];
+
+    [sut setNeighborTo:buddy
+           inDirection:CSDID_SouthEast];
+
+    assertThat([sut neighbors], isNot(empty()));
+}
 
 @end
