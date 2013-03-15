@@ -115,7 +115,7 @@
     if(![self hasSameOwnerAs:theBookend]) return captives;
     
     captives = [NSSet setWithObjects:captiveOne, captiveTwo, nil];
-    return [NSSet setWithObject:self];
+    return captives;
 }
 
 - (NSSet *)bookendedStones
