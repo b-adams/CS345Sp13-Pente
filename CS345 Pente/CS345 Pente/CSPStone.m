@@ -59,10 +59,10 @@
     CSPStone* nbr = [self neighborInDirection:whichDirection];
     if(!nbr)
         return 0;
-    if([[nbr placement] player] != [[self placement] player])
+    if([self hasSameOwnerAs:nbr])
+        return 1 + [nbr chainLengthIn:whichDirection];
+    else
         return 0;
-
-    return 1 + [nbr chainLengthIn:whichDirection];
 }
 - (int)totalChainLengthAlong:(CSPDirectionID)dir
 {
@@ -90,24 +90,29 @@
     
     return maxLen;
 }
+- (BOOL)hasSameOwnerAs:(CSPStone *)anotherStone
+{
+    return [[anotherStone placement] player] == [[self placement] player];
+}
+
 - (NSSet *)bookendedStonesIn:(CSPDirectionID)whichDirection
 {
     CSPStone* theBookend = nil;
     CSPStone* captiveTwo = nil;
     CSPStone* captiveOne = nil;
     NSSet* captives = [NSSet set];
-    
+
     captiveOne = [self neighborInDirection:whichDirection];
     if(!captiveOne) return captives;
-    if([[captiveOne placement] player] == [[self placement] player]) return captives;
+    if([self hasSameOwnerAs:captiveOne]) return captives;
     
     captiveTwo = [captiveOne neighborInDirection:whichDirection];
     if(!captiveTwo) return captives;
-    if([[captiveTwo placement] player] == [[self placement] player]) return captives;
+    if([self hasSameOwnerAs:captiveTwo]) return captives;
     
     theBookend = [captiveTwo neighborInDirection:whichDirection];
     if(!theBookend) return captives;
-    if([[theBookend placement] player] != [[self placement] player]) return captives;
+    if(![self hasSameOwnerAs:theBookend]) return captives;
     
     captives = [NSSet setWithObjects:captiveOne, captiveTwo, nil];
     return captives;
