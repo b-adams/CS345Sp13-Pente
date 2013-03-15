@@ -134,14 +134,23 @@
            inDirection:CSDID_SouthEast];
     assertThatInt([sut longestChainLength], is(@2));
 }
--(void)testAddingExtraSEStoneIncreasesMaxChainToThree
+-(void)testAddingWrongColorExtraSEStoneLeavesMaxChainAtTwo
 {
-    CSPStone *buddybuddy = [[CSPStone alloc] initWithPlacement:placement];
+    id<CSPMoveInterface> whitePlacement;
+    whitePlacement = [[CSPMove alloc] initWithPlayer:CSPID_PlayerWhite
+                                                 atX:2 andY:3];
+    CSPStone *buddybuddy = [[CSPStone alloc] initWithPlacement:whitePlacement];
     [sut setNeighborTo:buddy
            inDirection:CSDID_SouthEast];
     [buddy setNeighborTo:buddybuddy
              inDirection:CSDID_SouthEast];
-    assertThatInt([sut longestChainLength], is(@3));
+    assertThatInt([sut longestChainLength], is(@2));
 }
+
+-(void)testNewStoneBookendsNothing
+{
+    assertThat([sut bookendedStones], is(empty()));
+}
+
 
 @end
