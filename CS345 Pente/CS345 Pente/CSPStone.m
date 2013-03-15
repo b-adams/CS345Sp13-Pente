@@ -25,6 +25,7 @@
         {
             [[self neighbors] addObject:[NSNull null]];
         }
+        [self setLongestChainLength:1];
     }
     return self;
 }
