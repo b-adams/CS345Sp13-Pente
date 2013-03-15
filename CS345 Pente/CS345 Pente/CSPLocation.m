@@ -16,8 +16,8 @@
 {
     self = [super init];
     if (self) {
-        [self setX:-1];
-        [self setY:-1];
+        [self setX:initialX];
+        [self setY:initialY];
     }
     return self;
 }
