@@ -62,7 +62,7 @@
     if([[nbr placement] player] != [[self placement] player])
         return 0;
 
-    return 1 + [nbr chainLengthIn:whichDirection];
+    return 1;
 }
 
 - (NSSet *)bookendedStonesIn:(CSPDirectionID)whichDirection
