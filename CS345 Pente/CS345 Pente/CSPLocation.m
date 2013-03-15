@@ -32,43 +32,49 @@
 
 - (id <CSPCoordinateInterface>)coordinateInDirection:(CSPDirectionID)whichDirection
 {
-    int currentX = [self x];
-    int currentY = [self y];
-    switch(whichDirection)
-    {
-        case CSDID_NorthWest:
-        case CSDID_North:
-        case CSDID_NorthEast:
-            currentY+=1;
-            break;
+    int coordX = [self x] + directionOffsetX(whichDirection);
+    int coordY = [self y] + directionOffsetY(whichDirection);
 
-        case CSDID_SouthEast:
-        case CSDID_South:
-        case CSDID_SouthWest:
-            currentY-=1;
-            break;
+    return [[self class] coordinateWithX:coordX
+                                    andY:coordY];
+}
 
-        default: break;
-    }
-    switch(whichDirection)
+@end
+
+int directionOffsetX(CSPDirectionID dir)
+{
+    switch(dir)
     {
         case CSDID_NorthWest:
         case CSDID_West:
         case CSDID_SouthWest:
-            currentX-=1;
-            break;
-
+            return -1; break;
+            
         case CSDID_SouthEast:
         case CSDID_East:
         case CSDID_NorthEast:
-            currentX+=1;
-            break;
-
-        default: break;
+            return 1; break;
+            
+        default:
+            return 0; break;
     }
-
-    return [[self class] coordinateWithX:currentX
-                                    andY:currentY];
+   
 }
-
-@end
+int directionOffsetY(CSPDirectionID dir)
+{
+    switch(dir)
+    {
+        case CSDID_NorthWest:
+        case CSDID_North:
+        case CSDID_NorthEast:
+            return 1; break;
+            
+        case CSDID_SouthEast:
+        case CSDID_South:
+        case CSDID_SouthWest:
+            return -1; break;
+            
+        default:
+            return 0; break;
+    }
+}
