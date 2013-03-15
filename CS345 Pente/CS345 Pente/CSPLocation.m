@@ -1,0 +1,32 @@
+//
+//  CSPLocation.m
+//  CS345 Pente
+//
+//  Created by Bryant Adams on 3/15/13.
+//  Copyright (c) 2013 Wells CS345: GUI programming. All rights reserved.
+//
+
+#import "CSPLocation.h"
+
+@implementation CSPLocation
+@synthesize x;
+@synthesize y;
+
+- (id)initWithX:(int)initialX andY:(int)initialY
+{
+    self = [super init];
+    if (self) {
+        [self setX:-1];
+        [self setY:-1];
+    }
+    return self;
+}
+- (id)init
+{
+    return [self initWithX:-1 andY:-1];
+}
++(id) coordinateWithX:(int)initialX andY:(int)initialY
+{
+    return [[[self class] alloc] initWithX:initialX andY:initialY];
+}
+@end
