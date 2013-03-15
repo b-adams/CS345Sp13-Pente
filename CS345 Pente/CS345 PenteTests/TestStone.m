@@ -201,4 +201,19 @@
 
     assertThat([sut bookendedStones], isNot(empty()));
 }
+
+-(void)testStoneWithNWBookendKnowsWhichCapturesItHas
+{
+    id<CSPMoveInterface> whitePlacement;
+    whitePlacement = [[CSPMove alloc] initWithPlayer:CSPID_PlayerWhite
+                                                 atX:2 andY:3];
+    CSPStone *theBookend = [[CSPStone alloc] initWithPlacement:placement];
+    CSPStone *captiveOne = [[CSPStone alloc] initWithPlacement:whitePlacement];
+    CSPStone *captiveTwo = [[CSPStone alloc] initWithPlacement:whitePlacement];
+    [sut setNeighborTo:captiveOne inDirection:CSDID_NorthWest];
+    [captiveOne setNeighborTo:captiveTwo inDirection:CSDID_NorthWest];
+    [captiveTwo setNeighborTo:theBookend inDirection:CSDID_NorthWest];
+
+    assertThat([sut bookendedStones], containsInAnyOrder(captiveOne, captiveTwo, nil));
+}
 @end
