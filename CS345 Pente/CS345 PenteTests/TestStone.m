@@ -52,6 +52,12 @@
     sut = [[CSPStone alloc] init];
     assertThat(sut, is(equalTo(nil)));
 }
+- (void)testNilInitYieldsNil
+{
+    //given
+    sut = [[CSPStone alloc] initWithPlacement:nil];
+    assertThat(sut, is(equalTo(nil)));
+}
 - (void)testStoneInitStoresPlacement
 {
     // given
