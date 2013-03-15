@@ -23,7 +23,6 @@ typedef enum {
 
 @interface CSPStone : NSObject
 @property (strong) id<CSPMoveInterface> placement;
-@property (assign) int longestChainLength;
 @property (strong) NSMutableArray* neighbors;
 
 -(id) initWithPlacement: (id<CSPMoveInterface>) whoAndWhere;
@@ -34,6 +33,7 @@ typedef enum {
 -(NSSet*) bookendedStones;
 -(int) neighborCount;
 -(CSPStone*) neighborInDirection:(CSPDirectionID) whichDirection;
+-(int) longestChainLength;
 @end
 
 CSPDirectionID oppositeDirectionOf(CSPDirectionID aDirection);

@@ -25,7 +25,6 @@
         {
             [[self neighbors] addObject:[NSNull null]];
         }
-        [self setLongestChainLength:1];
     }
     return self;
 }
@@ -37,7 +36,6 @@
     if(!newNeighbor) addition = [NSNull null];
     [[self neighbors] setObject:addition
              atIndexedSubscript:whichWay];
-    [self setLongestChainLength:2];
 }
 -(CSPStone*) neighborInDirection:(CSPDirectionID) whichDirection
 {
@@ -66,7 +64,38 @@
 
     return 1 + [nbr chainLengthIn:whichDirection];
 }
+-(int) longestChainLength
+{
+    int maxLen=0;
+    int backLen, foreLen, totLen;
+    CSPDirectionID dir;
+    
+    dir=CSDID_North;
+    foreLen=[self chainLengthIn:dir];
+    backLen=[self chainLengthIn:oppositeDirectionOf(dir)];
+    totLen = foreLen + 1 + backLen;
+    if(totLen > maxLen) maxLen = totLen;
 
+    dir=CSDID_NorthEast;
+    foreLen=[self chainLengthIn:dir];
+    backLen=[self chainLengthIn:oppositeDirectionOf(dir)];
+    totLen = foreLen + 1 + backLen;
+    if(totLen > maxLen) maxLen = totLen;
+    
+    dir=CSDID_East;
+    foreLen=[self chainLengthIn:dir];
+    backLen=[self chainLengthIn:oppositeDirectionOf(dir)];
+    totLen = foreLen + 1 + backLen;
+    if(totLen > maxLen) maxLen = totLen;
+    
+    dir=CSDID_SouthEast;
+    foreLen=[self chainLengthIn:dir];
+    backLen=[self chainLengthIn:oppositeDirectionOf(dir)];
+    totLen = foreLen + 1 + backLen;
+    if(totLen > maxLen) maxLen = totLen;
+    
+    return maxLen;
+}
 - (NSSet *)bookendedStonesIn:(CSPDirectionID)whichDirection
 {
     return nil;

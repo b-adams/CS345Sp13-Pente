@@ -134,5 +134,14 @@
            inDirection:CSDID_SouthEast];
     assertThatInt([sut longestChainLength], is(@2));
 }
+-(void)testAddingExtraSEStoneIncreasesMaxChainToThree
+{
+    CSPStone *buddybuddy = [[CSPStone alloc] initWithPlacement:placement];
+    [sut setNeighborTo:buddy
+           inDirection:CSDID_SouthEast];
+    [buddy setNeighborTo:buddybuddy
+             inDirection:CSDID_SouthEast];
+    assertThatInt([sut longestChainLength], is(@3));
+}
 
 @end
