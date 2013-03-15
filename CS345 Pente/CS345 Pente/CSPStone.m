@@ -64,35 +64,33 @@
 
     return 1 + [nbr chainLengthIn:whichDirection];
 }
+- (int)totalChainLengthAlong:(CSPDirectionID)dir
+{
+    int foreLen;
+    int backLen;
+    int totLen;
+    foreLen=[self chainLengthIn:dir];
+    backLen=[self chainLengthIn:oppositeDirectionOf(dir)];
+    totLen = foreLen + 1 + backLen;
+    return totLen;
+}
+
 -(int) longestChainLength
 {
     int maxLen=0;
-    int backLen, foreLen, totLen;
-    CSPDirectionID dir;
+    int dirLen;
     
-    dir=CSDID_North;
-    foreLen=[self chainLengthIn:dir];
-    backLen=[self chainLengthIn:oppositeDirectionOf(dir)];
-    totLen = foreLen + 1 + backLen;
-    if(totLen > maxLen) maxLen = totLen;
+    dirLen = [self totalChainLengthAlong:CSDID_North];
+    if(dirLen > maxLen) maxLen = dirLen;
 
-    dir=CSDID_NorthEast;
-    foreLen=[self chainLengthIn:dir];
-    backLen=[self chainLengthIn:oppositeDirectionOf(dir)];
-    totLen = foreLen + 1 + backLen;
-    if(totLen > maxLen) maxLen = totLen;
+    dirLen = [self totalChainLengthAlong:CSDID_NorthEast];
+    if(dirLen > maxLen) maxLen = dirLen;
     
-    dir=CSDID_East;
-    foreLen=[self chainLengthIn:dir];
-    backLen=[self chainLengthIn:oppositeDirectionOf(dir)];
-    totLen = foreLen + 1 + backLen;
-    if(totLen > maxLen) maxLen = totLen;
+    dirLen = [self totalChainLengthAlong:CSDID_East];
+    if(dirLen > maxLen) maxLen = dirLen;
     
-    dir=CSDID_SouthEast;
-    foreLen=[self chainLengthIn:dir];
-    backLen=[self chainLengthIn:oppositeDirectionOf(dir)];
-    totLen = foreLen + 1 + backLen;
-    if(totLen > maxLen) maxLen = totLen;
+    dirLen = [self totalChainLengthAlong:CSDID_SouthEast];
+    if(dirLen > maxLen) maxLen = dirLen;
     
     return maxLen;
 }
