@@ -120,7 +120,7 @@
 
 - (NSSet *)bookendedStones
 {
-    return [NSSet set];
+    return [self bookendedStonesIn:CSDID_SouthEast];
 }
 
 @end

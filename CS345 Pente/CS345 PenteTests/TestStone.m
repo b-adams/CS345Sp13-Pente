@@ -157,7 +157,7 @@
     assertThat([sut bookendedStonesIn:CSDID_SouthEast], is(empty()));
 }
 
--(void)testStoneWithSEBookendKnowsIt
+-(void)testStoneWithSEBookendKnowsItHasSECapture
 {
     id<CSPMoveInterface> whitePlacement;
     whitePlacement = [[CSPMove alloc] initWithPlayer:CSPID_PlayerWhite
@@ -170,5 +170,20 @@
     [captiveTwo setNeighborTo:theBookend inDirection:CSDID_SouthEast];
 
     assertThat([sut bookendedStonesIn:CSDID_SouthEast], isNot(empty()));
+}
+
+-(void)testStoneWithSEBookendKnowsItHasCaptures
+{
+    id<CSPMoveInterface> whitePlacement;
+    whitePlacement = [[CSPMove alloc] initWithPlayer:CSPID_PlayerWhite
+                                                 atX:2 andY:3];
+    CSPStone *theBookend = [[CSPStone alloc] initWithPlacement:placement];
+    CSPStone *captiveOne = [[CSPStone alloc] initWithPlacement:whitePlacement];
+    CSPStone *captiveTwo = [[CSPStone alloc] initWithPlacement:whitePlacement];
+    [sut setNeighborTo:captiveOne inDirection:CSDID_SouthEast];
+    [captiveOne setNeighborTo:captiveTwo inDirection:CSDID_SouthEast];
+    [captiveTwo setNeighborTo:theBookend inDirection:CSDID_SouthEast];
+
+    assertThat([sut bookendedStones], isNot(empty()));
 }
 @end
