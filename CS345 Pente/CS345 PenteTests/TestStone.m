@@ -124,5 +124,9 @@
            inDirection:CSDID_SouthEast];
     assertThatInt([sut chainLengthIn:CSDID_SouthEast], is(@2));
 }
+-(void)testNewStoneHasMaxChainOfOne
+{
+    assertThatInt([sut longestChainLength], is(@1));
+}
 
 @end
