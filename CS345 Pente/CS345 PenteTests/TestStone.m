@@ -105,5 +105,9 @@
     assertThatInt([sut neighborCount], is(@0));
 }
 
+-(void)testNewStoneHasNoChainToSE
+{
+    assertThatInt([sut chainLengthIn:CSDID_SouthEast], is(@0));
+}
 
 @end
