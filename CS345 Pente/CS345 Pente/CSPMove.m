@@ -31,25 +31,17 @@
                  atX:(int)initialX
                 andY:(int)initialY
 {
-    return nil;
+    return [[self alloc] initWithPlayer:who
+                                    atX:initialX
+                                   andY:initialY];
 }
 
 + (id)moveWithPlayer:(CSPPlayerID)who
           atLocation:(id <CSPCoordinateInterface>)location
 {
+    return [[self class] moveWithPlayer:who
+                                    atX:[location x]
+                                   andY:[location y]];
     return nil;
 }
-
-- (id)initWithX:(int)initialX
-           andY:(int)initialY
-{
-    return nil;
-}
-
-+ (id)coordinateWithX:(int)initialX
-                 andY:(int)initialY
-{
-    return nil;
-}
-
 @end

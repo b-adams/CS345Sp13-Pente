@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "CSPMoveInterface.h"
+#import "CSPLocation.h"
 
-@interface CSPMove : NSObject <CSPMoveInterface>
+@interface CSPMove : CSPLocation <CSPMoveInterface>
 @property (assign) int x;
 @property (assign) int y;
 @property (assign) CSPPlayerID player;

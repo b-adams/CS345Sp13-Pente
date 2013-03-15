@@ -83,7 +83,7 @@
     id<CSPCoordinateInterface> loc = mock([CSPMove class]);
     
     [given([loc x]) willReturnInt:5];
-    [given([loc x]) willReturnInt:9];
+    [given([loc y]) willReturnInt:9];
 
     sut = [CSPMove moveWithPlayer:CSPID_PlayerBlack
                        atLocation:loc];
