@@ -70,7 +70,7 @@
     [self makeMoveFor:CSPID_PlayerBlack atX:7 andY:8];
     
     // then
-    [self testMoveFor:CSPID_PlayerBlack atX:13 andY:9 isLegal:YES];
+    [self testMoveFor:CSPID_PlayerWhite atX:13 andY:9 isLegal:YES];
 }
 
 - (void)testWhitesSecondMoveIsAllowedLeftOfCenterSeven
@@ -82,7 +82,7 @@
     [self makeMoveFor:CSPID_PlayerBlack atX:7 andY:8];
     
     // then
-    [self testMoveFor:CSPID_PlayerBlack atX:4 andY:9 isLegal:YES];
+    [self testMoveFor:CSPID_PlayerWhite atX:4 andY:9 isLegal:YES];
 }
 
 - (void)testWhitesSecondMoveIsAllowedAboveOfCenterSeven
@@ -94,7 +94,7 @@
     [self makeMoveFor:CSPID_PlayerBlack atX:7 andY:8];
     
     // then
-    [self testMoveFor:CSPID_PlayerBlack atX:9 andY:13 isLegal:YES];
+    [self testMoveFor:CSPID_PlayerWhite atX:9 andY:13 isLegal:YES];
 }
 
 - (void)testWhitesSecondMoveIsAllowedBelowCenterSeven
@@ -106,7 +106,7 @@
     [self makeMoveFor:CSPID_PlayerBlack atX:7 andY:8];
     
     // then
-    [self testMoveFor:CSPID_PlayerBlack atX:9 andY:4 isLegal:YES];
+    [self testMoveFor:CSPID_PlayerWhite atX:9 andY:4 isLegal:YES];
 }
 
 - (void)testWhitesSecondMoveIsRestrictedInsideCenterSeven
@@ -118,7 +118,7 @@
     [self makeMoveFor:CSPID_PlayerBlack atX:7 andY:8];
     
     // then
-    [self testMoveFor:CSPID_PlayerBlack atX:9 andY:12 isLegal:NO];
+    [self testMoveFor:CSPID_PlayerWhite atX:9 andY:12 isLegal:NO];
 }
 
 - (void)testBlackDoesNotMoveFirst

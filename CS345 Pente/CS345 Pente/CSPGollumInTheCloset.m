@@ -13,6 +13,8 @@
 {
     if([self turnNumber]==2 &&
        [self isInCenterRegion:aMove]) return NO;
+    if([aMove player] == CSPID_PlayerWhite) return YES;
+    else return NO;
 
     return YES;
 }
