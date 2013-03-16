@@ -9,7 +9,10 @@
 #import "CSPLocation.h"
 
 @implementation CSPLocation
-
+-(NSString*) description
+{
+    return [NSString stringWithFormat:@"X:%ld Y:%ld", [self x], [self y]];
+}
 - (id)initWithX:(NSUInteger)initialX andY:(NSUInteger)initialY
 {
     self = [super init];

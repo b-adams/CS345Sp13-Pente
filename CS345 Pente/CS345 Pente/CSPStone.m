@@ -9,6 +9,18 @@
 #import "CSPStone.h"
 
 @implementation CSPStone
+-(NSString*) description
+{
+    char playerLetter;
+    switch([[self placement] player])
+    {
+        case CSPID_PlayerWhite: playerLetter='W'; break;
+        case CSPID_PlayerBlack: playerLetter='B'; break;
+        default: playerLetter='.'; break;
+    }
+    return [NSString stringWithFormat:@"%ld%c",
+            [self longestChainLength], playerLetter];
+}
 - (id)init
 {
     return [self initWithPlacement:nil];

@@ -16,6 +16,25 @@
 {
     NSArray* _columns;
 }
+-(NSString*) description
+{
+    NSMutableString* layout = [NSMutableString stringWithString:@"\n"];
+    for(NSMutableArray* row in _columns)
+    {
+        for(id anObject in row)
+        {
+            if(anObject != [NSNull null])
+                [layout appendFormat:@"[%@]", anObject];
+            else
+                [layout appendFormat:@"[..]"];
+            
+        }
+        [layout appendFormat:@"\n"];
+    }
+    [layout appendFormat:@"Count: %ld", [self count]];
+    
+    return layout;
+}
 - (id)init
 {
     return [self initWithWidth:0];

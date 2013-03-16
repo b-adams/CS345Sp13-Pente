@@ -9,6 +9,18 @@
 #import "CSPMove.h"
 
 @implementation CSPMove
+-(NSString*) description
+{
+    char playerLetter;
+    switch([self player])
+    {
+        case CSPID_PlayerWhite: playerLetter='W'; break;
+        case CSPID_PlayerBlack: playerLetter='B'; break;
+        default: playerLetter='.'; break;
+    }
+    return [NSString stringWithFormat:@"P:%c X:%ld Y:%ld",
+            playerLetter, [self x], [self y]];
+}
 - (id)initWithPlayer:(CSPPlayerID)who
                  atX:(NSUInteger)initialX
                 andY:(NSUInteger)initialY
