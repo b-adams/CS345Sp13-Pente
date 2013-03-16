@@ -45,4 +45,36 @@
     [super tearDown];
 }
 
+- (void)testDefaultSizeIsZero
+{
+    // given
+    sut = [[CSPBoard alloc] init];
+    // when
+    
+    // then
+    assertThatInteger([sut width], is(equalTo(@0)));
+}
+
+- (void)testInitialCountIsZero
+{
+    // given
+    sut = [CSPBoard boardWithWidth:19];
+    // when
+    
+    // then
+    assertThatInteger([sut count], is(equalTo(@0)));
+}
+
+- (void)testSizeIsTakenFromInit
+{
+    // given
+    sut = [CSPBoard boardWithWidth:19];
+    // when
+    
+    // then
+    assertThatInteger([sut width], is(equalTo(@19)));
+}
+
+
+
 @end
