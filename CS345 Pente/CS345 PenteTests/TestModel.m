@@ -194,7 +194,7 @@
     assertThatUnsignedInteger(chainSize, is(equalToInt(2)));
 }
 
-- (void)testCapturing
+- (void)testCapturingClearsLocation
 {
     // given
     [self makeMoveFor:CSPID_PlayerBlack atX:6 andY:8];
@@ -206,7 +206,26 @@
     // then
     [self testMoveFor:CSPID_PlayerWhite atX:7 andY:8 isLegal:YES];
 }
-//Test capture removes pieces
+
+- (void)testInitialCapturesAreZero
+{
+    assertThatUnsignedInteger([sut capturesByPlayer:CSPID_PlayerBlack],
+                              is(@0));
+}
+
+- (void)testCapturingIncreasesCaptureCount
+{
+    // given
+    [self makeMoveFor:CSPID_PlayerBlack atX:6 andY:8];
+    [self makeMoveFor:CSPID_PlayerWhite atX:7 andY:8];
+    [self makeMoveFor:CSPID_PlayerWhite atX:8 andY:8];
+    // when
+    [self makeMoveFor:CSPID_PlayerBlack atX:9 andY:8]; //Capture!
+    
+    // then
+    assertThatUnsignedInteger([sut capturesByPlayer:CSPID_PlayerBlack],
+                              is(@2));
+}
 //Test board width matches init width
 //Test can repeat after capture
 //Test making straight five sets gameover

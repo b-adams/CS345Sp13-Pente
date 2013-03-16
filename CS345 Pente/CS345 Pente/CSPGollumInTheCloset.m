@@ -14,6 +14,7 @@
 @implementation CSPGollumInTheCloset
 {
     CSPBoard* _theBoard;
+    NSDictionary* _captures;
 }
 
 - (id)init
@@ -22,6 +23,9 @@
     if (self) {
         _theBoard = [CSPBoard boardWithWidth:19];
         [self setGameOverState:CSPGO_GameNotOver];
+        
+        _captures = @{@"White": [NSMutableSet set],
+                      @"Black": [NSMutableSet set]};
     }
     return self;
 }
@@ -44,6 +48,8 @@
     CSPStone* theStone = [[CSPStone alloc] initWithPlacement:aMove];
     [_theBoard setObjectAtCoordinate:aMove
                             toObject:theStone];
+    CSPPlayerID thePlayer = [aMove player];
+    NSString* playerKey = nil;
     id<CSPCoordinateInterface> tempLocation = nil;
     CSPStone* tempStone = nil;
 
@@ -65,15 +71,33 @@
     {
         [tempStone removeSelfFromNeighbors];
         [_theBoard clearCoordinate:[tempStone placement]];
-        //increment capture count
     }
-    
-    
+    if([captives count]>0)
+    {
+        switch(thePlayer)
+        {
+            case CSPID_PlayerWhite: playerKey=@"White"; break;
+            case CSPID_PlayerBlack: playerKey=@"Black"; break;
+            case CSPID_NOBODY:
+            default: playerKey=@"ERROR";
+        }
+    }
+    NSMutableSet* oldCaptures = [_captures objectForKey:playerKey];
+    [oldCaptures unionSet:captives];
 }
 
 - (NSUInteger)capturesByPlayer:(CSPPlayerID)player
 {
-    return 0;
+    NSString* playerKey = nil;
+    switch(player)
+    {
+        case CSPID_PlayerWhite: playerKey=@"White"; break;
+        case CSPID_PlayerBlack: playerKey=@"Black"; break;
+        case CSPID_NOBODY:
+        default: playerKey=@"ERROR";
+    }
+    NSSet* captures = [_captures objectForKey:playerKey];
+    return [captures count];
 }
 
 - (CSPPlayerID)whoIsWinner
