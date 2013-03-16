@@ -287,6 +287,32 @@
 - (void)testOverkillWinIsStillAWin
 {
     // given
+    [self makeMoveFor:CSPID_PlayerBlack atX:1 andY:8];
+    [self makeMoveFor:CSPID_PlayerBlack atX:2 andY:8];
+    [self makeMoveFor:CSPID_PlayerBlack atX:3 andY:8];
+    //    [self makeMoveFor:CSPID_PlayerBlack atX:4 andY:8];
+    [self makeMoveFor:CSPID_PlayerBlack atX:5 andY:8];
+    [self makeMoveFor:CSPID_PlayerBlack atX:6 andY:8];
+    [self makeMoveFor:CSPID_PlayerBlack atX:7 andY:8];
+    
+    //    [self makeMoveFor:CSPID_PlayerBlack atX:4 andY:8];
+    [self makeMoveFor:CSPID_PlayerBlack atX:4 andY:9];
+    [self makeMoveFor:CSPID_PlayerBlack atX:4 andY:10];
+    [self makeMoveFor:CSPID_PlayerBlack atX:4 andY:11];
+    [self makeMoveFor:CSPID_PlayerBlack atX:4 andY:12];
+    
+    assertThatInt([sut gameOverState], is(equalToInt(CSPGO_GameNotOver)));
+    
+    // when
+    [self makeMoveFor:CSPID_PlayerBlack atX:4 andY:8];//GameOver two ways!
+    assertThatUnsignedInteger([sut longestChainForStoneAt:[CSPLocation coordinateWithX:4 andY:8]], is(@7));
+    
+    // then
+    assertThatInt([sut gameOverState], is(equalToInt(CSPGO_BlackWins)));
+}
+-(void)testThatCapturesCanLeadToAWin
+{
+    // given
     [self makeMoveFor:CSPID_PlayerBlack atX:7 andY:9];
     [self makeMoveFor:CSPID_PlayerBlack atX:8 andY:9];
 
@@ -310,6 +336,7 @@
 
     [self makeMoveFor:CSPID_PlayerWhite atX:9 andY:12];
     assertThatUnsignedInteger([sut capturesByPlayer:CSPID_PlayerWhite], is(@4));
+    assertThatInt([sut gameOverState], is(equalToInt(CSPGO_GameNotOver)));
 
     // when
     [self makeMoveFor:CSPID_PlayerWhite atX:9 andY:9];
