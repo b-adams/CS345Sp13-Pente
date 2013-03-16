@@ -64,11 +64,9 @@
 - (void)testWhitesSecondMoveIsAllowedRightOfCenterSeven
 {
     // given
-    
-    // when
     [self makeMoveFor:CSPID_PlayerWhite atX:9 andY:9];
     [self makeMoveFor:CSPID_PlayerBlack atX:7 andY:8];
-    
+    // when
     // then
     [self testMoveFor:CSPID_PlayerWhite atX:13 andY:9 isLegal:YES];
 }
@@ -76,11 +74,9 @@
 - (void)testWhitesSecondMoveIsAllowedLeftOfCenterSeven
 {
     // given
-    
-    // when
     [self makeMoveFor:CSPID_PlayerWhite atX:9 andY:9];
     [self makeMoveFor:CSPID_PlayerBlack atX:7 andY:8];
-    
+    // when
     // then
     [self testMoveFor:CSPID_PlayerWhite atX:4 andY:9 isLegal:YES];
 }
@@ -88,11 +84,9 @@
 - (void)testWhitesSecondMoveIsAllowedAboveOfCenterSeven
 {
     // given
-    
-    // when
     [self makeMoveFor:CSPID_PlayerWhite atX:9 andY:9];
     [self makeMoveFor:CSPID_PlayerBlack atX:7 andY:8];
-    
+    // when
     // then
     [self testMoveFor:CSPID_PlayerWhite atX:9 andY:13 isLegal:YES];
 }
@@ -100,11 +94,9 @@
 - (void)testWhitesSecondMoveIsAllowedBelowCenterSeven
 {
     // given
-    
-    // when
     [self makeMoveFor:CSPID_PlayerWhite atX:9 andY:9];
     [self makeMoveFor:CSPID_PlayerBlack atX:7 andY:8];
-    
+    // when
     // then
     [self testMoveFor:CSPID_PlayerWhite atX:9 andY:4 isLegal:YES];
 }
@@ -112,11 +104,9 @@
 - (void)testWhitesSecondMoveIsRestrictedInsideCenterSeven
 {
     // given
-    
-    // when
     [self makeMoveFor:CSPID_PlayerWhite atX:9 andY:9];
     [self makeMoveFor:CSPID_PlayerBlack atX:7 andY:8];
-    
+    // when
     // then
     [self testMoveFor:CSPID_PlayerWhite atX:9 andY:12 isLegal:NO];
 }
@@ -139,19 +129,35 @@
 - (void)testBlackDoesMoveSecond
 {
     // given
+    [self makeMoveFor:CSPID_PlayerWhite atX:9 andY:8];
     // when
     // then
-    [self makeMoveFor:CSPID_PlayerWhite atX:9 andY:8];
     [self testMoveFor:CSPID_PlayerBlack atX:9 andY:9 isLegal:YES];
 }
 - (void)testWhiteDoesNotMoveSecond
 {
     // given
+    [self makeMoveFor:CSPID_PlayerBlack atX:7 andY:8];
     // when
     // then
-    [self makeMoveFor:CSPID_PlayerBlack atX:7 andY:8];
     [self testMoveFor:CSPID_PlayerWhite atX:9 andY:9 isLegal:NO];
 }
+
+- (void)testCannotImmediatelyRepeatAMove
+{
+    // given
+    [self makeMoveFor:CSPID_PlayerBlack atX:7 andY:8];
+    // when
+    // then
+    [self testMoveFor:CSPID_PlayerBlack atX:7 andY:8 isLegal:NO];
+}
+//Test cannot later repeat move
+//Test capture removes pieces
+//Test can repeat after capture
+//Test making straight five sets gameover
+//Test making middle five sets gameover
+//Test making multifive sets gameover
+//Test making more than five sets gameover
 
 #pragma mark Helper Methods
 
