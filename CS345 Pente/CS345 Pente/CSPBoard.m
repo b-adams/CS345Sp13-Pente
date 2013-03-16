@@ -46,7 +46,11 @@
     {
         [NSException raise:NSRangeException
                     format:@"X Index exceeds size"];
-        
+    }
+    if(coy >= myw)
+    {
+        [NSException raise:NSRangeException
+                    format:@"Y Index exceeds size"];
     }
 }
 

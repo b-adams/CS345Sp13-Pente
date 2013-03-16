@@ -44,6 +44,7 @@
 
 - (void)tearDown
 {
+    place=nil;
     [super tearDown];
 }
 
@@ -106,6 +107,39 @@
                                       toObject:dummy],
                     @"Raising exception while still in bounds");
 }
+
+- (void)testAccessOutOfYRangeThrowsException
+{
+    //given
+    sut = [CSPBoard boardWithWidth:5];
+    place = [CSPLocation coordinateWithX:2 andY:10];
+    id dummy = self;
+    //when
+    
+    //then
+    STAssertThrowsSpecificNamed([sut setObjectAtCoordinate:place
+                                                  toObject:dummy],
+                                NSException,
+                                NSRangeException,
+                                @"Out of range exception was allowed");
+}
+
+- (void)testAccessBelowYRangeThrowsException
+{
+    //given
+    sut = [CSPBoard boardWithWidth:5];
+    place = [CSPLocation coordinateWithX:2 andY:-1];
+    id dummy = self;
+    //when
+    
+    //then
+    STAssertThrowsSpecificNamed([sut setObjectAtCoordinate:place
+                                                  toObject:dummy],
+                                NSException,
+                                NSRangeException,
+                                @"Out of range exception was allowed");
+}
+
 //- (void)testAccessOutOfBoundsIsBadOnX
 //{
 //    // given
