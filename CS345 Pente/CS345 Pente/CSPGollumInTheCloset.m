@@ -44,6 +44,31 @@
     CSPStone* theStone = [[CSPStone alloc] initWithPlacement:aMove];
     [_theBoard setObjectAtCoordinate:aMove
                             toObject:theStone];
+    id<CSPCoordinateInterface> tempLocation = nil;
+    CSPStone* tempStone = nil;
+
+    for(CSPDirectionID dir=0; dir<=8; dir+=1)
+    {
+        tempLocation = [aMove coordinateInDirection:dir];
+        tempStone = [_theBoard objectAtCoordinate:tempLocation];
+        if(tempStone)
+        {
+            [theStone setNeighborTo:tempStone
+                        inDirection:dir];
+            [tempStone setNeighborTo:theStone
+                         inDirection:oppositeDirectionOf(dir)];
+
+        }
+    }
+    NSSet* captives = [theStone bookendedStones];
+    for(tempStone in captives)
+    {
+        [tempStone removeSelfFromNeighbors];
+        [_theBoard clearCoordinate:[tempStone placement]];
+        //increment capture count
+    }
+    
+    
 }
 
 - (NSUInteger)capturesByPlayer:(CSPPlayerID)player

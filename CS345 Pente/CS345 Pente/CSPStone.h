@@ -16,6 +16,8 @@
 -(id) initWithPlacement: (id<CSPMoveInterface>) whoAndWhere;
 -(void) setNeighborTo:(CSPStone*) newNeighbor
           inDirection:(CSPDirectionID) whichWay;
+-(void) removeNeighbor:(CSPStone*) aNeighbor;
+-(void) removeSelfFromNeighbors;
 -(NSUInteger) chainLengthIn:(CSPDirectionID) whichDirection;
 -(NSSet*) bookendedStonesIn:(CSPDirectionID) whichDirection;
 -(NSSet*) bookendedStones;

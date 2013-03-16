@@ -135,6 +135,21 @@
     return allCaptures;
 }
 
+- (void)removeNeighbor:(CSPStone *)aNeighbor
+{
+    NSUInteger index = [[self neighbors] indexOfObject:aNeighbor];
+    [[self neighbors] replaceObjectAtIndex:index withObject:[NSNull null]];
+}
+
+- (void)removeSelfFromNeighbors
+{
+    for(CSPStone* aNeighbor in [self neighbors])
+    {
+        if((id)aNeighbor != [NSNull null])
+            [aNeighbor removeNeighbor:self];
+    }
+}
+
 @end
 
 CSPDirectionID oppositeDirectionOf(CSPDirectionID aDirection)

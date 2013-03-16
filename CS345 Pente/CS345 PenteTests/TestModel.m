@@ -181,19 +181,33 @@
     // then
     assertThatUnsignedInteger(chainSize, is(equalToInt(1)));
 }
-//- (void)testCapturing
-//{
-//    // given
-//    [self makeMoveFor:CSPID_PlayerBlack atX:6 andY:8];
-//    [self makeMoveFor:CSPID_PlayerWhite atX:7 andY:8];
-//    [self makeMoveFor:CSPID_PlayerWhite atX:8 andY:8];
-//    // when
-//    [self makeMoveFor:CSPID_PlayerBlack atX:9 andY:8]; //Capture!
-//    
-//    // then
-//    [self testMoveFor:CSPID_PlayerWhite atX:7 andY:8 isLegal:YES];
-//}
+- (void)testChainSizeIncreasesWithAdjacentPlacement
+{
+    // given
+    [self makeMoveFor:CSPID_PlayerWhite atX:7 andY:8];
+    [self makeMoveFor:CSPID_PlayerWhite atX:8 andY:8];
+    
+    // when
+    NSUInteger chainSize =[sut longestChainForStoneAt:[CSPLocation coordinateWithX:7 andY:8]];
+    
+    // then
+    assertThatUnsignedInteger(chainSize, is(equalToInt(2)));
+}
+
+- (void)testCapturing
+{
+    // given
+    [self makeMoveFor:CSPID_PlayerBlack atX:6 andY:8];
+    [self makeMoveFor:CSPID_PlayerWhite atX:7 andY:8];
+    [self makeMoveFor:CSPID_PlayerWhite atX:8 andY:8];
+    // when
+    [self makeMoveFor:CSPID_PlayerBlack atX:9 andY:8]; //Capture!
+    
+    // then
+    [self testMoveFor:CSPID_PlayerWhite atX:7 andY:8 isLegal:YES];
+}
 //Test capture removes pieces
+//Test board width matches init width
 //Test can repeat after capture
 //Test making straight five sets gameover
 //Test making middle five sets gameover
