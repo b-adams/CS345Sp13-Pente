@@ -11,11 +11,15 @@
 @implementation CSPGollumInTheCloset
 - (BOOL)isLegalMove:(id<CSPMoveInterface>)aMove
 {
-    return NO;
+    if([self turnNumber]==2 &&
+       [self isInCenterRegion:aMove]) return NO;
+
+    return YES;
 }
 
 - (BOOL)makeMove:(id<CSPMoveInterface>)aMove
 {
+    [self setTurnNumber:1+[self turnNumber]];
     return NO;
 }
 
@@ -47,6 +51,16 @@
 - (int)longestChainForStoneAt:(id<CSPCoordinateInterface>)aLocation
 {
     return 0;
+}
+
+#pragma mark Helper Methods
+-(BOOL) isInCenterRegion:(id<CSPMoveInterface>)aMove
+{
+    if([aMove x] <= 5) return NO;
+    if([aMove x] >=13) return NO;
+    if([aMove y] <= 5) return NO;
+    if([aMove y] >=13) return NO;
+    return YES;
 }
 
 @end
