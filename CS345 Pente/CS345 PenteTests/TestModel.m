@@ -136,6 +136,23 @@
     [self testMoveFor:CSPID_PlayerWhite atX:9 andY:9 isLegal:YES];
 }
 
+- (void)testBlackDoesMoveSecond
+{
+    // given
+    // when
+    // then
+    [self makeMoveFor:CSPID_PlayerWhite atX:9 andY:8];
+    [self testMoveFor:CSPID_PlayerBlack atX:9 andY:9 isLegal:YES];
+}
+- (void)testWhiteDoesNotMoveSecond
+{
+    // given
+    // when
+    // then
+    [self makeMoveFor:CSPID_PlayerBlack atX:7 andY:8];
+    [self testMoveFor:CSPID_PlayerWhite atX:9 andY:9 isLegal:NO];
+}
+
 #pragma mark Helper Methods
 
 -(void) makeMoveFor:(CSPPlayerID)player atX:(int)x andY:(int)y

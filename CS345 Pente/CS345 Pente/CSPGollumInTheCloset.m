@@ -13,9 +13,9 @@
 {
     if([self turnNumber]==2 &&
        [self isInCenterRegion:aMove]) return NO;
-    if([aMove player] == CSPID_PlayerWhite) return YES;
-    else return NO;
-
+    
+    if(![self isCurrentTurn:[aMove player]]) return NO;
+    
     return YES;
 }
 
@@ -64,5 +64,12 @@
     if([aMove y] >=13) return NO;
     return YES;
 }
+
+- (BOOL)isCurrentTurn:(CSPPlayerID)turnColor
+{
+    CSPPlayerID correctTurnColor = [self turnNumber]%2 ? CSPID_PlayerBlack : CSPID_PlayerWhite;
+    return correctTurnColor==turnColor;
+}
+
 
 @end
