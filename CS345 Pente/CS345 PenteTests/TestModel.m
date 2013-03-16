@@ -155,7 +155,7 @@
 - (void)testCannotPlaceOnPreviousStone
 {
     // given
-    [self makeMoveFor:CSPID_PlayerWhite atX:6 andY:8];
+    [self makeMoveFor:CSPID_PlayerWhite atX:7 andY:8];
     [self makeMoveFor:CSPID_PlayerBlack atX:6 andY:8];
     [self makeMoveFor:CSPID_PlayerWhite atX:5 andY:8];
     [self makeMoveFor:CSPID_PlayerBlack atX:4 andY:8];

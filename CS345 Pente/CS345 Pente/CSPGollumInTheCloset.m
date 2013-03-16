@@ -8,10 +8,20 @@
 
 #import "CSPGollumInTheCloset.h"
 #import "CSPCoordinateInterface.h"
+#import "CSPBoard.h"
+#import "CSPStone.h"
 
 @implementation CSPGollumInTheCloset
 {
-    id<CSPCoordinateInterface> _lastMove;
+    CSPBoard* _theBoard;
+}
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        _theBoard = [CSPBoard boardWithWidth:19];
+    }
+    return self;
 }
 - (BOOL)isLegalMove:(id<CSPMoveInterface>)aMove
 {
@@ -20,20 +30,19 @@
     
     if(![self isCurrentTurn:[aMove player]]) return NO;
     
-    NSUInteger curX = [aMove x];
-    NSUInteger oldX = [_lastMove x];
-    NSUInteger curY = [aMove y];
-    NSUInteger oldY = [_lastMove y];
-    if(curX == oldX && curY == oldY)
-        return NO;
+    id currentObject = [_theBoard objectAtCoordinate:aMove];
+    if(currentObject) return NO;
     
     return YES;
 }
 
 - (BOOL)makeMove:(id<CSPMoveInterface>)aMove
 {
+//check for legality first
     [self setTurnNumber:1+[self turnNumber]];
-    _lastMove = aMove;
+    CSPStone* theStone = [[CSPStone alloc] initWithPlacement:aMove];
+    [_theBoard setObjectAtCoordinate:aMove
+                            toObject:theStone];
     return NO;
 }
 
