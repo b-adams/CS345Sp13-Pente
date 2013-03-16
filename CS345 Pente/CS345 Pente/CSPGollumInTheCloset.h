@@ -10,5 +10,6 @@
 #import "CSPPenteGameModelInterface.h"
 
 @interface CSPGollumInTheCloset : NSObject <CSPPenteGameModelInterface>
+@property (assign) int turnNumber;
 
 @end

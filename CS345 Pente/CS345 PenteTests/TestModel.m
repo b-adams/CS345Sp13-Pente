@@ -12,8 +12,9 @@
 
     // Collaborators
 #import "CSPPenteGameModelInterface.h"
+#import "CSPMove.h"
 
-    // Test support
+// Test support
 #import <SenTestingKit/SenTestingKit.h>
 
 // Comment the next two lines to disable OCHamcrest (for test assertions)
@@ -39,26 +40,104 @@
 - (void)setUp
 {
     [super setUp];
+    sut = [[CSPGollumInTheCloset alloc] init];
+    
 }
 
 - (void)tearDown
 {
+    sut = nil;
     [super tearDown];
 }
 
 #pragma mark Tests
 
-//- (void)testBoardSizeIsReasonable
-//{
-//    // given
-//    sut = [[CSPGollumInTheCloset alloc] init];
-//    
-//    // when
-//    int boardsize = [sut boardWidth];
-//    // then
-//    assertThatInt(boardsize, is(closeTo(19, 5)));
-//}
+- (void)testBoardSizeIsReasonable
+{
+    // given
+    // when
+    int boardsize = [sut boardWidth];
+    // then
+    assertThatInt(boardsize, is(closeTo(19, 5)));
+}
+
+- (void)testWhitesSecondMoveIsAllowedRightOfCenterSeven
+{
+    // given
+    
+    // when
+    [self makeMoveFor:CSPID_PlayerWhite atX:9 andY:9];
+    [self makeMoveFor:CSPID_PlayerBlack atX:7 andY:8];
+    
+    // then
+    [self testMoveFor:CSPID_PlayerBlack atX:13 andY:9 isLegal:YES];
+}
+
+- (void)testWhitesSecondMoveIsAllowedLeftOfCenterSeven
+{
+    // given
+    
+    // when
+    [self makeMoveFor:CSPID_PlayerWhite atX:9 andY:9];
+    [self makeMoveFor:CSPID_PlayerBlack atX:7 andY:8];
+    
+    // then
+    [self testMoveFor:CSPID_PlayerBlack atX:4 andY:9 isLegal:YES];
+}
+
+- (void)testWhitesSecondMoveIsAllowedAboveOfCenterSeven
+{
+    // given
+    
+    // when
+    [self makeMoveFor:CSPID_PlayerWhite atX:9 andY:9];
+    [self makeMoveFor:CSPID_PlayerBlack atX:7 andY:8];
+    
+    // then
+    [self testMoveFor:CSPID_PlayerBlack atX:9 andY:13 isLegal:YES];
+}
+
+- (void)testWhitesSecondMoveIsAllowedBelowCenterSeven
+{
+    // given
+    
+    // when
+    [self makeMoveFor:CSPID_PlayerWhite atX:9 andY:9];
+    [self makeMoveFor:CSPID_PlayerBlack atX:7 andY:8];
+    
+    // then
+    [self testMoveFor:CSPID_PlayerBlack atX:9 andY:4 isLegal:YES];
+}
+
+- (void)testWhitesSecondMoveIsRestrictedInsideCenterSeven
+{
+    // given
+    
+    // when
+    [self makeMoveFor:CSPID_PlayerWhite atX:9 andY:9];
+    [self makeMoveFor:CSPID_PlayerBlack atX:7 andY:8];
+    
+    // then
+    [self testMoveFor:CSPID_PlayerBlack atX:9 andY:12 isLegal:NO];
+}
 
 #pragma mark Helper Methods
 
+-(void) makeMoveFor:(CSPPlayerID)player atX:(int)x andY:(int)y
+{
+    CSPMove* theMove = [CSPMove moveWithPlayer:player
+                                           atX:x
+                                          andY:y];
+    [sut makeMove:theMove];
+}
+-(void) testMoveFor:(CSPPlayerID)player
+                atX:(int)x andY:(int)y
+            isLegal:(BOOL) legality;
+{
+    CSPMove* theMove = [CSPMove moveWithPlayer:player
+                                           atX:x
+                                          andY:y];
+    assertThatBool([sut isLegalMove:theMove], is(equalToBool(legality)));
+
+}
 @end

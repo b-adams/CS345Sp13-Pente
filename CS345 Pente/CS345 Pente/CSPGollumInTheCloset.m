@@ -9,12 +9,12 @@
 #import "CSPGollumInTheCloset.h"
 
 @implementation CSPGollumInTheCloset
-- (BOOL)isLegalMove:(id)id1
+- (BOOL)isLegalMove:(id<CSPMoveInterface>)aMove
 {
     return NO;
 }
 
-- (BOOL)makeMove:(id)id1
+- (BOOL)makeMove:(id<CSPMoveInterface>)aMove
 {
     return NO;
 }
@@ -34,7 +34,7 @@
     return CSPID_PlayerWhite;
 }
 
-- (CSPPlayerID)whosePieceIsAt:(id)id1
+- (CSPPlayerID)whosePieceIsAt:(id<CSPCoordinateInterface>)aLocation
 {
     return CSPID_PlayerWhite;
 }
@@ -44,7 +44,7 @@
     return 19;
 }
 
-- (int)longestChainForStoneAt:(id)id1
+- (int)longestChainForStoneAt:(id<CSPCoordinateInterface>)aLocation
 {
     return 0;
 }
