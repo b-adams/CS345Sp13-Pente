@@ -1,14 +1,15 @@
-//
-//  CSPBoard.h
-//  CS345 Pente
-//
-//  Created by Bryant Adams on 3/15/13.
-//  Copyright (c) 2013 Wells CS345: GUI programming. All rights reserved.
-//
+/**
+ @file CSPBoard.h
+ @author Bryant Adams
+ @date 3/15/13
+ @copyright Available under GPLv3 or any later version
+ @version 1.0
+ */
 
 #import <Foundation/Foundation.h>
 @protocol CSPCoordinateInterface;
 
+// TODO: Add fast enumeration and other collection protocols?
 @interface CSPBoard : NSObject //<NSCopying, NSMutableCopying, NSFastEnumeration>
 @property (assign) NSUInteger width;
 -initWithWidth:(NSUInteger) theWidth;

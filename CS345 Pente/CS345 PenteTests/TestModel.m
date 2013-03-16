@@ -4,7 +4,7 @@
  @author Bryant Adams
  @date 3/15/13
  @copyright GNU Public License v3 or later, 2013
- @version 0.1
+ @version 1.0
 */
 
     // Class under test

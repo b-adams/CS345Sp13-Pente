@@ -1,14 +1,12 @@
-//
-//  CSPBoard.m
-//  CS345 Pente
-//
-//  Created by Bryant Adams on 3/15/13.
-//  Copyright (c) 2013 Wells CS345: GUI programming. All rights reserved.
-//
+/**
+ @file CSPBoard.m
+ @author Bryant Adams
+ @date 3/15/13
+ @copyright Available under GPLv3 or any later version
+ @version 1.0
+ */
 
 
-//2D array with access by CSPLocation Interfaced indices
-//Also should have fast enumeration (?)
 #import "CSPBoard.h"
 #import "CSPCoordinateInterface.h"
 
