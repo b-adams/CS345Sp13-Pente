@@ -84,6 +84,17 @@
     }
     NSMutableSet* oldCaptures = [_captures objectForKey:playerKey];
     [oldCaptures unionSet:captives];
+    NSUInteger longest = [theStone longestChainLength];
+    
+    if([theStone longestChainLength]==5)
+    {
+        switch(thePlayer)
+        {
+            case CSPID_PlayerBlack: [self setGameOverState:CSPGO_BlackWins]; break;
+            case CSPID_PlayerWhite: [self setGameOverState:CSPGO_WhiteWins]; break;
+            default: break; //???
+        }
+    }
 }
 
 - (NSUInteger)capturesByPlayer:(CSPPlayerID)player

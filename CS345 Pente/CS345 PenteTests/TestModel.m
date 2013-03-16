@@ -251,8 +251,39 @@
     assertThatUnsignedInteger(chainSize, is(equalToInt(1)));
 }
 
-//Test making straight five sets gameover
-//Test making middle five sets gameover
+- (void)testFifthWhiteInARowSetsGameoverForWhite
+{
+    // given
+    [self makeMoveFor:CSPID_PlayerWhite atX:2 andY:8];
+    [self makeMoveFor:CSPID_PlayerWhite atX:3 andY:8];
+    [self makeMoveFor:CSPID_PlayerWhite atX:4 andY:8];
+    [self makeMoveFor:CSPID_PlayerWhite atX:5 andY:8];
+    assertThatInt([sut gameOverState], is(equalToInt(CSPGO_GameNotOver)));
+    
+    // when
+    [self makeMoveFor:CSPID_PlayerWhite atX:6 andY:8]; //GameOver!
+
+    // then
+    assertThatInt([sut gameOverState], is(equalToInt(CSPGO_WhiteWins)));
+    
+}
+- (void)testCompletingFiveBlackInARowSetsSetsGameoverForWhite
+{
+    // given
+    [self makeMoveFor:CSPID_PlayerBlack atX:2 andY:8];
+    [self makeMoveFor:CSPID_PlayerBlack atX:3 andY:8];
+    [self makeMoveFor:CSPID_PlayerBlack atX:5 andY:8];
+    [self makeMoveFor:CSPID_PlayerBlack atX:6 andY:8];
+    assertThatInt([sut gameOverState], is(equalToInt(CSPGO_GameNotOver)));
+    
+    // when
+    [self makeMoveFor:CSPID_PlayerBlack atX:4 andY:8];//GameOver!
+    assertThatUnsignedInteger([sut longestChainForStoneAt:[CSPLocation coordinateWithX:4 andY:8]], is(@5));
+    
+    // then
+    assertThatInt([sut gameOverState], is(equalToInt(CSPGO_BlackWins)));
+    
+}
 //Test making multifive sets gameover
 //Test making more than five sets gameover
 //Test capture game over
