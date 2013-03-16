@@ -99,12 +99,11 @@
     //given
     sut = [CSPBoard boardWithWidth:5];
     place = [CSPLocation coordinateWithX:2 andY:2];
-    id dummy = self;
     //when
     
     //then
     STAssertNoThrow([sut setObjectAtCoordinate:place
-                                      toObject:dummy],
+                                      toObject:@"dummy string"],
                     @"Raising exception while still in bounds");
 }
 
@@ -124,32 +123,53 @@
                                 @"Out of range exception was allowed");
 }
 
-- (void)testAccessBelowYRangeThrowsException
+-(void)testStoredItemIncreasesCount
+{
+    // given
+    sut = [CSPBoard boardWithWidth:5];
+    place = [CSPLocation coordinateWithX:3 andY:2];
+    // when
+    [sut setObjectAtCoordinate:place toObject:@42];
+    //then
+    assertThatUnsignedInteger([sut count], is(@1));
+}
+
+- (void)testStoredItemCanBeRetrieved
+{
+    // given
+    sut = [CSPBoard boardWithWidth:5];
+    place = [CSPLocation coordinateWithX:3 andY:2];
+    // when
+    [sut setObjectAtCoordinate:place toObject:@42];
+    
+    // then
+    assertThat([sut objectAtCoordinate:place], is(@42));
+}
+
+
+- (void)testInitialStoredItemsReadAsNil
 {
     //given
     sut = [CSPBoard boardWithWidth:5];
-    place = [CSPLocation coordinateWithX:2 andY:-1];
-    id dummy = self;
+    place = [CSPLocation coordinateWithX:2 andY:3];
     //when
     
     //then
-    STAssertThrowsSpecificNamed([sut setObjectAtCoordinate:place
-                                                  toObject:dummy],
-                                NSException,
-                                NSRangeException,
-                                @"Out of range exception was allowed");
+    assertThat([sut objectAtCoordinate:place], is(equalTo(nil)));
 }
 
-//- (void)testAccessOutOfBoundsIsBadOnX
-//{
-//    // given
-//    sut = [CSPBoard boardWithWidth:5];
-//    place = [CSPLocation coordinateWithX:10 andY:2];
-//    // when
-//    
-//    // then
-//    assertThatInteger([sut width], is(equalTo(@19)));
-//}
-
+- (void)testClearingASpotClearsTheSpot
+{
+    // given
+    sut = [CSPBoard boardWithWidth:5];
+    place = [CSPLocation coordinateWithX:2 andY:3];
+    [sut setObjectAtCoordinate:place toObject:@43];
+    
+    // when
+    [sut clearCoordinate:place];
+    
+    // then
+    assertThat([sut objectAtCoordinate:place], is(equalTo(nil)));
+}
 
 @end
