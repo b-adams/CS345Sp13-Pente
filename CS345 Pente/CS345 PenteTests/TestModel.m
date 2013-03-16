@@ -226,16 +226,37 @@
     assertThatUnsignedInteger([sut capturesByPlayer:CSPID_PlayerBlack],
                               is(@2));
 }
-//Test board width matches init width
-//Test can repeat after capture
+- (void)testBoardWidthIsNineteen
+{
+    // then
+    assertThatUnsignedInteger([sut boardWidth], is(@19));
+}
+- (void)testCaptureReducesChainLength
+{
+    // given
+    [self makeMoveFor:CSPID_PlayerWhite atX:7 andY:8];
+    [self makeMoveFor:CSPID_PlayerWhite atX:8 andY:8];
+    [self makeMoveFor:CSPID_PlayerWhite atX:9 andY:8];
+    [self makeMoveFor:CSPID_PlayerWhite atX:8 andY:9];
+    [self makeMoveFor:CSPID_PlayerBlack atX:8 andY:10];
+    CSPLocation* place = [CSPLocation coordinateWithX:7 andY:8];
+    NSUInteger chainSize =[sut longestChainForStoneAt:place];
+    assertThatUnsignedInteger(chainSize, is(equalToInt(3)));
+
+    // when
+    [self makeMoveFor:CSPID_PlayerBlack atX:8 andY:7]; //Capture!
+    
+    // then
+    chainSize =[sut longestChainForStoneAt:place];
+    assertThatUnsignedInteger(chainSize, is(equalToInt(1)));
+}
+
 //Test making straight five sets gameover
 //Test making middle five sets gameover
 //Test making multifive sets gameover
 //Test making more than five sets gameover
 //Test capture game over
 //Test game over matches winning player
-//Test making a move also adds neighbor links
-//Test making a move also captures pieces
 
 #pragma mark Helper Methods
 

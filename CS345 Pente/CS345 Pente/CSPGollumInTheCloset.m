@@ -117,7 +117,7 @@
 
 - (NSUInteger)boardWidth
 {
-    return 19;
+    return [_theBoard width];
 }
 
 - (NSUInteger)longestChainForStoneAt:(id<CSPCoordinateInterface>)aLocation
