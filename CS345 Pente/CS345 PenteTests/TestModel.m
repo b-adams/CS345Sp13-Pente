@@ -284,10 +284,40 @@
     assertThatInt([sut gameOverState], is(equalToInt(CSPGO_BlackWins)));
     
 }
-//Test making multifive sets gameover
-//Test making more than five sets gameover
-//Test capture game over
-//Test game over matches winning player
+- (void)testOverkillWinIsStillAWin
+{
+    // given
+    [self makeMoveFor:CSPID_PlayerBlack atX:7 andY:9];
+    [self makeMoveFor:CSPID_PlayerBlack atX:8 andY:9];
+
+    [self makeMoveFor:CSPID_PlayerBlack atX:7 andY:10];
+    [self makeMoveFor:CSPID_PlayerBlack atX:8 andY:11];
+
+    [self makeMoveFor:CSPID_PlayerBlack atX:9 andY:10];
+    [self makeMoveFor:CSPID_PlayerBlack atX:9 andY:11];
+
+    [self makeMoveFor:CSPID_PlayerBlack atX:10 andY:11];
+    [self makeMoveFor:CSPID_PlayerBlack atX:11 andY:10];
+
+    [self makeMoveFor:CSPID_PlayerBlack atX:10 andY:9];
+    [self makeMoveFor:CSPID_PlayerBlack atX:11 andY:9];
+
+    [self makeMoveFor:CSPID_PlayerWhite atX:6 andY:9];
+    assertThatUnsignedInteger([sut capturesByPlayer:CSPID_PlayerWhite], is(@0));
+
+    [self makeMoveFor:CSPID_PlayerWhite atX:12 andY:9];
+    assertThatUnsignedInteger([sut capturesByPlayer:CSPID_PlayerWhite], is(@0));
+
+    [self makeMoveFor:CSPID_PlayerWhite atX:9 andY:12];
+    assertThatUnsignedInteger([sut capturesByPlayer:CSPID_PlayerWhite], is(@4));
+
+    // when
+    [self makeMoveFor:CSPID_PlayerWhite atX:9 andY:9];
+    assertThatUnsignedInteger([sut capturesByPlayer:CSPID_PlayerWhite], is(@10));
+    
+    // then
+    assertThatInt([sut gameOverState], is(equalToInt(CSPGO_WhiteWins)));
+}
 
 #pragma mark Helper Methods
 

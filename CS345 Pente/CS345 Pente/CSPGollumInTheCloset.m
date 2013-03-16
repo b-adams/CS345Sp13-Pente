@@ -11,6 +11,12 @@
 #import "CSPBoard.h"
 #import "CSPStone.h"
 
+const NSUInteger WINNING_STONES_IN_A_ROW = 5;
+const NSUInteger WINNING_CAPTURED_STONES = 10;
+const NSUInteger CENTER_COORDINATE = 9;
+const NSUInteger CENTER_WIDTH = 4;
+const NSUInteger BOARD_WIDTH = 19;
+
 @implementation CSPGollumInTheCloset
 {
     CSPBoard* _theBoard;
@@ -21,7 +27,7 @@
 {
     self = [super init];
     if (self) {
-        _theBoard = [CSPBoard boardWithWidth:19];
+        _theBoard = [CSPBoard boardWithWidth:BOARD_WIDTH];
         [self setGameOverState:CSPGO_GameNotOver];
         
         _captures = @{@"White": [NSMutableSet set],
@@ -82,11 +88,10 @@
             default: playerKey=@"ERROR";
         }
     }
-    NSMutableSet* oldCaptures = [_captures objectForKey:playerKey];
-    [oldCaptures unionSet:captives];
-    NSUInteger longest = [theStone longestChainLength];
-    
-    if([theStone longestChainLength]==5)
+    NSMutableSet* allCaptures = [_captures objectForKey:playerKey];
+    [allCaptures unionSet:captives];
+    if([theStone longestChainLength]>=WINNING_STONES_IN_A_ROW
+       || [allCaptures count]>=WINNING_CAPTURED_STONES)
     {
         switch(thePlayer)
         {
@@ -140,10 +145,10 @@
 #pragma mark Helper Methods
 -(BOOL) isInCenterRegion:(id<CSPMoveInterface>)aMove
 {
-    if([aMove x] <= 5) return NO;
-    if([aMove x] >=13) return NO;
-    if([aMove y] <= 5) return NO;
-    if([aMove y] >=13) return NO;
+    if([aMove x] <= CENTER_COORDINATE-CENTER_WIDTH) return NO;
+    if([aMove x] >= CENTER_COORDINATE+CENTER_WIDTH) return NO;
+    if([aMove y] <= CENTER_COORDINATE-CENTER_WIDTH) return NO;
+    if([aMove y] >= CENTER_COORDINATE+CENTER_WIDTH) return NO;
     return YES;
 }
 
