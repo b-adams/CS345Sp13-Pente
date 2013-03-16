@@ -7,8 +7,12 @@
 //
 
 #import "CSPGollumInTheCloset.h"
+#import "CSPCoordinateInterface.h"
 
 @implementation CSPGollumInTheCloset
+{
+    id<CSPCoordinateInterface> _lastMove;
+}
 - (BOOL)isLegalMove:(id<CSPMoveInterface>)aMove
 {
     if([self turnNumber]==2 &&
@@ -16,12 +20,20 @@
     
     if(![self isCurrentTurn:[aMove player]]) return NO;
     
+    int curX = [aMove x];
+    int oldX = [_lastMove x];
+    int curY = [aMove y];
+    int oldY = [_lastMove y];
+    if(curX == oldX && curY == oldY)
+        return NO;
+    
     return YES;
 }
 
 - (BOOL)makeMove:(id<CSPMoveInterface>)aMove
 {
     [self setTurnNumber:1+[self turnNumber]];
+    _lastMove = aMove;
     return NO;
 }
 
