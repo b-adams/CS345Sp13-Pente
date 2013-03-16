@@ -15,7 +15,7 @@
 -(BOOL) isLegalMove:(id<CSPMoveInterface>) aMove;
 
 // Place ___'s stone at ___ / Make move ____
--(BOOL) makeMove:(id<CSPMoveInterface>) aMove;
+-(void)makeMove:(id<CSPMoveInterface>) aMove;
 
 // How many stones has player ___ captured? (0 through 10)
 -(int) capturesByPlayer:(CSPPlayerID) player;

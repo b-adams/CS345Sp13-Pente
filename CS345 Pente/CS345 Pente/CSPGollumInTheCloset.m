@@ -36,14 +36,13 @@
     return YES;
 }
 
-- (BOOL)makeMove:(id<CSPMoveInterface>)aMove
+- (void)makeMove:(id<CSPMoveInterface>)aMove
 {
 //check for legality first
     [self setTurnNumber:1+[self turnNumber]];
     CSPStone* theStone = [[CSPStone alloc] initWithPlacement:aMove];
     [_theBoard setObjectAtCoordinate:aMove
                             toObject:theStone];
-    return NO;
 }
 
 - (int)capturesByPlayer:(CSPPlayerID)player
