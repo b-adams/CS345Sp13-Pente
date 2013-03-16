@@ -151,7 +151,18 @@
     // then
     [self testMoveFor:CSPID_PlayerBlack atX:7 andY:8 isLegal:NO];
 }
-//Test cannot later repeat move
+
+- (void)testCannotPlaceOnPreviousStone
+{
+    // given
+    [self makeMoveFor:CSPID_PlayerWhite atX:6 andY:8];
+    [self makeMoveFor:CSPID_PlayerBlack atX:6 andY:8];
+    [self makeMoveFor:CSPID_PlayerWhite atX:5 andY:8];
+    [self makeMoveFor:CSPID_PlayerBlack atX:4 andY:8];
+    // when
+    // then
+    [self testMoveFor:CSPID_PlayerWhite atX:7 andY:8 isLegal:NO];
+}
 //Test capture removes pieces
 //Test can repeat after capture
 //Test making straight five sets gameover

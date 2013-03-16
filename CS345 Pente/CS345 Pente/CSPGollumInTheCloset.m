@@ -80,6 +80,7 @@
 - (BOOL)isCurrentTurn:(CSPPlayerID)turnColor
 {
     CSPPlayerID correctTurnColor = [self turnNumber]%2 ? CSPID_PlayerBlack : CSPID_PlayerWhite;
+    
     return correctTurnColor==turnColor;
 }
 
