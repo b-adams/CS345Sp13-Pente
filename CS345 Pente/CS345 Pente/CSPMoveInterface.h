@@ -18,11 +18,11 @@ typedef enum {
 
 @property (readonly, assign) CSPPlayerID player;
 -(id)initWithPlayer:(CSPPlayerID) who
-                atX:(int) initialX
-               andY:(int) initialY;
+                atX:(NSUInteger) initialX
+               andY:(NSUInteger) initialY;
 +(id)moveWithPlayer:(CSPPlayerID) who
-                atX:(int) initialX
-               andY:(int) initialY;
+                atX:(NSUInteger) initialX
+               andY:(NSUInteger) initialY;
 +(id)moveWithPlayer:(CSPPlayerID) who
          atLocation:(id<CSPCoordinateInterface>) location;
 

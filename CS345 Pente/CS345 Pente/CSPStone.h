@@ -16,12 +16,14 @@
 -(id) initWithPlacement: (id<CSPMoveInterface>) whoAndWhere;
 -(void) setNeighborTo:(CSPStone*) newNeighbor
           inDirection:(CSPDirectionID) whichWay;
--(int) chainLengthIn:(CSPDirectionID) whichDirection;
+-(void) removeNeighbor:(CSPStone*) aNeighbor;
+-(void) removeSelfFromNeighbors;
+-(NSUInteger) chainLengthIn:(CSPDirectionID) whichDirection;
 -(NSSet*) bookendedStonesIn:(CSPDirectionID) whichDirection;
 -(NSSet*) bookendedStones;
--(int) neighborCount;
+-(NSUInteger) neighborCount;
 -(CSPStone*) neighborInDirection:(CSPDirectionID) whichDirection;
--(int) longestChainLength;
+-(NSUInteger) longestChainLength;
 @end
 
 CSPDirectionID oppositeDirectionOf(CSPDirectionID aDirection);

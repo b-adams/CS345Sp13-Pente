@@ -10,8 +10,8 @@
 
 @implementation CSPMove
 - (id)initWithPlayer:(CSPPlayerID)who
-                 atX:(int)initialX
-                andY:(int)initialY
+                 atX:(NSUInteger)initialX
+                andY:(NSUInteger)initialY
 {
     self = [super init];
     if (self) {
@@ -28,8 +28,8 @@
 }
 
 + (id)moveWithPlayer:(CSPPlayerID)who
-                 atX:(int)initialX
-                andY:(int)initialY
+                 atX:(NSUInteger)initialX
+                andY:(NSUInteger)initialY
 {
     return [[self alloc] initWithPlayer:who
                                     atX:initialX

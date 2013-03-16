@@ -105,13 +105,13 @@
                    andY:(int) targY
 {
     // when
-    int x = [move x];
-    int y = [move y];
+    NSUInteger x = [move x];
+    NSUInteger y = [move y];
     CSPPlayerID plr = [move player];
     // then
-    assertThatInt(x, equalToInt(targX));
-    assertThatInt(y, equalToInt(targY));
-    assertThatInt(plr, equalToInt(plrID));
+    assertThatUnsignedInteger(x, equalToUnsignedInteger(targX));
+    assertThatUnsignedInteger(y, equalToUnsignedInteger(targY));
+    assertThatUnsignedInteger(plr, equalToInt(plrID));
 }
 
 
