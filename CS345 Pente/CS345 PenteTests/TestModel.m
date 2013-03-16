@@ -143,14 +143,14 @@
     [self testMoveFor:CSPID_PlayerWhite atX:9 andY:9 isLegal:NO];
 }
 
-- (void)testCannotImmediatelyRepeatAMove
-{
-    // given
-    [self makeMoveFor:CSPID_PlayerBlack atX:7 andY:8];
-    // when
-    // then
-    [self testMoveFor:CSPID_PlayerBlack atX:7 andY:8 isLegal:NO];
-}
+//- (void)testCannotImmediatelyRepeatAMove
+//{
+//    // given
+//    [self makeMoveFor:CSPID_PlayerBlack atX:7 andY:8];
+//    // when
+//    // then
+//    [self testMoveFor:CSPID_PlayerBlack atX:7 andY:8 isLegal:NO];
+//}
 //Test cannot later repeat move
 //Test capture removes pieces
 //Test can repeat after capture
