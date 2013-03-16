@@ -46,7 +46,7 @@
                             toObject:theStone];
 }
 
-- (int)capturesByPlayer:(CSPPlayerID)player
+- (NSUInteger)capturesByPlayer:(CSPPlayerID)player
 {
     return 0;
 }
@@ -66,12 +66,12 @@
     return CSPID_PlayerWhite;
 }
 
-- (int)boardWidth
+- (NSUInteger)boardWidth
 {
     return 19;
 }
 
-- (int)longestChainForStoneAt:(id<CSPCoordinateInterface>)aLocation
+- (NSUInteger)longestChainForStoneAt:(id<CSPCoordinateInterface>)aLocation
 {
     CSPStone* thePiece = [_theBoard objectAtCoordinate:aLocation];
     return [thePiece longestChainLength];

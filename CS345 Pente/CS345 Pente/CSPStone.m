@@ -44,9 +44,9 @@
     return theNeighbor;    
 }
 
--(int) neighborCount
+-(NSUInteger) neighborCount
 {
-    int neighbors=0;
+    NSUInteger neighbors=0;
     for(id nbr in [self neighbors])
     {
         if(nbr!=[NSNull null]) neighbors+=1;
@@ -54,7 +54,7 @@
     return neighbors;
 }
 
-- (int)chainLengthIn:(CSPDirectionID)whichDirection
+- (NSUInteger)chainLengthIn:(CSPDirectionID)whichDirection
 {
     CSPStone* nbr = [self neighborInDirection:whichDirection];
     if(!nbr)
@@ -64,17 +64,17 @@
     else
         return 0;
 }
-- (int)totalChainLengthAlong:(CSPDirectionID)dir
+- (NSUInteger)totalChainLengthAlong:(CSPDirectionID)dir
 {
-    int foreLen=[self chainLengthIn:dir];
-    int backLen=[self chainLengthIn:oppositeDirectionOf(dir)];
+    NSUInteger foreLen=[self chainLengthIn:dir];
+    NSUInteger backLen=[self chainLengthIn:oppositeDirectionOf(dir)];
     return foreLen + 1 + backLen;
 }
 
--(int) longestChainLength
+-(NSUInteger) longestChainLength
 {
-    int maxLen=0;
-    int dirLen;
+    NSUInteger maxLen=0;
+    NSUInteger dirLen;
     
     dirLen = [self totalChainLengthAlong:CSDID_North];
     if(dirLen > maxLen) maxLen = dirLen;

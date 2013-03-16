@@ -56,9 +56,9 @@
 {
     // given
     // when
-    int boardsize = [sut boardWidth];
+    NSUInteger boardsize = [sut boardWidth];
     // then
-    assertThatInt(boardsize, is(closeTo(19, 5)));
+    assertThatUnsignedInteger(boardsize, is(closeTo(19, 5)));
 }
 
 - (void)testWhitesSecondMoveIsAllowedRightOfCenterSeven
@@ -168,7 +168,7 @@
     // given
     // when
     // then
-    assertThatInt([sut gameOverState], is(equalToInt(CSPGO_GameNotOver)));
+    assertThatUnsignedInteger([sut gameOverState], is(equalToInt(CSPGO_GameNotOver)));
 }
 - (void)testChainSizeStartsAtOne
 {
@@ -176,10 +176,10 @@
     [self makeMoveFor:CSPID_PlayerWhite atX:7 andY:8];
     
     // when
-    int chainSize =[sut longestChainForStoneAt:[CSPLocation coordinateWithX:7 andY:8]];
+    NSUInteger chainSize =[sut longestChainForStoneAt:[CSPLocation coordinateWithX:7 andY:8]];
     
     // then
-    assertThatInt(chainSize, is(equalToInt(1)));
+    assertThatUnsignedInteger(chainSize, is(equalToInt(1)));
 }
 //- (void)testCapturing
 //{

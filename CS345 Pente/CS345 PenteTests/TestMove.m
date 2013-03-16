@@ -111,7 +111,7 @@
     // then
     assertThatUnsignedInteger(x, equalToUnsignedInteger(targX));
     assertThatUnsignedInteger(y, equalToUnsignedInteger(targY));
-    assertThatInt(plr, equalToInt(plrID));
+    assertThatUnsignedInteger(plr, equalToInt(plrID));
 }
 
 

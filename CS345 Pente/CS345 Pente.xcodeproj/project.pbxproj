@@ -65,13 +65,13 @@
 		E966658416F38B9C00F9EC96 /* TestLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestLocation.m; sourceTree = "<group>"; };
 		E966658816F38DC600F9EC96 /* CSPLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPLocation.h; sourceTree = "<group>"; };
 		E966658916F38DC600F9EC96 /* CSPLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPLocation.m; sourceTree = "<group>"; };
-		E966658B16F3979600F9EC96 /* TestMove.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestMove.m; sourceTree = "<group>"; };
+		E966658B16F3979600F9EC96 /* TestMove.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TestMove.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		E966658F16F39B1D00F9EC96 /* CSPMove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPMove.h; sourceTree = "<group>"; };
 		E966659016F39B1D00F9EC96 /* CSPMove.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPMove.m; sourceTree = "<group>"; };
-		E966659216F3A3B800F9EC96 /* TestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestModel.m; sourceTree = "<group>"; };
+		E966659216F3A3B800F9EC96 /* TestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TestModel.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		E966659616F3A3E200F9EC96 /* CSPGollumInTheCloset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPGollumInTheCloset.h; sourceTree = "<group>"; };
 		E966659716F3A3E200F9EC96 /* CSPGollumInTheCloset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPGollumInTheCloset.m; sourceTree = "<group>"; };
-		E966659916F3B45500F9EC96 /* TestStone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestStone.m; sourceTree = "<group>"; };
+		E966659916F3B45500F9EC96 /* TestStone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TestStone.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		E96665A016F3B48500F9EC96 /* CSPStone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPStone.h; sourceTree = "<group>"; };
 		E96665A116F3B48500F9EC96 /* CSPStone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPStone.m; sourceTree = "<group>"; };
 		E96665A616F4033C00F9EC96 /* CSPBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPBoard.h; sourceTree = "<group>"; };

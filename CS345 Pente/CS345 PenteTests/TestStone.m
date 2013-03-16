@@ -73,7 +73,7 @@
 }
 -(void)testNewStoneHasNoNeighbors
 {
-    assertThatInt([sut neighborCount], is(@0));
+    assertThatUnsignedInteger([sut neighborCount], is(@0));
 }
 -(void)testAddingNeighborToNewStoneMakesNeighborSetNonempty
 {
@@ -81,7 +81,7 @@
     [sut setNeighborTo:buddy
            inDirection:CSDID_SouthEast];
 
-    assertThatInt([sut neighborCount], is(@1));
+    assertThatUnsignedInteger([sut neighborCount], is(@1));
 }
 -(void)testAddingNeighborLeavesAddedNeighborInRightDirection
 {
@@ -104,18 +104,18 @@
     [sut setNeighborTo:nil
            inDirection:CSDID_SouthEast];
     
-    assertThatInt([sut neighborCount], is(@0));
+    assertThatUnsignedInteger([sut neighborCount], is(@0));
 }
 
 -(void)testNewStoneHasNoChainToSE
 {
-    assertThatInt([sut chainLengthIn:CSDID_SouthEast], is(@0));
+    assertThatUnsignedInteger([sut chainLengthIn:CSDID_SouthEast], is(@0));
 }
 -(void)testAddingSEStoneIncreasesSEChainToOne
 {
     [sut setNeighborTo:buddy
            inDirection:CSDID_SouthEast];
-    assertThatInt([sut chainLengthIn:CSDID_SouthEast], is(@1));
+    assertThatUnsignedInteger([sut chainLengthIn:CSDID_SouthEast], is(@1));
 }
 -(void)testAddingSEStoneWithSENeighborIncreasesSEChainToTwo
 {
@@ -124,17 +124,17 @@
              inDirection:CSDID_SouthEast];
     [sut setNeighborTo:buddy
            inDirection:CSDID_SouthEast];
-    assertThatInt([sut chainLengthIn:CSDID_SouthEast], is(@2));
+    assertThatUnsignedInteger([sut chainLengthIn:CSDID_SouthEast], is(@2));
 }
 -(void)testNewStoneHasMaxChainOfOne
 {
-    assertThatInt([sut longestChainLength], is(@1));
+    assertThatUnsignedInteger([sut longestChainLength], is(@1));
 }
 -(void)testAddingSEStoneIncreasesMaxChainToTwo
 {
     [sut setNeighborTo:buddy
            inDirection:CSDID_SouthEast];
-    assertThatInt([sut longestChainLength], is(@2));
+    assertThatUnsignedInteger([sut longestChainLength], is(@2));
 }
 -(void)testAddingWrongColorExtraSEStoneLeavesMaxChainAtTwo
 {
@@ -146,7 +146,7 @@
            inDirection:CSDID_SouthEast];
     [buddy setNeighborTo:buddybuddy
              inDirection:CSDID_SouthEast];
-    assertThatInt([sut longestChainLength], is(@2));
+    assertThatUnsignedInteger([sut longestChainLength], is(@2));
 }
 
 -(void)testNewStoneBookendsNothing
