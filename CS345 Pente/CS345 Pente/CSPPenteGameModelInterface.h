@@ -9,7 +9,14 @@
 #import "CSPMoveInterface.h"
 #import "CSPCoordinateInterface.h"
 
+typedef enum {
+    CSPGO_WhiteWins,
+    CSPGO_BlackWins,
+    CSPGO_GameNotOver
+} CSPGameOverID;
+
 @protocol CSPPenteGameModelInterface <NSObject>
+@property (assign, readonly) CSPGameOverID gameOverState;
 
 // Is ___ a legal place to move? / Is ___ a legal move? (yes/no)
 -(BOOL) isLegalMove:(id<CSPMoveInterface>) aMove;
@@ -31,6 +38,7 @@
 
 // How wide is the board?
 -(int) boardWidth;
+
 
 // Low priority:
 // Max adjacent stones of stone ___? (0-4)

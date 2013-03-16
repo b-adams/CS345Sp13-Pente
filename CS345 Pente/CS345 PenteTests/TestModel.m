@@ -163,12 +163,46 @@
     // then
     [self testMoveFor:CSPID_PlayerWhite atX:7 andY:8 isLegal:NO];
 }
+- (void)testGameBeginsWithNobodyHavingWon
+{
+    // given
+    // when
+    // then
+    assertThatInt([sut gameOverState], is(equalToInt(CSPGO_GameNotOver)));
+}
+- (void)testChainSizeStartsAtOne
+{
+    // given
+    [self makeMoveFor:CSPID_PlayerWhite atX:7 andY:8];
+    
+    // when
+    int chainSize =[sut longestChainForStoneAt:[CSPLocation coordinateWithX:7 andY:8]];
+    
+    // then
+    assertThatInt(chainSize, is(equalToInt(1)));
+}
+//- (void)testCapturing
+//{
+//    // given
+//    [self makeMoveFor:CSPID_PlayerBlack atX:6 andY:8];
+//    [self makeMoveFor:CSPID_PlayerWhite atX:7 andY:8];
+//    [self makeMoveFor:CSPID_PlayerWhite atX:8 andY:8];
+//    // when
+//    [self makeMoveFor:CSPID_PlayerBlack atX:9 andY:8]; //Capture!
+//    
+//    // then
+//    [self testMoveFor:CSPID_PlayerWhite atX:7 andY:8 isLegal:YES];
+//}
 //Test capture removes pieces
 //Test can repeat after capture
 //Test making straight five sets gameover
 //Test making middle five sets gameover
 //Test making multifive sets gameover
 //Test making more than five sets gameover
+//Test capture game over
+//Test game over matches winning player
+//Test making a move also adds neighbor links
+//Test making a move also captures pieces
 
 #pragma mark Helper Methods
 

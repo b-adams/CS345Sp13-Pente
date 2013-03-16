@@ -15,11 +15,13 @@
 {
     CSPBoard* _theBoard;
 }
+
 - (id)init
 {
     self = [super init];
     if (self) {
         _theBoard = [CSPBoard boardWithWidth:19];
+        [self setGameOverState:CSPGO_GameNotOver];
     }
     return self;
 }
@@ -38,7 +40,6 @@
 
 - (void)makeMove:(id<CSPMoveInterface>)aMove
 {
-//check for legality first
     [self setTurnNumber:1+[self turnNumber]];
     CSPStone* theStone = [[CSPStone alloc] initWithPlacement:aMove];
     [_theBoard setObjectAtCoordinate:aMove
@@ -72,7 +73,8 @@
 
 - (int)longestChainForStoneAt:(id<CSPCoordinateInterface>)aLocation
 {
-    return 0;
+    CSPStone* thePiece = [_theBoard objectAtCoordinate:aLocation];
+    return [thePiece longestChainLength];
 }
 
 #pragma mark Helper Methods
