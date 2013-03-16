@@ -10,6 +10,7 @@
 //2D array with access by CSPLocation Interfaced indices
 //Also should have fast enumeration (?)
 #import "CSPBoard.h"
+#import "CSPCoordinateInterface.h"
 
 @implementation CSPBoard
 - (id)init
@@ -20,7 +21,7 @@
 {
     self = [super init];
     if (self) {
-        ;
+        [self setWidth:theWidth];
     }
     return self;
 }
@@ -38,7 +39,15 @@
 - (void)setObjectAtCoordinate:(id <CSPCoordinateInterface>)coord
                      toObject:(id)anObject
 {
-
+    NSUInteger cox = [coord x];
+    NSUInteger coy = [coord y];
+    NSUInteger myw = [self width];
+    if(cox >= myw)
+    {
+        [NSException raise:NSRangeException
+                    format:@"X Index exceeds size"];
+        
+    }
 }
 
 - (id)objectAtCoordinate:(id <CSPCoordinateInterface>)coord
