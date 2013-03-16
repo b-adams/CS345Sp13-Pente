@@ -10,8 +10,8 @@
 #import "CSPCoordinateInterface.h"
 
 @interface CSPLocation : NSObject <CSPCoordinateInterface>
-@property (assign) int x;
-@property (assign) int y;
+@property (assign) NSUInteger x;
+@property (assign) NSUInteger y;
 
 
 @end

@@ -10,7 +10,7 @@
 
 @implementation CSPLocation
 
-- (id)initWithX:(int)initialX andY:(int)initialY
+- (id)initWithX:(NSUInteger)initialX andY:(NSUInteger)initialY
 {
     self = [super init];
     if (self) {
@@ -23,15 +23,15 @@
 {
     return [self initWithX:-1 andY:-1];
 }
-+(id) coordinateWithX:(int)initialX andY:(int)initialY
++(id) coordinateWithX:(NSUInteger)initialX andY:(NSUInteger)initialY
 {
     return [[[self class] alloc] initWithX:initialX andY:initialY];
 }
 
 - (id <CSPCoordinateInterface>)coordinateInDirection:(CSPDirectionID)whichDirection
 {
-    int coordX = [self x] + directionOffsetX(whichDirection);
-    int coordY = [self y] + directionOffsetY(whichDirection);
+    NSUInteger coordX = [self x] + directionOffsetX(whichDirection);
+    NSUInteger coordY = [self y] + directionOffsetY(whichDirection);
 
     return [[self class] coordinateWithX:coordX
                                     andY:coordY];

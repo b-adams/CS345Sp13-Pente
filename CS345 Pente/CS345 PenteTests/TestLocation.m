@@ -83,16 +83,16 @@
 #pragma mark Helper Methods
 
 - (void)assertThatCoord:(id <CSPCoordinateInterface>)coord
-                   hasX:(int)targX
-                   andY:(int)targY
+                   hasX:(NSUInteger)targX
+                   andY:(NSUInteger)targY
 {
     // when
-    int x = [coord x];
-    int y = [coord y];
+    NSUInteger x = [coord x];
+    NSUInteger y = [coord y];
 
     // then
-    assertThatInt(x, equalToInt(targX));
-    assertThatInt(y, equalToInt(targY));
+    assertThatInteger(x, equalToInteger(targX));
+    assertThatInteger(y, equalToInteger(targY));
 }
 
 

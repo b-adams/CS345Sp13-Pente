@@ -21,9 +21,9 @@ typedef enum {
 
 @protocol CSPCoordinateInterface <NSObject>
 
-@property (readonly, assign) int x;
-@property (readonly, assign) int y;
--(id)initWithX:(int) initialX andY:(int) initialY;
-+(id)coordinateWithX:(int) initialX andY:(int) initialY;
+@property (readonly, assign) NSUInteger x;
+@property (readonly, assign) NSUInteger y;
+-(id)initWithX:(NSUInteger) initialX andY:(NSUInteger) initialY;
++(id)coordinateWithX:(NSUInteger) initialX andY:(NSUInteger) initialY;
 -(id<CSPCoordinateInterface>) coordinateInDirection:(CSPDirectionID)whichDirection;
 @end

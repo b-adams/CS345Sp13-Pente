@@ -20,10 +20,10 @@
     
     if(![self isCurrentTurn:[aMove player]]) return NO;
     
-    int curX = [aMove x];
-    int oldX = [_lastMove x];
-    int curY = [aMove y];
-    int oldY = [_lastMove y];
+    NSUInteger curX = [aMove x];
+    NSUInteger oldX = [_lastMove x];
+    NSUInteger curY = [aMove y];
+    NSUInteger oldY = [_lastMove y];
     if(curX == oldX && curY == oldY)
         return NO;
     

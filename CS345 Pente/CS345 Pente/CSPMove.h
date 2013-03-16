@@ -11,7 +11,7 @@
 #import "CSPLocation.h"
 
 @interface CSPMove : CSPLocation <CSPMoveInterface>
-@property (assign) int x;
-@property (assign) int y;
+@property (assign) NSUInteger x;
+@property (assign) NSUInteger y;
 @property (assign) CSPPlayerID player;
 @end
