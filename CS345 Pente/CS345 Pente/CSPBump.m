@@ -10,4 +10,29 @@
 
 @implementation CSPBump
 
+-(void) setWhiteStone{
+   
+    [self setImage:[NSImage imageNamed:@"Pente_White_Stone.png"]];
+
+}
+
+-(void) setBlankBump{
+    
+    [self setImage:[NSImage imageNamed:@"Pente_Blank_Bump.png"]];
+}
+
+-(void) setBlackStone{
+
+    [self setImage:[NSImage imageNamed:@"Pente_Black_Stone.png"]];
+
+}
+
+-(void) setToSomething
+{
+    if(rand()%2) [self setWhiteStone];
+    else [self setBlackStone];
+    
+}
+
+
 @end
