@@ -15,7 +15,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
+        [self setImage:[NSImage imageNamed:@"Pente_Blank_Bump.png"]];
     }
     return self;
 }
@@ -23,6 +23,8 @@
 -(void)drawRect:(NSRect)dirtyRect
 
 {
+    [super drawRect:dirtyRect];
+    
     const int BOARD_SIZE = 500;
     const int GRID_SQUARES = 19;
     const int GRID_SIZE = BOARD_SIZE/(GRID_SQUARES+1);

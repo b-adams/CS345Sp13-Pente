@@ -37,6 +37,9 @@
 		E9834D8B16F387BA00DC7E56 /* OCHamcrest.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E9834D8616F3879700DC7E56 /* OCHamcrest.framework */; };
 		E9834D8C16F387BA00DC7E56 /* OCMockito.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E9834D8716F3879700DC7E56 /* OCMockito.framework */; };
 		E9F55BBD172720B200400D58 /* CSPBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F55BBC172720B200400D58 /* CSPBoardView.m */; };
+		E9F55BC0172730AE00400D58 /* CSPStoneBowl.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F55BBF172730AE00400D58 /* CSPStoneBowl.m */; };
+		E9F55BC3172730C200400D58 /* CSPBlackStoneBowl.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F55BC2172730C200400D58 /* CSPBlackStoneBowl.m */; };
+		E9F55BC6172730CB00400D58 /* CSPWhiteStoneBowl.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F55BC5172730CB00400D58 /* CSPWhiteStoneBowl.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +114,12 @@
 		E9834D8716F3879700DC7E56 /* OCMockito.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCMockito.framework; sourceTree = "<group>"; };
 		E9F55BBB172720B200400D58 /* CSPBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPBoardView.h; sourceTree = "<group>"; };
 		E9F55BBC172720B200400D58 /* CSPBoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPBoardView.m; sourceTree = "<group>"; };
+		E9F55BBE172730AE00400D58 /* CSPStoneBowl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPStoneBowl.h; sourceTree = "<group>"; };
+		E9F55BBF172730AE00400D58 /* CSPStoneBowl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPStoneBowl.m; sourceTree = "<group>"; };
+		E9F55BC1172730C200400D58 /* CSPBlackStoneBowl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPBlackStoneBowl.h; sourceTree = "<group>"; };
+		E9F55BC2172730C200400D58 /* CSPBlackStoneBowl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPBlackStoneBowl.m; sourceTree = "<group>"; };
+		E9F55BC4172730CB00400D58 /* CSPWhiteStoneBowl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPWhiteStoneBowl.h; sourceTree = "<group>"; };
+		E9F55BC5172730CB00400D58 /* CSPWhiteStoneBowl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPWhiteStoneBowl.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +163,12 @@
 				E9834D6716F3877700DC7E56 /* MainMenu.xib */,
 				E9F55BBB172720B200400D58 /* CSPBoardView.h */,
 				E9F55BBC172720B200400D58 /* CSPBoardView.m */,
+				E9F55BBE172730AE00400D58 /* CSPStoneBowl.h */,
+				E9F55BBF172730AE00400D58 /* CSPStoneBowl.m */,
+				E9F55BC1172730C200400D58 /* CSPBlackStoneBowl.h */,
+				E9F55BC2172730C200400D58 /* CSPBlackStoneBowl.m */,
+				E9F55BC4172730CB00400D58 /* CSPWhiteStoneBowl.h */,
+				E9F55BC5172730CB00400D58 /* CSPWhiteStoneBowl.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -392,6 +407,9 @@
 				E96665A816F4033C00F9EC96 /* CSPBoard.m in Sources */,
 				65A00A101725704E00D736DA /* CSPBump.m in Sources */,
 				E9F55BBD172720B200400D58 /* CSPBoardView.m in Sources */,
+				E9F55BC0172730AE00400D58 /* CSPStoneBowl.m in Sources */,
+				E9F55BC3172730C200400D58 /* CSPBlackStoneBowl.m in Sources */,
+				E9F55BC6172730CB00400D58 /* CSPWhiteStoneBowl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
