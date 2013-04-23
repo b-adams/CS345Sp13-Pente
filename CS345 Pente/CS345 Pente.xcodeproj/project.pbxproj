@@ -36,6 +36,7 @@
 		E9834D8916F3879700DC7E56 /* OCMockito.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9834D8716F3879700DC7E56 /* OCMockito.framework */; };
 		E9834D8B16F387BA00DC7E56 /* OCHamcrest.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E9834D8616F3879700DC7E56 /* OCHamcrest.framework */; };
 		E9834D8C16F387BA00DC7E56 /* OCMockito.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E9834D8716F3879700DC7E56 /* OCMockito.framework */; };
+		E9F55BBD172720B200400D58 /* CSPBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F55BBC172720B200400D58 /* CSPBoardView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +109,8 @@
 		E9834D7C16F3877700DC7E56 /* CS345_PenteTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CS345_PenteTests.m; sourceTree = "<group>"; };
 		E9834D8616F3879700DC7E56 /* OCHamcrest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCHamcrest.framework; sourceTree = "<group>"; };
 		E9834D8716F3879700DC7E56 /* OCMockito.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCMockito.framework; sourceTree = "<group>"; };
+		E9F55BBB172720B200400D58 /* CSPBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPBoardView.h; sourceTree = "<group>"; };
+		E9F55BBC172720B200400D58 /* CSPBoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPBoardView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +152,8 @@
 				65A00A0F1725704E00D736DA /* CSPBump.m */,
 				E9834D6416F3877700DC7E56 /* CSPDocument.xib */,
 				E9834D6716F3877700DC7E56 /* MainMenu.xib */,
+				E9F55BBB172720B200400D58 /* CSPBoardView.h */,
+				E9F55BBC172720B200400D58 /* CSPBoardView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -386,6 +391,7 @@
 				E96665A216F3B48500F9EC96 /* CSPStone.m in Sources */,
 				E96665A816F4033C00F9EC96 /* CSPBoard.m in Sources */,
 				65A00A101725704E00D736DA /* CSPBump.m in Sources */,
+				E9F55BBD172720B200400D58 /* CSPBoardView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
