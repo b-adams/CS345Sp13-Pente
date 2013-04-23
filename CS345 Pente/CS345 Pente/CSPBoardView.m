@@ -9,7 +9,8 @@
 #import "CSPBoardView.h"
 
 @implementation CSPBoardView
-
+{
+}
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -22,45 +23,37 @@
 -(void)drawRect:(NSRect)dirtyRect
 
 {
-    //const int resY = 1024;
-    const int boardSize = 500;
-    const int gridSize = 25;
-    const int halfGrid = gridSize/2;
-    convertStartIntX = ((convertStartIntX+halfGrid)/gridSize)*gridSize;
-    convertStartIntY = ((convertStartIntY+halfGrid)/gridSize)*gridSize;
-    convertEndIntX = ((convertEndIntX+halfGrid)/gridSize)*gridSize;
-    convertEndIntY = ((convertEndIntY+halfGrid)/gridSize)*gridSize;
+    const int BOARD_SIZE = 500;
+    const int GRID_SQUARES = 19;
+    const int GRID_SIZE = BOARD_SIZE/(GRID_SQUARES+1);
     
-    
-    NSBezierPath * path = [NSBezierPath bezierPath];
-    [path setLineWidth: 2];
-    for (int i=0; i<boardSize+gridSize; i+=gridSize)
-    {
-        NSPoint startPoint2 = { 0, i };
-        NSPoint endPoint2   = {boardSize,i };
-        [path  moveToPoint:startPoint2];
-        [path lineToPoint:endPoint2];
-    }
-    [[NSColor blueColor] set];
-    [path stroke];
-    for (int i=0; i<boardSize+gridSize; i+=gridSize)
-    {
-        NSPoint startPoint2 = { i, 0};
-        NSPoint endPoint2   = {i, boardSize};
-        [path  moveToPoint: startPoint2];
-        [path lineToPoint:endPoint2];
-    }
-    [[NSColor blackColor] set];
-    [path stroke];
-}
+    NSPoint startPoint;
+    NSPoint endPoint;
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
+    NSBezierPath * path = [NSBezierPath bezierPath];
+    
+    //Sketch horizontal lines
+    for (int i=0; i<BOARD_SIZE+GRID_SIZE; i+=GRID_SIZE)
+    {
+        startPoint = NSMakePoint(0, i);
+        endPoint   = NSMakePoint(BOARD_SIZE, i);
+        [path  moveToPoint:startPoint];
+        [path lineToPoint:endPoint];
+    }
+    
+    //Sketch vertical lines
+    for (int i=0; i<BOARD_SIZE+GRID_SIZE; i+=GRID_SIZE)
+    {
+        startPoint = NSMakePoint(i, 0);
+        endPoint   = NSMakePoint(i, BOARD_SIZE);
+        [path  moveToPoint: startPoint];
+        [path lineToPoint:endPoint];
+    }
+
+    //Ink the sketch
+    [[NSColor blackColor] set];
+    [path setLineWidth: 2];
+    [path stroke];
 }
-*/
 
 @end

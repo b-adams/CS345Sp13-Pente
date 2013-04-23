@@ -9,14 +9,5 @@
 #import <Cocoa/Cocoa.h>
 
 @interface CSPBoardView : NSView
-{
-    
-    NSPoint startPoint;
-    NSPoint endPoint;
-    //CGContextRef context;
-    int convertStartIntX;
-    int convertStartIntY;
-    int convertEndIntX;
-    int convertEndIntY;
-}
+
 @end
