@@ -10,4 +10,8 @@
 
 @interface CSPBump : NSImageView
 
+-(void) setWhiteStone;
+-(void) setBlankBump;
+-(void) setBlackStone;
+
 @end

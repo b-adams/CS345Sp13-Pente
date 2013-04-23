@@ -23,7 +23,7 @@
 
 -(void) setBlackStone{
 
-    [self setImage:[NSImage imageNamed:@"Pente_Black_Stone.png"]];
+    [self setImage:[NSImage imageNamed:@"Pente_Black Stone.png"]];
 
 }
 
