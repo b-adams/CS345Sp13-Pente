@@ -145,6 +145,8 @@
 		E966657F16F3892500F9EC96 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				65A00A0E1725704E00D736DA /* CSPBump.h */,
+				65A00A0F1725704E00D736DA /* CSPBump.m */,
 				E9834D6416F3877700DC7E56 /* CSPDocument.xib */,
 				E9834D6716F3877700DC7E56 /* MainMenu.xib */,
 			);
@@ -167,8 +169,6 @@
 				E96665A116F3B48500F9EC96 /* CSPStone.m */,
 				E96665A616F4033C00F9EC96 /* CSPBoard.h */,
 				E96665A716F4033C00F9EC96 /* CSPBoard.m */,
-				65A00A0E1725704E00D736DA /* CSPBump.h */,
-				65A00A0F1725704E00D736DA /* CSPBump.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
