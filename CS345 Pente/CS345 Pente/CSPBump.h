@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface CSPBump : NSObject
+@interface CSPBump : NSImageView
 
 @end

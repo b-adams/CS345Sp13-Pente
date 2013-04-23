@@ -27,12 +27,12 @@
 
 }
 
--(void) setToSomething
+- (id)initWithFrame:(NSRect)frame
 {
-    if(rand()%2) [self setWhiteStone];
-    else [self setBlackStone];
-    
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self setBlankBump];
+    }
+    return self;
 }
-
-
 @end
