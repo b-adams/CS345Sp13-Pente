@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		65A00A101725704E00D736DA /* CSPBump.m in Sources */ = {isa = PBXBuildFile; fileRef = 65A00A0F1725704E00D736DA /* CSPBump.m */; };
+		65A00A121725712100D736DA /* Pente_Black Stone.png in Resources */ = {isa = PBXBuildFile; fileRef = 65A00A111725712100D736DA /* Pente_Black Stone.png */; };
+		65A00A141725712900D736DA /* Pente_Blank_Bump.png in Resources */ = {isa = PBXBuildFile; fileRef = 65A00A131725712900D736DA /* Pente_Blank_Bump.png */; };
+		65A00A161725712F00D736DA /* Pente_White_Stone.png in Resources */ = {isa = PBXBuildFile; fileRef = 65A00A151725712F00D736DA /* Pente_White_Stone.png */; };
 		E966658616F38B9C00F9EC96 /* TestLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = E966658416F38B9C00F9EC96 /* TestLocation.m */; };
 		E966658A16F38DC600F9EC96 /* CSPLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = E966658916F38DC600F9EC96 /* CSPLocation.m */; };
 		E966658D16F3979600F9EC96 /* TestMove.m in Sources */ = {isa = PBXBuildFile; fileRef = E966658B16F3979600F9EC96 /* TestMove.m */; };
@@ -59,6 +63,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		65A00A0E1725704E00D736DA /* CSPBump.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPBump.h; sourceTree = "<group>"; };
+		65A00A0F1725704E00D736DA /* CSPBump.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPBump.m; sourceTree = "<group>"; };
+		65A00A111725712100D736DA /* Pente_Black Stone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Pente_Black Stone.png"; sourceTree = "<group>"; };
+		65A00A131725712900D736DA /* Pente_Blank_Bump.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pente_Blank_Bump.png; sourceTree = "<group>"; };
+		65A00A151725712F00D736DA /* Pente_White_Stone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pente_White_Stone.png; sourceTree = "<group>"; };
 		E966658116F3897200F9EC96 /* CSPCoordinateInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CSPCoordinateInterface.h; sourceTree = "<group>"; };
 		E966658216F389E000F9EC96 /* CSPMoveInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CSPMoveInterface.h; sourceTree = "<group>"; };
 		E966658316F38A8500F9EC96 /* CSPPenteGameModelInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CSPPenteGameModelInterface.h; sourceTree = "<group>"; };
@@ -136,6 +145,8 @@
 		E966657F16F3892500F9EC96 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				65A00A0E1725704E00D736DA /* CSPBump.h */,
+				65A00A0F1725704E00D736DA /* CSPBump.m */,
 				E9834D6416F3877700DC7E56 /* CSPDocument.xib */,
 				E9834D6716F3877700DC7E56 /* MainMenu.xib */,
 			);
@@ -217,6 +228,9 @@
 		E9834D5616F3877700DC7E56 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				65A00A151725712F00D736DA /* Pente_White_Stone.png */,
+				65A00A131725712900D736DA /* Pente_Blank_Bump.png */,
+				65A00A111725712100D736DA /* Pente_Black Stone.png */,
 				E9834D5716F3877700DC7E56 /* CS345 Pente-Info.plist */,
 				E9834D5816F3877700DC7E56 /* InfoPlist.strings */,
 				E9834D5B16F3877700DC7E56 /* main.m */,
@@ -327,6 +341,9 @@
 				E9834D6016F3877700DC7E56 /* Credits.rtf in Resources */,
 				E9834D6616F3877700DC7E56 /* CSPDocument.xib in Resources */,
 				E9834D6916F3877700DC7E56 /* MainMenu.xib in Resources */,
+				65A00A121725712100D736DA /* Pente_Black Stone.png in Resources */,
+				65A00A141725712900D736DA /* Pente_Blank_Bump.png in Resources */,
+				65A00A161725712F00D736DA /* Pente_White_Stone.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,6 +385,7 @@
 				E966659816F3A3E200F9EC96 /* CSPGollumInTheCloset.m in Sources */,
 				E96665A216F3B48500F9EC96 /* CSPStone.m in Sources */,
 				E96665A816F4033C00F9EC96 /* CSPBoard.m in Sources */,
+				65A00A101725704E00D736DA /* CSPBump.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
