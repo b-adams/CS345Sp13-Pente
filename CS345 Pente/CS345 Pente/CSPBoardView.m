@@ -74,7 +74,7 @@ const int GRID_SIZE = BOARD_SIZE/(GRID_SQUARES+1);
     }
 
     //Ink the sketch
-    [[NSColor blackColor] set];
+    [[NSColor colorWithSRGBRed:0 green:0 blue:0 alpha:0.2] set];
     [path setLineWidth: 2];
     [path stroke];
 }

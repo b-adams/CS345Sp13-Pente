@@ -9,7 +9,9 @@
 #import "CSPBump.h"
 
 @implementation CSPBump
-
+{
+    int ctr;
+}
 -(void) setWhiteStone{
    
     [self setImage:[NSImage imageNamed:@"Pente_White_Stone.png"]];
@@ -34,5 +36,19 @@
         [self setBlankBump];
     }
     return self;
+}
+
+-(void)mouseDown:(NSEvent *)theEvent
+{
+    ctr+=1;
+    ctr%=3;
+    switch(ctr)
+    {
+        case 0: [self setWhiteStone]; break;
+        case 1: [self setBlackStone]; break;
+        case 2:
+        default: [self setBlankBump]; break;
+    }
+    [self setNeedsDisplay];
 }
 @end
