@@ -8,6 +8,10 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface CSPBoardView : NSView
+@interface CSPBoardView : NSView{
+    NSImageView *CSPBoardViewJPB;
+    NSImageView *CSPBoardViewJPB2;
+    NSRect JPBRect;
+   }
 
 @end
