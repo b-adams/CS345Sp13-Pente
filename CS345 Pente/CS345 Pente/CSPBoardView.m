@@ -20,7 +20,7 @@ const int GRID_SIZE = BOARD_SIZE/(GRID_SQUARES+1);
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self setImage:[NSImage imageNamed:@"Pente_Blank_Bump.png"]];
+        [self setImage:[NSImage imageNamed:@"Pente_Board_2.png"]];
         
         CSPBump* aBump = nil;
         NSRect location;
