@@ -54,7 +54,7 @@ const int GRID_SIZE = BOARD_SIZE/(GRID_SQUARES+1);
                 aBump = [[CSPBump alloc] initWithBoard:self
                                               andFrame:location];
                 [self addSubview:aBump];
-
+                
                 //For later lookup
                 gridDatum = @{CSPDatumBump: aBump,
                               CSPDatumX: @(x),
@@ -62,10 +62,10 @@ const int GRID_SIZE = BOARD_SIZE/(GRID_SQUARES+1);
                 [gridRowData addObject:gridDatum];
                 [reverseGridData setObject:gridDatum
                                     forKey:aBump];
-//                [aBump setWantsLayer:YES];
-//                [aBump setShadow:[self shadowForDangerLevel:(x+y)%6]];
-
-
+                //                [aBump setWantsLayer:YES];
+                //                [aBump setShadow:[self shadowForDangerLevel:(x+y)%6]];
+                
+                
             }
             [gridData addObject:gridRowData];
         }
@@ -82,7 +82,7 @@ const int GRID_SIZE = BOARD_SIZE/(GRID_SQUARES+1);
     
     NSPoint startPoint;
     NSPoint endPoint;
-
+    
     NSBezierPath * path = [NSBezierPath bezierPath];
     
     //Sketch horizontal lines
@@ -102,7 +102,7 @@ const int GRID_SIZE = BOARD_SIZE/(GRID_SQUARES+1);
         [path  moveToPoint: startPoint];
         [path lineToPoint:endPoint];
     }
-
+    
     //Ink the sketch
     [[NSColor colorWithSRGBRed:0 green:0 blue:0 alpha:0.2] set];
     [path setLineWidth: 2];
@@ -119,13 +119,13 @@ const int GRID_SIZE = BOARD_SIZE/(GRID_SQUARES+1);
         bumpCenter = NSMakePoint([bumpLocation x]*GRID_SIZE + GRID_SIZE/2,
                                  [bumpLocation y]*GRID_SIZE + GRID_SIZE/2);
         newDangerLevel = [[self dataSource] pieceChainLengthAtLocation:bumpLocation];
-        if(NSPointInRect(bumpCenter, dirtyRect))
-        {
-            newColor = [[self dataSource] pieceColorAtLocation:bumpLocation];
-            [aBump setColor:newColor];
-            [self setDangerLevelTo:newDangerLevel
-                         forBumpAt:bumpLocation];
-        }
+        //        if(NSPointInRect(bumpCenter, dirtyRect))
+        //        {
+        newColor = [[self dataSource] pieceColorAtLocation:bumpLocation];
+        [aBump setColor:newColor];
+        [self setDangerLevelTo:newDangerLevel
+                     forBumpAt:bumpLocation];
+        //        }
     }
 }
 
@@ -135,10 +135,10 @@ const int GRID_SIZE = BOARD_SIZE/(GRID_SQUARES+1);
 - (BOOL)allowDragEnteredForBump:(CSPBump *)whichBump
                       withColor:(NSString*) color;
 {
-
+    
     CSPMove* attemptedMove = [self makeMoveAtBump:whichBump
                                          forColor:color];
-
+    
     //Send request via Controller to the Model to determine if the move is legal
     BOOL allowed;
     allowed = [[self dataSource] isMoveLegal:attemptedMove];
@@ -147,11 +147,11 @@ const int GRID_SIZE = BOARD_SIZE/(GRID_SQUARES+1);
 
 //Delegate-style drop manager
 - (BOOL)allowDragDropForBump:(CSPBump *)whichBump
-                           withColor:(NSString*) color;
+                   withColor:(NSString*) color;
 {
     CSPMove* attemptedMove = [self makeMoveAtBump:whichBump
                                          forColor:color];
-
+    
     //Send order via Controller to the Model to make the move
     BOOL allowed;
     allowed = [[self dataSource] isMoveLegal:attemptedMove];
@@ -166,7 +166,7 @@ const int GRID_SIZE = BOARD_SIZE/(GRID_SQUARES+1);
 {
     NSDictionary* bumpRecord = [self datumAtX:[aMove x]
                                          andY:[aMove y]];
-//    NSLog(@"Lookup up %@\n", bumpRecord);
+    //    NSLog(@"Lookup up %@\n", bumpRecord);
     CSPBump* theBump = [bumpRecord objectForKey:CSPDatumBump];
     
     if(!theBump) return;
@@ -219,7 +219,7 @@ const int GRID_SIZE = BOARD_SIZE/(GRID_SQUARES+1);
     NSShadow* shadow = nil;
     shadow = [[NSShadow alloc] init];
     [shadow setShadowBlurRadius:4.0f];
-//    [shadow setShadowOffset:NSMakeSize(4.0f, 4.0f)];
+    //    [shadow setShadowOffset:NSMakeSize(4.0f, 4.0f)];
     [shadow setShadowColor:shadowColor];
     
     return shadow;
@@ -241,7 +241,7 @@ const int GRID_SIZE = BOARD_SIZE/(GRID_SQUARES+1);
                                forColor:(NSString *)color
 {
     NSDictionary* bumpRecord = [self datumWithBump:whichBump];
-//    NSLog(@"Lookup up %@\n", bumpRecord);
+    //    NSLog(@"Lookup up %@\n", bumpRecord);
     
     NSNumber* coord = nil;
     

@@ -116,6 +116,7 @@
     
     if([theModel whoIsWinner]==CSPID_NOBODY)
     {
+        [[self theBoardView] setNeedsDisplay];
         return YES; //Move over, allow the drop.
     }
     
