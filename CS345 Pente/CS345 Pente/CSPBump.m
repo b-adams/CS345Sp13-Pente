@@ -34,6 +34,10 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self setBlankBump];
+        //Can't do this in AwakeFromNib because these are not set
+        //up in a nib file!
+        NSArray* acceptedTypes = @[NSPasteboardTypeString];
+        [self registerForDraggedTypes:acceptedTypes];
     }
     return self;
 }
@@ -51,4 +55,85 @@
     }
     [self setNeedsDisplay];
 }
+
+#pragma mark Drop Target
+
+//This has to be done in init, because these aren't being stored in the NIB
+//-(void)awakeFromNib
+//{
+//    NSArray* acceptedTypes = @[NSPasteboardTypeString];
+//    [self registerForDraggedTypes:acceptedTypes];
+//}
+
+-(NSDragOperation)draggingEntered:(id<NSDraggingInfo>)sender
+{
+    NSLog(@"Drag entered: <%@>", sender);
+    NSDragOperation desiredAction = [sender draggingSourceOperationMask];
+    
+    if(desiredAction & NSDragOperationCopy)
+    {
+        [self setImageFrameStyle:NSImageFrameGroove];
+        return NSDragOperationCopy;
+    } else {
+        return NSDragOperationNone;
+    }
+}
+
+-(void)draggingExited:(id<NSDraggingInfo>)sender
+{
+    NSLog(@"Drag exited: <%@>", sender);
+    [self setImageFrameStyle:NSImageFrameNone];
+}
+
+-(BOOL)performDragOperation:(id<NSDraggingInfo>)sender
+{
+    NSLog(@"Drag perform: <%@>", sender);
+
+    NSPasteboard* pboard = [sender draggingPasteboard];
+    NSArray* availableTypes = [pboard types];
+    
+    BOOL dropAccepted = NO;
+    
+    if([availableTypes containsObject:NSPasteboardTypeString])
+    {
+        NSString* theColor = [pboard stringForType:NSPasteboardTypeString];
+        dropAccepted = YES;
+        
+        NSLog(@"What a [%@] drag!\n", [theColor lowercaseString]);
+        
+        if([[theColor lowercaseString] isEqualToString:@"black"])
+        {
+            [self setBlackStone];
+        }
+        else if([[theColor lowercaseString] isEqualToString:@"white"])
+        {
+            [self setWhiteStone];
+        }
+        else
+        {
+            NSAlert *alert = [[NSAlert alloc] init];
+            [alert addButtonWithTitle:@"YES"];
+            [alert addButtonWithTitle:@"No"];
+            [alert setMessageText:@"Blank the bump?"];
+            [alert setInformativeText:[NSString stringWithFormat:@"Unrecognized color \"%@\"", theColor]];
+            [alert setAlertStyle:NSWarningAlertStyle];
+            
+            if ([alert runModal] == NSAlertFirstButtonReturn) {
+                // OK clicked
+                [self setBlankBump];
+            } else {
+                dropAccepted=NO;
+            }
+            alert = nil;
+        }
+    }
+    
+    if(dropAccepted)
+    {
+        [self setNeedsDisplay];
+    }
+    [self setImageFrameStyle:NSImageFrameNone];
+    return dropAccepted;
+}
+
 @end
