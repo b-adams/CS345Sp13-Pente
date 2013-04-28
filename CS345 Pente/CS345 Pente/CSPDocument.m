@@ -79,7 +79,7 @@
     return [theModel isLegalMove:aMove];
 }
 
-- (void)makeMoveHappen:(id <CSPMoveInterface>)aMove
+- (BOOL)makeMoveHappen:(id <CSPMoveInterface>)aMove
 {
     //Make the move
     NSSet* changedLocations = nil;
@@ -95,6 +95,10 @@
         newMove = [CSPMove moveWithPlayer:whoIsThere
                                atLocation:changedMove];
         [[self theBoardView] setBumpToMatch:newMove];
+        
+        NSUInteger pieceThreat = [self pieceChainLengthAtLocation:aMove];
+        [[self theBoardView] setDangerLevelTo:pieceThreat
+                                    forBumpAt:newMove];
     }
     
     //Update capture labels
@@ -109,8 +113,13 @@
     captureMessage = [NSString stringWithFormat:@"%ld", (unsigned long)captures];
     [[self captureLabelForWhite] setStringValue:captureMessage];
     
-
-    //TODO: check if game is over and pop up alert
+    
+    if([theModel whoIsWinner]==CSPID_NOBODY)
+    {
+        return YES; //Move over, allow the drop.
+    }
+    
+    
     NSString* winnersColor = nil;
     switch([theModel whoIsWinner])
     {
@@ -120,30 +129,30 @@
         case CSPID_PlayerWhite:
             winnersColor = @"White";
             break;
+            
         case CSPID_NOBODY:
-        default: return; //Move all done
+        default: NSLog(@"Reached impossible case!");
     }
     
     //Someone must have won to get to this point
     NSAlert *alert = [[NSAlert alloc] init];
-    [alert addButtonWithTitle:@"YES!"];
-    [alert addButtonWithTitle:@"No"];
-    [alert setMessageText:@"GAME OVER!\nPlay again?"];
-    [alert setInformativeText:[NSString stringWithFormat:@"Winner: %@", winnersColor]];
+    [alert addButtonWithTitle:@"OK"];
+    [alert setMessageText:[NSString stringWithFormat:@"Winner: %@", winnersColor]];
+    [alert setInformativeText:@"Command-N to play again."] ;
     [alert setAlertStyle:NSWarningAlertStyle];
     
     if ([alert runModal] == NSAlertFirstButtonReturn)
-    {   // user clicked YES
-        theModel = nil;
-        theModel = [[CSPGollumInTheCloset alloc] init];
-        [[self captureLabelForWhite] setStringValue:@"XX"];
-        [[self captureLabelForBlack] setStringValue:@"XX"];
-        [[self theBoardView] setNeedsDisplay];
-    } else {
+    {   // user clicked OK
         [self close]; //Close the window.
     }
     alert = nil;
+    return NO;  //Don't place the piece! Game was over!
+    
+}
 
+- (NSUInteger)pieceChainLengthAtLocation:(id <CSPCoordinateInterface>)where
+{
+    return [theModel longestChainForStoneAt:where];
 }
 
 @end

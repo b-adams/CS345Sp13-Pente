@@ -119,13 +119,11 @@
 
 -(void)draggingExited:(id<NSDraggingInfo>)sender
 {
-    NSLog(@"Drag exited: <%p>", self);
     [self setImageFrameStyle:NSImageFrameNone]; //Clear highlight
 }
 
 -(BOOL)performDragOperation:(id<NSDraggingInfo>)sender
 {
-    NSLog(@"Drag perform on: <%p>", self);
 
     NSString* theColor = [self extractStringFromDrag:sender];
     BOOL dropAccepted;

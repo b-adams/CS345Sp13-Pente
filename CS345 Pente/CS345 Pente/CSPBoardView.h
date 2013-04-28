@@ -20,5 +20,6 @@
 -(BOOL) allowDragDropForBump:(CSPBump*) whichBump
                     withColor:(NSString*) color;
 -(void) setBumpToMatch:(id<CSPMoveInterface>) aMove;
-
+-(void) setDangerLevelTo:(NSUInteger) danger
+               forBumpAt:(id<CSPCoordinateInterface>) location;
 @end

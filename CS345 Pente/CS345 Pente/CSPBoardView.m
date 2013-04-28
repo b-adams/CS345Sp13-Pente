@@ -27,15 +27,15 @@ const int GRID_SIZE = BOARD_SIZE/(GRID_SQUARES+1);
 
 - (id)initWithFrame:(CGRect)frame
 {
-    NSMutableArray* gridData = [NSMutableArray arrayWithCapacity:GRID_SQUARES];
-    NSMapTable* reverseGridData = [NSMapTable mapTableWithKeyOptions:NSMapTableWeakMemory
-                                                        valueOptions:NSMapTableStrongMemory];
-    NSMutableArray* gridRowData = nil;
-    
-    NSDictionary* gridDatum = nil;
-    
     self = [super initWithFrame:frame];
     if (self) {
+        NSMutableArray* gridData = [NSMutableArray arrayWithCapacity:GRID_SQUARES];
+        NSMapTable* reverseGridData = [NSMapTable mapTableWithKeyOptions:NSMapTableWeakMemory
+                                                            valueOptions:NSMapTableStrongMemory];
+        NSMutableArray* gridRowData = nil;
+        NSDictionary* gridDatum = nil;
+        
+        [self setWantsLayer:YES]; //http://stackoverflow.com/questions/9050703/nsview-drop-shadow-using-setshadow
         [self setImage:[NSImage imageNamed:@"Pente_Board_2.png"]];
         
         CSPBump* aBump = nil;
@@ -62,7 +62,9 @@ const int GRID_SIZE = BOARD_SIZE/(GRID_SQUARES+1);
                 [gridRowData addObject:gridDatum];
                 [reverseGridData setObject:gridDatum
                                     forKey:aBump];
-                
+//                [aBump setWantsLayer:YES];
+//                [aBump setShadow:[self shadowForDangerLevel:(x+y)%6]];
+
 
             }
             [gridData addObject:gridRowData];
@@ -108,6 +110,7 @@ const int GRID_SIZE = BOARD_SIZE/(GRID_SQUARES+1);
     
     //Refresh images on dirty bumps
     NSString* newColor=nil;
+    NSUInteger newDangerLevel;
     id<CSPCoordinateInterface> bumpLocation = nil;
     NSPoint bumpCenter;
     for(CSPBump* aBump in [locationsOfBumps keyEnumerator])
@@ -115,10 +118,13 @@ const int GRID_SIZE = BOARD_SIZE/(GRID_SQUARES+1);
         bumpLocation = [self makeLocationAtBump:aBump];
         bumpCenter = NSMakePoint([bumpLocation x]*GRID_SIZE + GRID_SIZE/2,
                                  [bumpLocation y]*GRID_SIZE + GRID_SIZE/2);
+        newDangerLevel = [[self dataSource] pieceChainLengthAtLocation:bumpLocation];
         if(NSPointInRect(bumpCenter, dirtyRect))
         {
             newColor = [[self dataSource] pieceColorAtLocation:bumpLocation];
             [aBump setColor:newColor];
+            [self setDangerLevelTo:newDangerLevel
+                         forBumpAt:bumpLocation];
         }
     }
 }
@@ -151,7 +157,7 @@ const int GRID_SIZE = BOARD_SIZE/(GRID_SQUARES+1);
     allowed = [[self dataSource] isMoveLegal:attemptedMove];
     if(allowed)
     {
-        [[self dataSource] makeMoveHappen:attemptedMove];
+        allowed = [[self dataSource] makeMoveHappen:attemptedMove];
     }
     return allowed;
 }
@@ -179,7 +185,45 @@ const int GRID_SIZE = BOARD_SIZE/(GRID_SQUARES+1);
             break;
     }
 }
+
+-(void) setDangerLevelTo:(NSUInteger) danger
+               forBumpAt:(id<CSPCoordinateInterface>) location
+{
+    NSDictionary* bumpRecord = [self datumAtX:[location x]
+                                         andY:[location y]];
+    //    NSLog(@"Lookup up %@\n", bumpRecord);
+    CSPBump* theBump = [bumpRecord objectForKey:CSPDatumBump];
+    
+    if(!theBump) return;
+    [theBump setShadow:[self shadowForDangerLevel:danger]];
+}
+
+
 #pragma mark helper methods
+
+-(NSShadow*) shadowForDangerLevel:(NSUInteger) level
+{
+    NSColor* shadowColor = nil;
+    
+    switch(level)
+    {
+        case 5: shadowColor = [NSColor whiteColor]; break;
+        case 4: shadowColor = [NSColor redColor]; break;
+        case 3: shadowColor = [NSColor orangeColor]; break;
+        case 2: shadowColor = [NSColor yellowColor]; break;
+            
+        case 1: shadowColor = [NSColor greenColor]; break;
+        default: shadowColor = nil;
+    }
+    
+    NSShadow* shadow = nil;
+    shadow = [[NSShadow alloc] init];
+    [shadow setShadowBlurRadius:4.0f];
+//    [shadow setShadowOffset:NSMakeSize(4.0f, 4.0f)];
+    [shadow setShadowColor:shadowColor];
+    
+    return shadow;
+}
 
 -(NSDictionary*) datumAtX:(NSUInteger) x
                      andY: (NSUInteger) y;

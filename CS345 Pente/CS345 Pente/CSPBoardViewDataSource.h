@@ -12,6 +12,7 @@
 
 @protocol CSPBoardViewDataSource <NSObject>
 -(NSString*) pieceColorAtLocation:(id<CSPCoordinateInterface>) where;
+-(NSUInteger) pieceChainLengthAtLocation:(id<CSPCoordinateInterface>) where;
 -(BOOL) isMoveLegal:(id<CSPMoveInterface>) aMove;
--(void) makeMoveHappen:(id<CSPMoveInterface>) aMove;
+-(BOOL) makeMoveHappen:(id<CSPMoveInterface>) aMove;
 @end
