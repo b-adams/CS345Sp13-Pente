@@ -118,6 +118,7 @@
 		E9A8331E172D75EC00A384EA /* Pente_Board_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pente_Board_2.png; sourceTree = "<group>"; };
 		E9A83320172D80B500A384EA /* Pente_White_Stone_Bowl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pente_White_Stone_Bowl.png; sourceTree = "<group>"; };
 		E9A83321172D80B500A384EA /* Pente_Black_Stone_Bowl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pente_Black_Stone_Bowl.png; sourceTree = "<group>"; };
+		E9A83325172DB13B00A384EA /* CSPBoardViewDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CSPBoardViewDataSource.h; sourceTree = "<group>"; };
 		E9F55BBB172720B200400D58 /* CSPBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPBoardView.h; sourceTree = "<group>"; };
 		E9F55BBC172720B200400D58 /* CSPBoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPBoardView.m; sourceTree = "<group>"; };
 		E9F55BBE172730AE00400D58 /* CSPStoneBowl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPStoneBowl.h; sourceTree = "<group>"; };
@@ -154,6 +155,7 @@
 		E966657E16F3891D00F9EC96 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E9A83325172DB13B00A384EA /* CSPBoardViewDataSource.h */,
 				E9834D6116F3877700DC7E56 /* CSPDocument.h */,
 				E9834D6216F3877700DC7E56 /* CSPDocument.m */,
 			);

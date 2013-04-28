@@ -7,33 +7,49 @@
 //
 
 #import "CSPBump.h"
+#import "CSPBoardView.h"
 
 @implementation CSPBump
 {
     int ctr;
+    CSPBoardView* theBoardUponWhichIReside;
+    NSString* currentColor;
 }
--(void) setWhiteStone{
-   
+-(void) setWhiteStone
+{
     [self setImage:[NSImage imageNamed:@"Pente_White_Stone.png"]];
-
 }
 
--(void) setBlankBump{
-    
+-(void) setBlankBump
+{
     [self setImage:[NSImage imageNamed:@"Pente_Blank_Bump.png"]];
 }
 
--(void) setBlackStone{
-
+-(void) setBlackStone
+{
     [self setImage:[NSImage imageNamed:@"Pente_Black Stone.png"]];
-
 }
 
-- (id)initWithFrame:(NSRect)frame
+-(void) setColor:(NSString*) newColor
 {
-    self = [super initWithFrame:frame];
+    if(currentColor == newColor) return; //no work to do
+
+    currentColor = newColor; //So we can skip work later
+    if([newColor isEqualToString:@"black"]) return [self setBlackStone];
+    if([newColor isEqualToString:@"white"]) return [self setWhiteStone];
+    if([newColor isEqualToString:@"blank"]) return [self setBlankBump];
+    NSLog(@"Bump attempting to set unknown color <%@>", newColor);
+}
+
+
+- (id)initWithBoard:(CSPBoardView *)myBoard
+           andFrame:(NSRect)frameRect
+{
+    self = [super initWithFrame:frameRect];
     if (self) {
-        [self setBlankBump];
+        theBoardUponWhichIReside = myBoard;
+        [self setColor:@"blank"];
+
         //Can't do this in AwakeFromNib because these are not set
         //up in a nib file!
         NSArray* acceptedTypes = @[NSPasteboardTypeString];
@@ -41,20 +57,13 @@
     }
     return self;
 }
-
--(void)mouseDown:(NSEvent *)theEvent
+- (id)init
 {
-    ctr+=1;
-    ctr%=3;
-    switch(ctr)
-    {
-        case 0: [self setWhiteStone]; break;
-        case 1: [self setBlackStone]; break;
-        case 2:
-        default: [self setBlankBump]; break;
-    }
-    [self setNeedsDisplay];
+    NSLog(@"Error: Attempting to initialize a bump without a board");
+    return nil;
 }
+
+- (id)initWithFrame:(NSRect)frame { return [self init]; }
 
 #pragma mark Drop Target
 
@@ -65,75 +74,73 @@
 //    [self registerForDraggedTypes:acceptedTypes];
 //}
 
--(NSDragOperation)draggingEntered:(id<NSDraggingInfo>)sender
+-(NSString*) extractStringFromDrag:(id<NSDraggingInfo>)sender
 {
-    NSLog(@"Drag entered: <%@>", sender);
-    NSDragOperation desiredAction = [sender draggingSourceOperationMask];
-    
-    if(desiredAction & NSDragOperationCopy)
-    {
-        [self setImageFrameStyle:NSImageFrameGroove];
-        return NSDragOperationCopy;
-    } else {
-        return NSDragOperationNone;
-    }
-}
-
--(void)draggingExited:(id<NSDraggingInfo>)sender
-{
-    NSLog(@"Drag exited: <%@>", sender);
-    [self setImageFrameStyle:NSImageFrameNone];
-}
-
--(BOOL)performDragOperation:(id<NSDraggingInfo>)sender
-{
-    NSLog(@"Drag perform: <%@>", sender);
-
     NSPasteboard* pboard = [sender draggingPasteboard];
     NSArray* availableTypes = [pboard types];
-    
-    BOOL dropAccepted = NO;
     
     if([availableTypes containsObject:NSPasteboardTypeString])
     {
         NSString* theColor = [pboard stringForType:NSPasteboardTypeString];
-        dropAccepted = YES;
-        
-        NSLog(@"What a [%@] drag!\n", [theColor lowercaseString]);
-        
-        if([[theColor lowercaseString] isEqualToString:@"black"])
-        {
-            [self setBlackStone];
-        }
-        else if([[theColor lowercaseString] isEqualToString:@"white"])
-        {
-            [self setWhiteStone];
-        }
-        else
-        {
-            NSAlert *alert = [[NSAlert alloc] init];
-            [alert addButtonWithTitle:@"YES"];
-            [alert addButtonWithTitle:@"No"];
-            [alert setMessageText:@"Blank the bump?"];
-            [alert setInformativeText:[NSString stringWithFormat:@"Unrecognized color \"%@\"", theColor]];
-            [alert setAlertStyle:NSWarningAlertStyle];
-            
-            if ([alert runModal] == NSAlertFirstButtonReturn) {
-                // OK clicked
-                [self setBlankBump];
-            } else {
-                dropAccepted=NO;
-            }
-            alert = nil;
-        }
+        return [theColor lowercaseString];
+    } else {
+        return nil;
+    }
+
+}
+
+-(NSDragOperation)draggingEntered:(id<NSDraggingInfo>)sender
+{
+    NSDragOperation allowedAction = NSDragOperationCopy;
+    NSDragOperation desiredAction = [sender draggingSourceOperationMask];
+    if((desiredAction & allowedAction) == NSDragOperationNone)
+    {
+        return NSDragOperationNone;
     }
     
+    NSString* theColor = [self extractStringFromDrag:sender];
+    if(!theColor)
+    {
+        return NSDragOperationNone;
+    }
+
+    BOOL dragOK;
+    dragOK = [theBoardUponWhichIReside allowDragEnteredForBump:self
+                                                     withColor:theColor];
+    if(!dragOK)
+    {
+        return NSDragOperationNone;
+    }
+
+    //It's a copy action with a color that yields a legal move!
+    [self setImageFrameStyle:NSImageFrameGroove];
+    return allowedAction;
+}
+
+-(void)draggingExited:(id<NSDraggingInfo>)sender
+{
+    NSLog(@"Drag exited: <%p>", self);
+    [self setImageFrameStyle:NSImageFrameNone]; //Clear highlight
+}
+
+-(BOOL)performDragOperation:(id<NSDraggingInfo>)sender
+{
+    NSLog(@"Drag perform on: <%p>", self);
+
+    NSString* theColor = [self extractStringFromDrag:sender];
+    BOOL dropAccepted;
+    
+    dropAccepted = [theBoardUponWhichIReside allowDragDropForBump:self
+                                                        withColor:theColor];
+
     if(dropAccepted)
     {
         [self setNeedsDisplay];
     }
-    [self setImageFrameStyle:NSImageFrameNone];
+    
+    [self setImageFrameStyle:NSImageFrameNone]; //Clear highlight
     return dropAccepted;
 }
+
 
 @end

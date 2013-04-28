@@ -7,7 +7,12 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "CSPBoardViewDataSource.h"
+#import "CSPBoardView.h"
 
-@interface CSPDocument : NSDocument
+@interface CSPDocument : NSDocument <CSPBoardViewDataSource>
+@property (weak) IBOutlet NSTextField *captureLabelForWhite;
+@property (weak) IBOutlet NSTextField *captureLabelForBlack;
+@property (weak) IBOutlet CSPBoardView *theBoardView;
 
 @end

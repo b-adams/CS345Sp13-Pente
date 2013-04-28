@@ -7,11 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+@class CSPBoardView;
 
 @interface CSPBump : NSImageView
 
 -(void) setWhiteStone;
 -(void) setBlankBump;
 -(void) setBlackStone;
+-(void) setColor:(NSString*) newColor;
+-(id) initWithBoard:(CSPBoardView*) myBoard
+           andFrame:(NSRect)frameRect;
 
 @end

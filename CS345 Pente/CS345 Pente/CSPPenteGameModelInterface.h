@@ -46,4 +46,5 @@ typedef enum {
 // [For user-assistance coloring purposes, still allowing sneaky XX-XX wins.]
 -(NSUInteger)longestChainForStoneAt:(id<CSPCoordinateInterface>) aLocation;
 
+-(NSSet*) locationsChangedInLastMove;
 @end

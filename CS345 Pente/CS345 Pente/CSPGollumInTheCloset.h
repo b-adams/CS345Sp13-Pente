@@ -12,5 +12,5 @@
 @interface CSPGollumInTheCloset : NSObject <CSPPenteGameModelInterface>
 @property (assign) NSUInteger turnNumber;
 @property (assign) CSPGameOverID gameOverState;
-
+@property (strong) NSSet* locationsChangedInLastMove;
 @end

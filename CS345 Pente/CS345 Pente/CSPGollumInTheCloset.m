@@ -51,9 +51,11 @@ const NSUInteger BOARD_WIDTH = 19;
 - (void)makeMove:(id<CSPMoveInterface>)aMove
 {
     [self setTurnNumber:1+[self turnNumber]];
+    
     CSPStone* theStone = [[CSPStone alloc] initWithPlacement:aMove];
     [_theBoard setObjectAtCoordinate:aMove
                             toObject:theStone];
+
     CSPPlayerID thePlayer = [aMove player];
     NSString* playerKey = nil;
     id<CSPCoordinateInterface> tempLocation = nil;
@@ -100,6 +102,13 @@ const NSUInteger BOARD_WIDTH = 19;
             default: break; //???
         }
     }
+    
+    NSMutableSet* changedLocations = [NSMutableSet setWithObject:aMove];
+    for(CSPStone* captive in allCaptures)
+    {
+        [changedLocations addObject:[captive placement]];
+    }
+    [self setLocationsChangedInLastMove:changedLocations];
 }
 
 - (NSUInteger)capturesByPlayer:(CSPPlayerID)player
