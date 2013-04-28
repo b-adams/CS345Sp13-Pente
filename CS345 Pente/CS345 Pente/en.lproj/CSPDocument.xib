@@ -55,7 +55,7 @@
 							<reference key="NSNextResponder" ref="303046910"/>
 							<int key="NSvFlags">256</int>
 							<array class="NSMutableArray" key="NSSubviews">
-								<object class="NSTextField" id="1053572395">
+								<object class="NSTextField" id="914342570">
 									<reference key="NSNextResponder" ref="77913931"/>
 									<int key="NSvFlags">268</int>
 									<string key="NSFrame">{{210, 0}, {40, 30}}</string>
@@ -64,24 +64,24 @@
 									<reference key="NSNextKeyView" ref="652544364"/>
 									<string key="NSReuseIdentifierKey">_NS:1535</string>
 									<bool key="NSEnabled">YES</bool>
-									<object class="NSTextFieldCell" key="NSCell" id="283459641">
+									<object class="NSTextFieldCell" key="NSCell" id="847348447">
 										<int key="NSCellFlags">68157504</int>
 										<int key="NSCellFlags2">171971584</int>
 										<string key="NSContents"/>
-										<object class="NSFont" key="NSSupport" id="755144689">
+										<object class="NSFont" key="NSSupport" id="839457088">
 											<string key="NSName">LucidaGrande</string>
 											<double key="NSSize">25</double>
 											<int key="NSfFlags">16</int>
 										</object>
 										<string key="NSPlaceholderString">XX</string>
 										<string key="NSCellIdentifier">_NS:1535</string>
-										<reference key="NSControlView" ref="1053572395"/>
+										<reference key="NSControlView" ref="914342570"/>
 										<bool key="NSDrawsBackground">YES</bool>
-										<object class="NSColor" key="NSBackgroundColor" id="399748645">
+										<object class="NSColor" key="NSBackgroundColor" id="890630768">
 											<int key="NSColorSpace">1</int>
 											<bytes key="NSRGB">MSAxIDEAA</bytes>
 										</object>
-										<object class="NSColor" key="NSTextColor" id="457232035">
+										<object class="NSColor" key="NSTextColor" id="387771851">
 											<int key="NSColorSpace">1</int>
 											<bytes key="NSRGB">MCAwIDAAA</bytes>
 										</object>
@@ -92,7 +92,7 @@
 							<string key="NSFrameSize">{250, 250}</string>
 							<reference key="NSSuperview" ref="303046910"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="1053572395"/>
+							<reference key="NSNextKeyView" ref="914342570"/>
 							<string key="NSReuseIdentifierKey">_NS:11</string>
 							<string key="NSClassName">CSPBlackStoneBowl</string>
 						</object>
@@ -100,7 +100,7 @@
 							<reference key="NSNextResponder" ref="303046910"/>
 							<int key="NSvFlags">256</int>
 							<array class="NSMutableArray" key="NSSubviews">
-								<object class="NSTextField" id="623688637">
+								<object class="NSTextField" id="992921850">
 									<reference key="NSNextResponder" ref="666717546"/>
 									<int key="NSvFlags">268</int>
 									<string key="NSFrame">{{210, 220}, {40, 30}}</string>
@@ -109,17 +109,17 @@
 									<reference key="NSNextKeyView" ref="77913931"/>
 									<string key="NSReuseIdentifierKey">_NS:1535</string>
 									<bool key="NSEnabled">YES</bool>
-									<object class="NSTextFieldCell" key="NSCell" id="328579830">
+									<object class="NSTextFieldCell" key="NSCell" id="338691718">
 										<int key="NSCellFlags">68157504</int>
 										<int key="NSCellFlags2">171971584</int>
 										<string key="NSContents"/>
-										<reference key="NSSupport" ref="755144689"/>
+										<reference key="NSSupport" ref="839457088"/>
 										<string key="NSPlaceholderString">XX</string>
 										<string key="NSCellIdentifier">_NS:1535</string>
-										<reference key="NSControlView" ref="623688637"/>
+										<reference key="NSControlView" ref="992921850"/>
 										<bool key="NSDrawsBackground">YES</bool>
-										<reference key="NSBackgroundColor" ref="457232035"/>
-										<reference key="NSTextColor" ref="399748645"/>
+										<reference key="NSBackgroundColor" ref="387771851"/>
+										<reference key="NSTextColor" ref="890630768"/>
 									</object>
 									<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 								</object>
@@ -127,7 +127,7 @@
 							<string key="NSFrame">{{0, 250}, {250, 250}}</string>
 							<reference key="NSSuperview" ref="303046910"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="623688637"/>
+							<reference key="NSNextKeyView" ref="992921850"/>
 							<string key="NSReuseIdentifierKey">_NS:13</string>
 							<string key="NSClassName">CSPWhiteStoneBowl</string>
 						</object>
@@ -247,7 +247,7 @@
 						<int key="objectID">100047</int>
 						<reference key="object" ref="77913931"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="1053572395"/>
+							<reference ref="914342570"/>
 						</array>
 						<reference key="parent" ref="303046910"/>
 					</object>
@@ -255,7 +255,7 @@
 						<int key="objectID">100046</int>
 						<reference key="object" ref="666717546"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="623688637"/>
+							<reference ref="992921850"/>
 						</array>
 						<reference key="parent" ref="303046910"/>
 					</object>
@@ -266,29 +266,29 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">100083</int>
-						<reference key="object" ref="1053572395"/>
+						<reference key="object" ref="914342570"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="283459641"/>
+							<reference ref="847348447"/>
 						</array>
 						<reference key="parent" ref="77913931"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">100084</int>
-						<reference key="object" ref="283459641"/>
-						<reference key="parent" ref="1053572395"/>
+						<reference key="object" ref="847348447"/>
+						<reference key="parent" ref="914342570"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">100085</int>
-						<reference key="object" ref="623688637"/>
+						<reference key="object" ref="992921850"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="328579830"/>
+							<reference ref="338691718"/>
 						</array>
 						<reference key="parent" ref="666717546"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">100086</int>
-						<reference key="object" ref="328579830"/>
-						<reference key="parent" ref="623688637"/>
+						<reference key="object" ref="338691718"/>
+						<reference key="parent" ref="992921850"/>
 					</object>
 				</array>
 			</object>
@@ -360,17 +360,42 @@
 					<string key="className">NSDocument</string>
 					<dictionary class="NSMutableDictionary" key="actions">
 						<string key="browseDocumentVersions:">id</string>
+						<string key="duplicateDocument:">id</string>
+						<string key="lockDocument:">id</string>
 						<string key="moveDocument:">id</string>
+						<string key="moveDocumentToUbiquityContainer:">id</string>
+						<string key="printDocument:">id</string>
 						<string key="renameDocument:">id</string>
 						<string key="revertDocumentToSaved:">id</string>
+						<string key="runPageLayout:">id</string>
+						<string key="saveDocument:">id</string>
+						<string key="saveDocumentAs:">id</string>
+						<string key="saveDocumentTo:">id</string>
+						<string key="unlockDocument:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
 						<object class="IBActionInfo" key="browseDocumentVersions:">
 							<string key="name">browseDocumentVersions:</string>
 							<string key="candidateClassName">id</string>
 						</object>
+						<object class="IBActionInfo" key="duplicateDocument:">
+							<string key="name">duplicateDocument:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="lockDocument:">
+							<string key="name">lockDocument:</string>
+							<string key="candidateClassName">id</string>
+						</object>
 						<object class="IBActionInfo" key="moveDocument:">
 							<string key="name">moveDocument:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="moveDocumentToUbiquityContainer:">
+							<string key="name">moveDocumentToUbiquityContainer:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="printDocument:">
+							<string key="name">printDocument:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="renameDocument:">
@@ -379,6 +404,26 @@
 						</object>
 						<object class="IBActionInfo" key="revertDocumentToSaved:">
 							<string key="name">revertDocumentToSaved:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="runPageLayout:">
+							<string key="name">runPageLayout:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="saveDocument:">
+							<string key="name">saveDocument:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="saveDocumentAs:">
+							<string key="name">saveDocumentAs:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="saveDocumentTo:">
+							<string key="name">saveDocumentTo:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="unlockDocument:">
+							<string key="name">unlockDocument:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 					</dictionary>
