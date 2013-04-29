@@ -15,4 +15,5 @@
 -(void)setToBlack;
 -(void)setToWhite;
 -(void)setToBump;
+-(void)setToSomething;
 @end

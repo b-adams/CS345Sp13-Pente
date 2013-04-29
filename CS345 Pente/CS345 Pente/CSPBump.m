@@ -37,19 +37,19 @@
     
 }
 
--(void)setToBump{
-    
-    [self setStoneColor:@"Bump"];
-    [self setImage:[NSImage imageNamed:@"Pente_Blank_Bump.png"]];
-}
-
 -(void)setToBlack{
     [self setStoneColor:@"Black"];
     [self setImage:[NSImage imageNamed:@"Pente_Black_Stone.png"]];
     
 }
 
-;-(void) setToSomething
+-(void)setToBump{
+    
+    [self setStoneColor:@"Bump"];
+    [self setImage:[NSImage imageNamed:@"Pente_Blank_Bump.png"]];
+}
+
+-(void) setToSomething
 {
     
     if(rand()%2)
@@ -66,7 +66,7 @@
     
     NSLog(@"Click %d", _clickCounter);
     
-    if((_clickCounter/10)%2)
+    if((_clickCounter/1)%2)
         
     {
         
@@ -78,8 +78,8 @@
         [self setToBlack];
         
     }
-    
-    [self setToBump];
+    [self needsDisplay];
+    //[self setToBump];
     
 }
 
