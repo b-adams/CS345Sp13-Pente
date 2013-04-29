@@ -13,5 +13,4 @@
 @property (strong) NSString* bowlColor;
 -(void)setToBlack;
 //-(void)setToSomething;
-- (void)alertDidEnd:(NSAlert *)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
 @end
