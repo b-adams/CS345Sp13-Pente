@@ -140,7 +140,6 @@
 							<string key="NSFrame">{{300, 0}, {400, 50}}</string>
 							<reference key="NSSuperview" ref="303046910"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="335178712">
@@ -167,22 +166,11 @@
 						<object class="NSCustomView" id="573362654">
 							<reference key="NSNextResponder" ref="303046910"/>
 							<int key="NSvFlags">268</int>
-							<array class="NSMutableArray" key="NSSubviews">
-								<object class="NSCustomView" id="692298769">
-									<reference key="NSNextResponder" ref="573362654"/>
-									<int key="NSvFlags">268</int>
-									<string key="NSFrameSize">{498, 500}</string>
-									<reference key="NSSuperview" ref="573362654"/>
-									<reference key="NSWindow"/>
-									<reference key="NSNextKeyView" ref="124664588"/>
-									<string key="NSReuseIdentifierKey">_NS:9</string>
-									<string key="NSClassName">CSPGridView</string>
-								</object>
-							</array>
+							<array class="NSMutableArray" key="NSSubviews"/>
 							<string key="NSFrame">{{252, 0}, {498, 500}}</string>
 							<reference key="NSSuperview" ref="303046910"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="692298769"/>
+							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<string key="NSClassName">CSPBoardView</string>
 						</object>
@@ -285,15 +273,8 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">100088</int>
 						<reference key="object" ref="573362654"/>
-						<array class="NSMutableArray" key="children">
-							<reference ref="692298769"/>
-						</array>
+						<array class="NSMutableArray" key="children"/>
 						<reference key="parent" ref="303046910"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">100089</int>
-						<reference key="object" ref="692298769"/>
-						<reference key="parent" ref="573362654"/>
 					</object>
 				</array>
 			</object>
@@ -312,7 +293,6 @@
 				<string key="100081.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="100082.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="100088.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="100089.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
@@ -324,7 +304,7 @@
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<object class="IBPartialClassDescription">
 					<string key="className">CSPBoardView</string>
-					<string key="superclassName">NSView</string>
+					<string key="superclassName">NSImageView</string>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/CSPBoardView.h</string>
@@ -336,14 +316,6 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/CSPDocument.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">CSPGridView</string>
-					<string key="superclassName">NSView</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/CSPGridView.h</string>
 					</object>
 				</object>
 			</array>

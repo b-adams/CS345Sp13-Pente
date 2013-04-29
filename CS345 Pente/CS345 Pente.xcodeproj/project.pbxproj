@@ -38,7 +38,6 @@
 		E9834D8C16F387BA00DC7E56 /* OCMockito.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E9834D8716F3879700DC7E56 /* OCMockito.framework */; };
 		E9F55BBD172720B200400D58 /* CSPBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F55BBC172720B200400D58 /* CSPBoardView.m */; };
 		ECCA47E9172A085F00FBF533 /* Pente_Board_2.png in Resources */ = {isa = PBXBuildFile; fileRef = ECCA47E8172A085F00FBF533 /* Pente_Board_2.png */; };
-		ECCA47EF172A251C00FBF533 /* CSPGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCA47EE172A251B00FBF533 /* CSPGridView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,8 +113,6 @@
 		E9F55BBB172720B200400D58 /* CSPBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPBoardView.h; sourceTree = "<group>"; };
 		E9F55BBC172720B200400D58 /* CSPBoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPBoardView.m; sourceTree = "<group>"; };
 		ECCA47E8172A085F00FBF533 /* Pente_Board_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pente_Board_2.png; sourceTree = "<group>"; };
-		ECCA47ED172A251B00FBF533 /* CSPGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPGridView.h; sourceTree = "<group>"; };
-		ECCA47EE172A251B00FBF533 /* CSPGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPGridView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,8 +156,6 @@
 				E9834D6716F3877700DC7E56 /* MainMenu.xib */,
 				E9F55BBB172720B200400D58 /* CSPBoardView.h */,
 				E9F55BBC172720B200400D58 /* CSPBoardView.m */,
-				ECCA47ED172A251B00FBF533 /* CSPGridView.h */,
-				ECCA47EE172A251B00FBF533 /* CSPGridView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -401,7 +396,6 @@
 				E96665A816F4033C00F9EC96 /* CSPBoard.m in Sources */,
 				65A00A101725704E00D736DA /* CSPBump.m in Sources */,
 				E9F55BBD172720B200400D58 /* CSPBoardView.m in Sources */,
-				ECCA47EF172A251C00FBF533 /* CSPGridView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
