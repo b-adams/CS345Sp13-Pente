@@ -21,32 +21,10 @@
     return self;
 }
 
-//********-(void) setToBlack
-//{
-//    int bowlImageSize =250;
-//    NSImage *bowlImage;
-//    bowlImage = [NSImage imageNamed:@"Pente_White_Stone.png"];
-//    NSSize sizeForBowlImage = NSMakeSize(bowlImageSize, bowlImageSize);
-//    [bowlImage setSize:sizeForBowlImage];
-//    [self setImage:bowlImage];
-//
-//    [self setBowlColor:@"black"];
-//}
-
-//-(void) setToWhite
-//{
-//    [self setBowlColor:@"white"];
-//    [self setImage:[NSImage imageNamed:@"Pente_White_Stone_Bowl.png"]];
-//}
-//-(void) setToSomething
-//{
-//    if(rand()%2) [self setToWhite];
-//    else [self setToBlack];
-//}
 
 -(void) mouseDown:(NSEvent *)theEvent
 {
-    int dragImageSize = 50;
+    int dragImageSize = 25;
     
     NSImage *associatedImage;
     

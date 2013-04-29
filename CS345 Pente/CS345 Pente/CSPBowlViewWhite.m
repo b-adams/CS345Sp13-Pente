@@ -47,7 +47,7 @@
 -(void) mouseDown:(NSEvent *)theEvent
 {
     [self setToWhite];
-    int dragImageSize = 50;
+    int dragImageSize = 25;
     
     NSImage *associatedImage;
     
@@ -59,6 +59,8 @@
     NSImage *imageToAccompanyDrag = associatedImage;
     NSSize reasonableImageSize = NSMakeSize(dragImageSize, dragImageSize);
     [imageToAccompanyDrag setSize:reasonableImageSize];
+    
+    
     
     NSPoint clickSpot = [self convertPoint:[theEvent locationInWindow]
                                   fromView:nil];

@@ -20,9 +20,5 @@
     return self;
 }
 
-- (void)drawRect:(NSRect)dirtyRect
-{
-    // Drawing code here.
-}
 
 @end

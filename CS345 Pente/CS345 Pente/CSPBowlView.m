@@ -31,24 +31,13 @@
 
 -(void) setToBlack
 {
-    int bowlImageSize =250;
-    NSImage *bowlImage;
-    bowlImage = [NSImage imageNamed:@"Pente_White_Stone.png"];
-    NSSize sizeForBowlImage = NSMakeSize(bowlImageSize, bowlImageSize);
-    [bowlImage setSize:sizeForBowlImage];
-    [self setImage:bowlImage];
-    
+    [self setImage:[NSImage imageNamed:@"Pente_Black_Stone_Bowl.png"]];
     [self setBowlColor:@"black"];
 }
 
 -(void) setToWhite
 {
-    int bowlImageSize =250;
-    NSImage *bowlImage;
-    bowlImage = [NSImage imageNamed:@"Pente_White_Stone.png"];
-    NSSize sizeForBowlImage = NSMakeSize(bowlImageSize, bowlImageSize);
-    [bowlImage setSize:sizeForBowlImage];
-    [self setImage:bowlImage];
+    [self setImage:[NSImage imageNamed:@"Pente_White_Stone_Bowl.png"]];
     
     [self setBowlColor:@"white"];
 }
