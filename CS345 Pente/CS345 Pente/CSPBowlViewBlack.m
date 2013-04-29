@@ -46,6 +46,14 @@
 
 -(void) mouseDown:(NSEvent *)theEvent
 {
+    NSAlert* alert = [[NSAlert alloc]init];
+    [alert addButtonWithTitle:@"Rematch"];
+    [alert addButtonWithTitle:@"End Game"];
+    [alert setMessageText:@"Game Over Color ??? Won!"];
+    [alert setAlertStyle:NSWarningAlertStyle];
+    
+    //[alert beginSheetModalForWindow:[] modalDelegate:self didEndSelector:@selector(alertDidEnd:returnCode:contextInfo) contextInfo:nil];
+    
     int dragImageSize = 50;
     
     NSImage *associatedImage;
@@ -78,5 +86,11 @@
     [super mouseDown:theEvent]; //Make sure basic bird gets its turn
 }
 
+-(void)alertDidEnd:(NSAlert *)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
+{
+    if (returnCode == NSAlertFirstButtonReturn) {
+        //[self closeWindowNow];
+    }
+}
 
 @end
