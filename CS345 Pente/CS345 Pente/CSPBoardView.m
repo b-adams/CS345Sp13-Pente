@@ -37,16 +37,21 @@ NSPoint endPoint;
         {
             for (int p=GRID_SIZE/2; p<BOARD_SIZE-GRID_SIZE; p+=GRID_SIZE){
                 
-
+/*
                 JPBRect = NSMakeRect(i, p, GRID_SIZE, GRID_SIZE);
                 CSPBoardViewJPB2 = [[NSImageView alloc] initWithFrame:JPBRect];
                 [CSPBoardViewJPB2 setImageScaling:NSScaleToFit];
                 [CSPBoardViewJPB2 setImage:[NSImage imageNamed:@"Pente_Blank_Bump.png"]];
                 [self addSubview:CSPBoardViewJPB2];
-                
+  */
             // JPBRect = NSMakeRect(i, p, GRID_SIZE, GRID_SIZE);
             //somehow call dauris's CSPBump instead of the above stuff.
+            //NSImageView *anImage;
             
+                CSPBoardViewJPB2 = [[CSPBump alloc] initWithFrame:frame];
+                [self addSubview:CSPBoardViewJPB2];
+             
+
             }
             
         }
