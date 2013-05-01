@@ -11,6 +11,7 @@
 		2A2E094E17281CAD000FCD2B /* CSPBlackStoneBowl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2E094D17281CAD000FCD2B /* CSPBlackStoneBowl.m */; };
 		2A2E095017281D7E000FCD2B /* Pente_Black_Stone_Bowl.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A2E094F17281D7E000FCD2B /* Pente_Black_Stone_Bowl.png */; };
 		2A2E095217281D86000FCD2B /* Pente_White_Stone_Bowl.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A2E095117281D86000FCD2B /* Pente_White_Stone_Bowl.png */; };
+		2A2E3C9C172EB4EF00AFBC62 /* CSPBoardViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2E3C9B172EB4EF00AFBC62 /* CSPBoardViewTest.m */; };
 		2AC7C4A11728063C00B82D43 /* CSPBowlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AC7C4A01728063C00B82D43 /* CSPBowlView.m */; };
 		2AC7C4A41728066200B82D43 /* CSPBowlViewBlack.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AC7C4A31728066200B82D43 /* CSPBowlViewBlack.m */; };
 		2AC7C4A71728067600B82D43 /* CSPBowlViewWhite.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AC7C4A61728067600B82D43 /* CSPBowlViewWhite.m */; };
@@ -77,6 +78,8 @@
 		2A2E094D17281CAD000FCD2B /* CSPBlackStoneBowl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPBlackStoneBowl.m; sourceTree = "<group>"; };
 		2A2E094F17281D7E000FCD2B /* Pente_Black_Stone_Bowl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pente_Black_Stone_Bowl.png; sourceTree = "<group>"; };
 		2A2E095117281D86000FCD2B /* Pente_White_Stone_Bowl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pente_White_Stone_Bowl.png; sourceTree = "<group>"; };
+		2A2E3C9A172EB4EF00AFBC62 /* CSPBoardViewTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPBoardViewTest.h; sourceTree = "<group>"; };
+		2A2E3C9B172EB4EF00AFBC62 /* CSPBoardViewTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPBoardViewTest.m; sourceTree = "<group>"; };
 		2AC7C49F1728063C00B82D43 /* CSPBowlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPBowlView.h; sourceTree = "<group>"; };
 		2AC7C4A01728063C00B82D43 /* CSPBowlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPBowlView.m; sourceTree = "<group>"; };
 		2AC7C4A21728066200B82D43 /* CSPBowlViewBlack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPBowlViewBlack.h; sourceTree = "<group>"; };
@@ -180,6 +183,8 @@
 				2A2E094D17281CAD000FCD2B /* CSPBlackStoneBowl.m */,
 				65A00A0F1725704E00D736DA /* CSPBump.m */,
 				E9834D6416F3877700DC7E56 /* CSPDocument.xib */,
+				2A2E3C9A172EB4EF00AFBC62 /* CSPBoardViewTest.h */,
+				2A2E3C9B172EB4EF00AFBC62 /* CSPBoardViewTest.m */,
 				E9834D6716F3877700DC7E56 /* MainMenu.xib */,
 				E9F55BBB172720B200400D58 /* CSPBoardView.h */,
 				E9F55BBC172720B200400D58 /* CSPBoardView.m */,
@@ -430,6 +435,7 @@
 				2AC7C4A71728067600B82D43 /* CSPBowlViewWhite.m in Sources */,
 				2A2E094B17281C90000FCD2B /* CSPWhiteStoneBowl.m in Sources */,
 				2A2E094E17281CAD000FCD2B /* CSPBlackStoneBowl.m in Sources */,
+				2A2E3C9C172EB4EF00AFBC62 /* CSPBoardViewTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
