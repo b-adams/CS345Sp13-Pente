@@ -10,4 +10,10 @@
 
 @interface CSPDocument : NSDocument
 
+@property (weak) IBOutlet NSTextField *whiteCounter;
+
+@property (weak) IBOutlet NSTextField *blackCounter;
+
+@property (weak) IBOutlet NSView *penteBoard;
+
 @end
