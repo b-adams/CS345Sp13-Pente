@@ -44,4 +44,61 @@
     [self setImage:[NSImage imageNamed:@"Pente_Blank_Bump.png"]];
 }
 
+#pragma mark Keegan
+
+
+-(NSDragOperation)draggingEntered:(id<NSDraggingInfo>)sender
+{
+    NSDragOperation desiredAction = [sender draggingSourceOperationMask];
+    
+    if((desiredAction & NSDragOperationCopy) != 0)
+    {
+        [self setImageFrameStyle:NSImageFrameGrayBezel];
+        return NSDragOperationCopy;
+    }
+    else
+    {
+        return NSDragOperationNone;
+    }
+}
+-(void)draggingExited:(id<NSDraggingInfo>)sender
+{
+    [self setImageFrameStyle:NSImageFrameNone];
+}
+
+-(BOOL)performDragOperation:(id<NSDraggingInfo>)sender
+{
+    NSPasteboard* pboard = [sender draggingPasteboard];
+    NSArray* availableTypes = [pboard types];
+    
+    BOOL dropAccepted = NO;
+    
+    if([availableTypes containsObject:NSPasteboardTypeString])
+    {
+        NSString* theColor = [pboard stringForType:NSPasteboardTypeString];
+        dropAccepted = YES;
+        if([[theColor lowercaseString] isEqualToString:@"white"])
+        {
+            [self setImage: [NSImage imageNamed:@"Pente_White_Stone.png"]];
+        }
+        else if([[theColor lowercaseString] isEqualToString:@"black"])
+        {
+            [self setImage: [NSImage imageNamed:@"Pente_Black Stone.png"]];
+        }
+        else
+        {
+            NSLog(@"Oh noes! I dunno how to handle '%@' data", theColor);
+            dropAccepted=NO;
+            [self setImage: [NSImage imageNamed:@"Pente_Blank_Bump.png"]];
+        }
+    }
+    
+    if(dropAccepted)
+    {
+        [self setNeedsDisplay];
+    }
+    [self setImageFrameStyle:NSImageFrameNone];
+    return dropAccepted;
+}
+
 @end
