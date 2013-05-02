@@ -9,26 +9,21 @@
 #import "CSPBump.h"
 
 @implementation CSPBump
-{
-    int _clickCounter;
-}
+
+
 - (id)initWithFrame:(NSRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code here.
-        [self setToSomething];
-        _clickCounter = 0;
+        [self setToBump];
+        NSArray* acceptedTypes = @[NSPasteboardTypeString];
+        [self registerForDraggedTypes:acceptedTypes];
+
     }
-    
     return self;
 }
 
-- (void)drawRect:(NSRect)dirtyRect
-{
-    [super drawRect:dirtyRect]; // Drawing code here.
-}
-
+#pragma mark Kyle
 
 -(void)setToWhite{
     
@@ -39,7 +34,7 @@
 
 -(void)setToBlack{
     [self setStoneColor:@"Black"];
-    [self setImage:[NSImage imageNamed:@"Pente_Black_Stone.png"]];
+    [self setImage:[NSImage imageNamed:@"Pente_Black Stone.png"]];
     
 }
 
@@ -47,40 +42,6 @@
     
     [self setStoneColor:@"Bump"];
     [self setImage:[NSImage imageNamed:@"Pente_Blank_Bump.png"]];
-}
-
--(void) setToSomething
-{
-    
-    if(rand()%2)
-        [self setToWhite];
-    
-    else [self setToBlack];
-    
-}
-
--(void)mouseDown:(NSEvent *)theEvent
-{
-    
-    _clickCounter+=1;
-    
-    NSLog(@"Click %d", _clickCounter);
-    
-    if((_clickCounter/1)%2)
-        
-    {
-        
-        [self setToWhite];
-        
-    }
-    else {
-        
-        [self setToBlack];
-        
-    }
-    [self needsDisplay];
-    //[self setToBump];
-    
 }
 
 @end
