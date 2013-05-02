@@ -54,7 +54,7 @@
 
 - (void)popupGameOverAlertWithWinner:(NSString *)winnerName
 {
-    //TODO: Implement this method
+    //TODO: Implement this method. Should close the window after showing the alert.
     @throw [NSException exceptionWithName:@"Unimplemented Method"
                                    reason:NSStringFromSelector(_cmd)
                                  userInfo:nil];
