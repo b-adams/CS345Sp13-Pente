@@ -51,12 +51,7 @@
 {
     NSDragOperation desiredAction = [sender draggingSourceOperationMask];
     
-    if((desiredAction & NSDragOperationCopy) != 0)
-    {
-        [self setImageFrameStyle:NSImageFrameGrayBezel];
-        return NSDragOperationCopy;
-    }
-    else
+    if((desiredAction & NSDragOperationCopy) == NSDragOperationNone)
     {
         return NSDragOperationNone;
     }
@@ -68,28 +63,26 @@
 
 -(BOOL)performDragOperation:(id<NSDraggingInfo>)sender
 {
-    NSPasteboard* pboard = [sender draggingPasteboard];
-    NSArray* availableTypes = [pboard types];
+    NSString* theColor = [self draggedColor:sender];
     
     BOOL dropAccepted = NO;
     
-    if([availableTypes containsObject:NSPasteboardTypeString])
+    if(theColor)
     {
-        NSString* theColor = [pboard stringForType:NSPasteboardTypeString];
         dropAccepted = YES;
-        if([[theColor lowercaseString] isEqualToString:@"white"])
+        if([theColor isEqualToString:@"white"])
         {
             [self setToWhite];
         }
-        else if([[theColor lowercaseString] isEqualToString:@"black"])
+        else if([theColor isEqualToString:@"black"])
         {
             [self setToBlack];
         }
         else
         {
+            [self setToBump];
             NSLog(@"Oh noes! I dunno how to handle '%@' data", theColor);
             dropAccepted=NO;
-            [self setToBump];
         }
     }
     
@@ -99,6 +92,21 @@
     }
     [self setImageFrameStyle:NSImageFrameNone];
     return dropAccepted;
+}
+
+#pragma mark Adams
+
+-(NSString*) draggedColor:(id<NSDraggingInfo>) sender
+{
+    NSPasteboard* pboard = [sender draggingPasteboard];
+    NSArray* availableTypes = [pboard types];
+    
+    if([availableTypes containsObject:NSPasteboardTypeString])
+    {
+        return [[pboard stringForType:NSPasteboardTypeString] lowercaseString];
+    } else {
+        return nil;
+    }
 }
 
 @end
