@@ -54,21 +54,87 @@
 						<object class="NSCustomView" id="77913931">
 							<reference key="NSNextResponder" ref="303046910"/>
 							<int key="NSvFlags">256</int>
-							<array class="NSMutableArray" key="NSSubviews"/>
+							<array class="NSMutableArray" key="NSSubviews">
+								<object class="NSTextField" id="996162477">
+									<reference key="NSNextResponder" ref="77913931"/>
+									<int key="NSvFlags">268</int>
+									<string key="NSFrame">{{176, 20}, {54, 23}}</string>
+									<reference key="NSSuperview" ref="77913931"/>
+									<reference key="NSWindow"/>
+									<string key="NSReuseIdentifierKey">_NS:1535</string>
+									<bool key="NSEnabled">YES</bool>
+									<object class="NSTextFieldCell" key="NSCell" id="594675254">
+										<int key="NSCellFlags">72351808</int>
+										<int key="NSCellFlags2">138413056</int>
+										<string key="NSContents">0</string>
+										<object class="NSFont" key="NSSupport" id="972654567">
+											<string key="NSName">LucidaGrande</string>
+											<double key="NSSize">13</double>
+											<int key="NSfFlags">1044</int>
+										</object>
+										<string key="NSCellIdentifier">_NS:1535</string>
+										<reference key="NSControlView" ref="996162477"/>
+										<bool key="NSDrawsBackground">YES</bool>
+										<int key="NSTextBezelStyle">1</int>
+										<object class="NSColor" key="NSBackgroundColor">
+											<int key="NSColorSpace">1</int>
+											<bytes key="NSRGB">MC45Njg2Mjc0NTEgMC45Njg2Mjc0NTEgMC45Njg2Mjc0NTEAA</bytes>
+										</object>
+										<object class="NSColor" key="NSTextColor" id="271799670">
+											<int key="NSColorSpace">6</int>
+											<string key="NSCatalogName">System</string>
+											<string key="NSColorName">controlTextColor</string>
+											<object class="NSColor" key="NSColor" id="1061180224">
+												<int key="NSColorSpace">3</int>
+												<bytes key="NSWhite">MAA</bytes>
+											</object>
+										</object>
+									</object>
+									<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
+								</object>
+							</array>
 							<string key="NSFrameSize">{250, 250}</string>
 							<reference key="NSSuperview" ref="303046910"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="652544364"/>
+							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:11</string>
 							<string key="NSClassName">CSPBlackStoneBowl</string>
 						</object>
 						<object class="NSCustomView" id="666717546">
 							<reference key="NSNextResponder" ref="303046910"/>
 							<int key="NSvFlags">256</int>
+							<array class="NSMutableArray" key="NSSubviews">
+								<object class="NSTextField" id="953066082">
+									<reference key="NSNextResponder" ref="666717546"/>
+									<int key="NSvFlags">268</int>
+									<string key="NSFrame">{{175, 20}, {55, 50}}</string>
+									<reference key="NSSuperview" ref="666717546"/>
+									<reference key="NSWindow"/>
+									<reference key="NSNextKeyView" ref="60177572"/>
+									<string key="NSReuseIdentifierKey">_NS:1535</string>
+									<bool key="NSEnabled">YES</bool>
+									<object class="NSTextFieldCell" key="NSCell" id="648831548">
+										<int key="NSCellFlags">72351808</int>
+										<int key="NSCellFlags2">138413056</int>
+										<string key="NSContents">0</string>
+										<reference key="NSSupport" ref="972654567"/>
+										<string key="NSCellIdentifier">_NS:1535</string>
+										<reference key="NSControlView" ref="953066082"/>
+										<bool key="NSDrawsBackground">YES</bool>
+										<int key="NSTextBezelStyle">1</int>
+										<object class="NSColor" key="NSBackgroundColor">
+											<int key="NSColorSpace">1</int>
+											<bytes key="NSRGB">MC45Njg2Mjc0NTEgMC45Njg2Mjc0NTEgMC45Njg2Mjc0NTEAA</bytes>
+										</object>
+										<reference key="NSTextColor" ref="271799670"/>
+									</object>
+									<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
+								</object>
+							</array>
 							<string key="NSFrame">{{0, 250}, {250, 250}}</string>
 							<reference key="NSSuperview" ref="303046910"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="60177572"/>
+							<reference key="NSNextKeyView" ref="953066082"/>
 							<string key="NSReuseIdentifierKey">_NS:13</string>
 							<string key="NSClassName">CSPWhiteStoneBowl</string>
 						</object>
@@ -85,11 +151,7 @@
 								<int key="NSCellFlags">67108864</int>
 								<int key="NSCellFlags2">0</int>
 								<string key="NSContents">Box</string>
-								<object class="NSFont" key="NSSupport" id="972654567">
-									<string key="NSName">LucidaGrande</string>
-									<double key="NSSize">13</double>
-									<int key="NSfFlags">1044</int>
-								</object>
+								<reference key="NSSupport" ref="972654567"/>
 								<object class="NSColor" key="NSBackgroundColor" id="952053994">
 									<int key="NSColorSpace">6</int>
 									<string key="NSCatalogName">System</string>
@@ -137,23 +199,10 @@
 						<object class="NSCustomView" id="5713584">
 							<reference key="NSNextResponder" ref="303046910"/>
 							<int key="NSvFlags">256</int>
-							<array class="NSMutableArray" key="NSSubviews">
-								<object class="NSCustomView" id="225126311">
-									<reference key="NSNextResponder" ref="5713584"/>
-									<int key="NSvFlags">268</int>
-									<array class="NSMutableArray" key="NSSubviews"/>
-									<string key="NSFrame">{{0, 472}, {28, 28}}</string>
-									<reference key="NSSuperview" ref="5713584"/>
-									<reference key="NSWindow"/>
-									<reference key="NSNextKeyView" ref="124664588"/>
-									<string key="NSReuseIdentifierKey">_NS:9</string>
-									<string key="NSClassName">CSPBoardViewTest</string>
-								</object>
-							</array>
 							<string key="NSFrame">{{250, 0}, {500, 500}}</string>
 							<reference key="NSSuperview" ref="303046910"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="225126311"/>
+							<reference key="NSNextKeyView" ref="124664588"/>
 							<string key="NSReuseIdentifierKey">_NS:13</string>
 							<string key="NSClassName">CSPBoardView</string>
 						</object>
@@ -179,10 +228,7 @@
 									<int key="NSColorSpace">6</int>
 									<string key="NSCatalogName">System</string>
 									<string key="NSColorName">textColor</string>
-									<object class="NSColor" key="NSColor">
-										<int key="NSColorSpace">3</int>
-										<bytes key="NSWhite">MAA</bytes>
-									</object>
+									<reference key="NSColor" ref="1061180224"/>
 								</object>
 							</object>
 							<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
@@ -194,14 +240,39 @@
 					<reference key="NSNextKeyView" ref="666717546"/>
 					<string key="NSReuseIdentifierKey">_NS:20</string>
 				</object>
-				<string key="NSScreenRect">{{0, 0}, {1280, 1002}}</string>
+				<string key="NSScreenRect">{{0, 0}, {1440, 878}}</string>
 				<string key="NSMinSize">{750, 522}</string>
 				<string key="NSMaxSize">{750, 522}</string>
 				<bool key="NSWindowIsRestorable">YES</bool>
 			</object>
 		</array>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
-			<array class="NSMutableArray" key="connectionRecords"/>
+			<array class="NSMutableArray" key="connectionRecords">
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">whiteCounter</string>
+						<reference key="source" ref="512844837"/>
+						<reference key="destination" ref="953066082"/>
+					</object>
+					<int key="connectionID">100087</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">penteBoard</string>
+						<reference key="source" ref="512844837"/>
+						<reference key="destination" ref="5713584"/>
+					</object>
+					<int key="connectionID">100090</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">blackCounter</string>
+						<reference key="source" ref="512844837"/>
+						<reference key="destination" ref="996162477"/>
+					</object>
+					<int key="connectionID">100095</int>
+				</object>
+			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
 					<object class="IBObjectRecord">
@@ -252,9 +323,6 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">100030</int>
 						<reference key="object" ref="5713584"/>
-						<array class="NSMutableArray" key="children">
-							<reference ref="225126311"/>
-						</array>
 						<reference key="parent" ref="303046910"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -273,12 +341,17 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">100047</int>
 						<reference key="object" ref="77913931"/>
-						<array class="NSMutableArray" key="children"/>
+						<array class="NSMutableArray" key="children">
+							<reference ref="996162477"/>
+						</array>
 						<reference key="parent" ref="303046910"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">100046</int>
 						<reference key="object" ref="666717546"/>
+						<array class="NSMutableArray" key="children">
+							<reference ref="953066082"/>
+						</array>
 						<reference key="parent" ref="303046910"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -293,9 +366,29 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">100083</int>
-						<reference key="object" ref="225126311"/>
-						<array class="NSMutableArray" key="children"/>
-						<reference key="parent" ref="5713584"/>
+						<reference key="object" ref="953066082"/>
+						<array class="NSMutableArray" key="children">
+							<reference ref="648831548"/>
+						</array>
+						<reference key="parent" ref="666717546"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">100084</int>
+						<reference key="object" ref="648831548"/>
+						<reference key="parent" ref="953066082"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">100093</int>
+						<reference key="object" ref="996162477"/>
+						<array class="NSMutableArray" key="children">
+							<reference ref="594675254"/>
+						</array>
+						<reference key="parent" ref="77913931"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">100094</int>
+						<reference key="object" ref="594675254"/>
+						<reference key="parent" ref="996162477"/>
 					</object>
 				</array>
 			</object>
@@ -314,24 +407,20 @@
 				<string key="100050.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="100081.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="100082.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="100083.CustomClassName">whiteCounter</string>
 				<string key="100083.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="100084.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="100093.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="100094.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">100219</int>
+			<int key="maxID">100095</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
-				<object class="IBPartialClassDescription">
-					<string key="className">CSPBlackStoneBowl</string>
-					<string key="superclassName">CSPBowlViewBlack</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/CSPBlackStoneBowl.h</string>
-					</object>
-				</object>
 				<object class="IBPartialClassDescription">
 					<string key="className">CSPBoardView</string>
 					<string key="superclassName">NSView</string>
@@ -341,51 +430,30 @@
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
-					<string key="className">CSPBoardViewTest</string>
-					<string key="superclassName">CSPBowlView</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/CSPBoardViewTest.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">CSPBowlView</string>
-					<string key="superclassName">NSImageView</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/CSPBowlView.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">CSPBowlViewBlack</string>
-					<string key="superclassName">CSPBowlView</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/CSPBowlViewBlack.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">CSPBowlViewWhite</string>
-					<string key="superclassName">CSPBowlView</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/CSPBowlViewWhite.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
 					<string key="className">CSPDocument</string>
 					<string key="superclassName">NSDocument</string>
+					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="blackCounter">NSTextField</string>
+						<string key="penteBoard">NSView</string>
+						<string key="whiteCounter">NSTextField</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="blackCounter">
+							<string key="name">blackCounter</string>
+							<string key="candidateClassName">NSTextField</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="penteBoard">
+							<string key="name">penteBoard</string>
+							<string key="candidateClassName">NSView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="whiteCounter">
+							<string key="name">whiteCounter</string>
+							<string key="candidateClassName">NSTextField</string>
+						</object>
+					</dictionary>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/CSPDocument.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">CSPWhiteStoneBowl</string>
-					<string key="superclassName">CSPBowlViewWhite</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/CSPWhiteStoneBowl.h</string>
 					</object>
 				</object>
 			</array>
