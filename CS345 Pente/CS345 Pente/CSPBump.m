@@ -55,6 +55,9 @@
     {
         return NSDragOperationNone;
     }
+    
+    [self setImageFrameStyle:NSImageFrameGrayBezel];
+    return NSDragOperationCopy;
 }
 -(void)draggingExited:(id<NSDraggingInfo>)sender
 {
