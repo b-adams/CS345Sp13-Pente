@@ -7,7 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Cocoa/Cocoa.h>
 
 @interface CSPBump : NSImageView
 
+@property (strong) NSString* StoneColor;
+-(void)setToBlack;
+-(void)setToWhite;
+-(void)setToBump;
+-(void)setToSomething;
 @end

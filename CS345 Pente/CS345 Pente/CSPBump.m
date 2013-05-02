@@ -9,30 +9,78 @@
 #import "CSPBump.h"
 
 @implementation CSPBump
-
--(void) setWhiteStone{
-   
-    [self setImage:[NSImage imageNamed:@"Pente_White_Stone.png"]];
-
+{
+    int _clickCounter;
 }
-
--(void) setBlankBump{
-    
-    [self setImage:[NSImage imageNamed:@"Pente_Blank_Bump.png"]];
-}
-
--(void) setBlackStone{
-
-    [self setImage:[NSImage imageNamed:@"Pente_Black Stone.png"]];
-
-}
-
 - (id)initWithFrame:(NSRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self setBlankBump];
+        // Initialization code here.
+        [self setToSomething];
+        _clickCounter = 0;
     }
+    
     return self;
 }
+
+- (void)drawRect:(NSRect)dirtyRect
+{
+    [super drawRect:dirtyRect]; // Drawing code here.
+}
+
+
+-(void)setToWhite{
+    
+    [self setStoneColor:@"White"];
+    [self setImage:[NSImage imageNamed:@"Pente_White_Stone.png"]];
+    
+}
+
+-(void)setToBlack{
+    [self setStoneColor:@"Black"];
+    [self setImage:[NSImage imageNamed:@"Pente_Black_Stone.png"]];
+    
+}
+
+-(void)setToBump{
+    
+    [self setStoneColor:@"Bump"];
+    [self setImage:[NSImage imageNamed:@"Pente_Blank_Bump.png"]];
+}
+
+-(void) setToSomething
+{
+    
+    if(rand()%2)
+        [self setToWhite];
+    
+    else [self setToBlack];
+    
+}
+
+-(void)mouseDown:(NSEvent *)theEvent
+{
+    
+    _clickCounter+=1;
+    
+    NSLog(@"Click %d", _clickCounter);
+    
+    if((_clickCounter/1)%2)
+        
+    {
+        
+        [self setToWhite];
+        
+    }
+    else {
+        
+        [self setToBlack];
+        
+    }
+    [self needsDisplay];
+    //[self setToBump];
+    
+}
+
 @end
