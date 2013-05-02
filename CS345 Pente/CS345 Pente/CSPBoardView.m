@@ -40,6 +40,7 @@ const int GRID_SIZE = BOARD_SIZE/(GRID_SQUARES+1);
                 location.y = y*GRID_SIZE+offset;
                 vJPBRect = NSMakeRect(location.x, location.y, GRID_SIZE, GRID_SIZE);
                 tempBump = [[CSPBump alloc] initWithFrame:vJPBRect];
+                //TODO: Initialize bumps with a reference to their host board (this one - self)
                 [self addSubview:tempBump];
                 //TODO: Add bumps to appropriate X,Y coordinate in XY->Bump 2D array
                 //TODO: Add key:bump->object:location in Bump->XY maptable
