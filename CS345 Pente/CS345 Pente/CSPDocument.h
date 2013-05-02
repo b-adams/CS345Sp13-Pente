@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+@class CSPBoardView;
 
 @interface CSPDocument : NSDocument
 
@@ -14,6 +15,6 @@
 
 @property (weak) IBOutlet NSTextField *blackCounter;
 
-@property (weak) IBOutlet NSView *penteBoard;
+@property (weak) IBOutlet CSPBoardView *penteBoard;
 
 @end
