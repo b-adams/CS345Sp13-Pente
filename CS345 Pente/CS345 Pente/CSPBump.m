@@ -79,17 +79,17 @@
         dropAccepted = YES;
         if([[theColor lowercaseString] isEqualToString:@"white"])
         {
-            [self setImage: [NSImage imageNamed:@"Pente_White_Stone.png"]];
+            [self setToWhite];
         }
         else if([[theColor lowercaseString] isEqualToString:@"black"])
         {
-            [self setImage: [NSImage imageNamed:@"Pente_Black Stone.png"]];
+            [self setToBlack];
         }
         else
         {
             NSLog(@"Oh noes! I dunno how to handle '%@' data", theColor);
             dropAccepted=NO;
-            [self setImage: [NSImage imageNamed:@"Pente_Blank_Bump.png"]];
+            [self setToBump];
         }
     }
     
