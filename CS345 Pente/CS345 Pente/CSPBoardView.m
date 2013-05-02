@@ -26,7 +26,7 @@ NSPoint endPoint;
         
         [self setImage:[NSImage imageNamed:@"Pente_Board_2.png"]];
         tempBump = [[CSPBump alloc] initWithFrame:JPBRect];
-        [tempBump setBlankBump];
+        [tempBump setToBlack];
         [self addSubview:(tempBump)];
         NSLog(@"x %f y %f W %f H %f\n", [tempBump frame].origin.x,
               [tempBump frame].origin.y, [tempBump frame].size.width,
@@ -42,7 +42,7 @@ NSPoint endPoint;
                 location.y = y*GRID_SIZE+offset;
                 JPBRect = (NSMakeRect(location.x, location.y, GRID_SIZE, GRID_SIZE));
                 tempBump = [[CSPBump alloc] initWithFrame:JPBRect];
-                [tempBump setBlankBump];
+                [tempBump setToWhite];
                 [self addSubview:tempBump];
                 //NSLog(@"Placing bump %@ at %d, %d", tempBump, i, p);
                 
