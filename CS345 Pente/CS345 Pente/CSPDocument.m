@@ -7,16 +7,23 @@
 //
 
 #import "CSPDocument.h"
-
+#import "CSPPenteGameModelInterface.h"
+#import "CSPGollumInTheCloset.h"
+#import "CSPMove.h"
 
 @implementation CSPDocument
-//TODO: Create an ivar of type id<CSPPenteGameModelInterface> named  _myModel
+{
+    id<CSPPenteGameModelInterface> _myModel;
+}
 - (id)init
 {
     self = [super init];
     if (self) {
-//TODO: Initialize _myModel with a new GollumInTheCloset instance
-//TODO: (KVO) Register to Key-Value-Observe _myModel's gamoeOverState
+        _myModel = [[CSPGollumInTheCloset alloc] init];
+        [(id)_myModel addObserver:self
+                       forKeyPath:@"gameOverState"
+                          options:NSKeyValueObservingOptionNew
+                          context:NULL];
     }
     return self;
 }
@@ -50,47 +57,92 @@
     return YES;
 }
 
-//TODO: (KVO) When a gameOverState change happens, pop up an alert
+-(void)observeValueForKeyPath:(NSString *)keyPath
+                     ofObject:(id)object
+                       change:(NSDictionary *)change
+                      context:(void *)context
+{
+    if(object==_myModel && [keyPath isEqualToString:@"gameOverState"])
+    {
+        switch([_myModel gameOverState])
+        {
+            case CSPGO_BlackWins: [self popupGameOverAlertWithWinner:@"Black"]; break;
+            case CSPGO_WhiteWins: [self popupGameOverAlertWithWinner:@"White"]; break;
+            case CSPGO_GameNotOver: break;
+        }
+    }
+}
 
 - (void)popupGameOverAlertWithWinner:(NSString *)winnerName
 {
-    //TODO: Implement this method. Should close the window after showing the alert.
-    @throw [NSException exceptionWithName:@"Unimplemented Method"
-                                   reason:NSStringFromSelector(_cmd)
-                                 userInfo:nil];
+    NSAlert* alert = [[NSAlert alloc]init];
+    [alert addButtonWithTitle:@"OK"];
+    [alert setMessageText:[NSString stringWithFormat:@"Game Over, %@ wins", winnerName]];
+    [alert setAlertStyle:NSWarningAlertStyle];
+    [alert runModal];
+    [self close]
 }
 
 - (BOOL)isLegalFor:(NSString *)playerColor
          toMoveAtX:(NSUInteger)x
               andY:(NSUInteger)y
 {
-    //TODO: Implement this method (it should delegate work to the model)
-    @throw [NSException exceptionWithName:@"Unimplemented Method"
-                                   reason:NSStringFromSelector(_cmd)
-                                 userInfo:nil];
-    return NO;
+    CSPPlayerID thePlayer;
+    
+    if([playerColor isEqualToString:@"white"])
+        thePlayer = CSPID_PlayerWhite;
+    else if([playerColor isEqualToString:@"black"])
+        thePlayer = CSPID_PlayerBlack;
+    else
+        thePlayer = CSPID_NOBODY;
+    
+    return [_myModel isLegalMove:[CSPMove moveWithPlayer:thePlayer
+                                                     atX:x andY:y]];
 }
 
 - (void)executeMoveBy:(NSString *)playerColor
                   atX:(NSUInteger)x
                  andY:(NSUInteger)y
 {
-    //TODO: Implement this method (it should delegate work to the model)
-    //Also  send the view a -needsDisplay message
-    //Also update the whiteCounter and the blackCounter contents
-    @throw [NSException exceptionWithName:@"Unimplemented Method"
-                                   reason:NSStringFromSelector(_cmd)
-                                 userInfo:nil];
+    CSPPlayerID thePlayer;
+    
+    if([playerColor isEqualToString:@"white"])
+        thePlayer = CSPID_PlayerWhite;
+    else if([playerColor isEqualToString:@"black"])
+        thePlayer = CSPID_PlayerBlack;
+    else
+        thePlayer = CSPID_NOBODY;
+    
+    [_myModel makeMove:[CSPMove moveWithPlayer:thePlayer
+                                           atX:x andY:y]];
+    
+
+    [[self penteBoard] needsDisplay];
+    
+    NSUInteger captures;
+    NSString* capString = nil;
+    
+    captures = [_myModel capturesByPlayer:CSPID_PlayerWhite];
+    capString = [NSString stringWithFormat:@"%ld", captures];
+    [[self whiteCounter] setStringValue:capString];
+
+    captures = [_myModel capturesByPlayer:CSPID_PlayerBlack];
+    capString = [NSString stringWithFormat:@"%ld", captures];
+    [[self blackCounter] setStringValue:capString];
 }
 
 - (NSString *)getPlayerColorAtX:(NSUInteger)x
                            andY:(NSUInteger)y
 {
-    //TODO: Implement this method (it should delegate work to the model)
-    @throw [NSException exceptionWithName:@"Unimplemented Method"
-                                   reason:NSStringFromSelector(_cmd)
-                                 userInfo:nil];
-    return nil;
+    CSPPlayerID pieceCode;
+    pieceCode = [_myModel whosePieceIsAt:[[CSPLocation alloc] initWithX:x
+                                                                   andY:y]];
+    switch(pieceCode)
+    {
+        case CSPID_PlayerBlack: return @"black";
+        case CSPID_PlayerWhite: return @"white";
+        case CSPID_NOBODY: return @"empty";
+    }
 }
 
 @end

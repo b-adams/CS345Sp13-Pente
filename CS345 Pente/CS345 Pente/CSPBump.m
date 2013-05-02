@@ -9,21 +9,25 @@
 #import "CSPBump.h"
 
 @implementation CSPBump
-
-//TODO: Implement initWithFrame:andHost: method to allow bumps to know who their board is
-//TODO: Make a _myHost or _myBoard ivar for use by above method
-
-- (id)initWithFrame:(NSRect)frame
 {
-    //TODO: Make initWithFrame:andBoard: be the designated initializer (initWithFrame: will just pass the buck to it)
+    id<CSPBumpHost> _myBoard;
+}
+- (id)initWithFrame:(NSRect)frame
+            andHost:(id<CSPBumpHost>)hostingBoard
+{
     self = [super initWithFrame:frame];
     if (self) {
         [self setToBump];
         NSArray* acceptedTypes = @[NSPasteboardTypeString];
         [self registerForDraggedTypes:acceptedTypes];
-
+        _myBoard = hostingBoard;
     }
     return self;
+}
+
+- (id)initWithFrame:(NSRect)frame
+{
+    return [self initWithFrame:frame andHost:nil];
 }
 
 /* Kyle's code */
@@ -61,13 +65,14 @@
     }
 
     NSLog(@"Processing %@ drag into bump %@", theColor, self);
-    //TODO: Check legality
-    //Ask host board if the the dragged color would be allowed for this bump
-    //If not: return NSDragOperationNone
-    //If so, do the following code
-    
-    [self setImageFrameStyle:NSImageFrameGrayBezel];
-    return NSDragOperationCopy;
+    if([_myBoard isColor:theColor
+             legalAtBump:self])
+    {
+        [self setImageFrameStyle:NSImageFrameGrayBezel];
+        return NSDragOperationCopy;
+    } else {
+        return NSDragOperationNone;
+    }
 }
 -(void)draggingExited:(id<NSDraggingInfo>)sender
 {
@@ -80,10 +85,9 @@
     BOOL dropAccepted = YES;
 
     NSLog(@"Processing %@ drop into bump %@", theColor, self);
-    //TODO: Initiate move
-    //Assumption: If you're able to make a drop, it was already cleared as legal
-    //Notify host board that dragged color has been dropped on this bump
-    //Don't need to update color - board's drawrect will be responsible for that
+
+    [_myBoard dropColor:theColor
+               ontoBump:self];
     
     [self setNeedsDisplay];
     [self setImageFrameStyle:NSImageFrameNone];
@@ -101,15 +105,6 @@
     } else {
         return nil;
     }
-}
-
-- (id)initWithFrame:(NSRect)frameRect
-            andHost:(id <CSPBumpHost>)hostingBoard
-{
-    @throw [NSException exceptionWithName:@"Unimplemented Method"
-                                   reason:NSStringFromSelector(_cmd)
-                                 userInfo:nil];
-    return nil;
 }
 
 @end

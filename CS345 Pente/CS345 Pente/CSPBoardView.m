@@ -8,20 +8,29 @@
 
 #import "CSPBoardView.h"
 #import "CSPBump.h"
+#import "CSPLocation.h"
 
 const int BOARD_SIZE = 500;
 const int GRID_SQUARES = 19;
 const int GRID_SIZE = BOARD_SIZE/(GRID_SQUARES+1);
 
 @implementation CSPBoardView
-//TODO: Declare ivars for maptable and 2D array
+{
+    NSMapTable* _bumpsToLocations;
+    NSMutableArray* _indicesToBumps;
+}
 
 - (id)initWithFrame:(NSRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        //TODO: Initialize maptable
-        //TODO: Initialize 2D array
+        _bumpsToLocations = [NSMapTable mapTableWithKeyOptions:NSMapTableStrongMemory
+                                                 valueOptions:NSMapTableStrongMemory];
+        _indicesToBumps = [NSMutableArray arrayWithCapacity:19];
+        for(int i=0; i<19; i++)
+        {
+            [_indicesToBumps addObject:[NSMutableArray arrayWithCapacity:19]];
+        }
         [self setImage:[NSImage imageNamed:@"Pente_Board_2.png"]];
 
         NSRect vJPBRect;
@@ -39,11 +48,14 @@ const int GRID_SIZE = BOARD_SIZE/(GRID_SQUARES+1);
                 location.x = x*GRID_SIZE+offset;
                 location.y = y*GRID_SIZE+offset;
                 vJPBRect = NSMakeRect(location.x, location.y, GRID_SIZE, GRID_SIZE);
-                tempBump = [[CSPBump alloc] initWithFrame:vJPBRect];
-                //TODO: Initialize bumps with a reference to their host board (this one - self)
+                tempBump = [[CSPBump alloc] initWithFrame:vJPBRect
+                                                  andHost:self];
                 [self addSubview:tempBump];
-                //TODO: Add bumps to appropriate X,Y coordinate in XY->Bump 2D array
-                //TODO: Add key:bump->object:location in Bump->XY maptable
+                [[_indicesToBumps objectAtIndex:x] setObject:tempBump
+                                                    atIndex:y];
+                [_bumpsToLocations setObject:[[CSPLocation alloc] initWithX:x
+                                                                      andY:y]
+                                     forKey:tempBump];
             }
         }
     }
@@ -56,8 +68,12 @@ const int GRID_SIZE = BOARD_SIZE/(GRID_SQUARES+1);
 {
     
     [super drawRect:dirtyRect];
-    
-    //TODO: factor grid-drawing code out into -drawGrid method
+    [self drawGrid];
+    [self refreshBumpColors];
+}
+
+- (void)drawGrid
+{
     NSPoint startPoint;
     NSPoint endPoint;
     NSBezierPath * path = [NSBezierPath bezierPath];
@@ -83,72 +99,64 @@ const int GRID_SIZE = BOARD_SIZE/(GRID_SQUARES+1);
     [[NSColor blackColor] set];
     [path setLineWidth: 2];
     [path stroke];
-
-    //TODO: Use refreshBumpColors method (and implement it)
-    //Method should loop through all bumps and, for each bump,
-    //ask the datasource for the correct color and set the bump to that color
-}
-
-- (void)drawGrid
-{
-    //TODO: Implement this method
-    @throw [NSException exceptionWithName:@"Unimplemented Method"
-                                   reason:NSStringFromSelector(_cmd)
-                                 userInfo:nil];
+    
 }
 
 - (void)refreshBumpColors
 {
-    //TODO: Implement this method
-    @throw [NSException exceptionWithName:@"Unimplemented Method"
-                                   reason:NSStringFromSelector(_cmd)
-                                 userInfo:nil];
+    id<CSPCoordinateInterface> where = nil;
+    NSString* color;
+    for(CSPBump* aBump in [_bumpsToLocations keyEnumerator])
+    {
+        where = [_bumpsToLocations objectForKey:aBump];
+        color = [[self dataSource] getPlayerColorAtX:[where x]
+                                                andY:[where y]];
+        [self setBump:aBump
+              toColor:color];
+    }
 }
 
 - (CSPBump *)bumpAtLocation:(id <CSPCoordinateInterface>)where
 {
-    //TODO: Implement this method
-    @throw [NSException exceptionWithName:@"Unimplemented Method"
-                                   reason:NSStringFromSelector(_cmd)
-                                 userInfo:nil];
-    return nil;
+    return [[_indicesToBumps objectAtIndex:[where x]] objectAtIndex:[where y]];
 }
 
 - (id <CSPCoordinateInterface>)locationOfBump:(CSPBump *)whichBump
 {
-    //TODO: Implement this method
-    @throw [NSException exceptionWithName:@"Unimplemented Method"
-                                   reason:NSStringFromSelector(_cmd)
-                                 userInfo:nil];
-    return nil;
+    return [_bumpsToLocations objectForKey:whichBump];
 }
 
 - (void)setBump:(CSPBump *)bumpObject
         toColor:(NSString *)colorString
 {
-    //TODO: Implement this method
-    @throw [NSException exceptionWithName:@"Unimplemented Method"
-                                   reason:NSStringFromSelector(_cmd)
-                                 userInfo:nil];
+    if([colorString isEqualToString:@"black"])
+    {
+        [bumpObject setToBlack];
+    } else if([colorString isEqualToString:@"white"]) {
+        [bumpObject setToWhite];
+    } else if([colorString isEqualToString:@"empty"]) {
+        [bumpObject setToBump];
+    } else {
+        NSLog(@"Error, bad color %@ for bump", colorString);
+    }
 }
 
 - (BOOL)isColor:(NSString *)whichColor
     legalAtBump:(CSPBump *)whichBump
 {
-    //TODO: Implement this method
-    @throw [NSException exceptionWithName:@"Unimplemented Method"
-                                   reason:NSStringFromSelector(_cmd)
-                                 userInfo:nil];
-    return NO;
+    id<CSPCoordinateInterface> where = [self locationOfBump:whichBump];
+    return [[self dataSource] isLegalFor:whichColor
+                               toMoveAtX:[where x]
+                                    andY:[where y]];
 }
 
 - (void)dropColor:(NSString *)whichColor
          ontoBump:(CSPBump *)whichBump
 {
-    //TODO: Implement this method
-    @throw [NSException exceptionWithName:@"Unimplemented Method"
-                                   reason:NSStringFromSelector(_cmd)
-                                 userInfo:nil];
+    id<CSPCoordinateInterface> where = [self locationOfBump:whichBump];
+    return [[self dataSource] executeMoveBy:whichColor
+                                        atX:[where x]
+                                       andY:[where y]];
 }
 
 @end
