@@ -10,9 +10,12 @@
 
 @implementation CSPBump
 
+//TODO: Implement initWithFrame:andHost: method to allow bumps to know who their board is
+//TODO: Make a _myHost or _myBoard ivar for use by above method
 
 - (id)initWithFrame:(NSRect)frame
 {
+    //TODO: Make initWithFrame:andBoard: be the designated initializer (initWithFrame: will just pass the buck to it)
     self = [super initWithFrame:frame];
     if (self) {
         [self setToBump];
@@ -23,7 +26,7 @@
     return self;
 }
 
-#pragma mark Kyle
+/* Kyle's code */
 
 -(void)setToWhite{
     
@@ -44,17 +47,24 @@
     [self setImage:[NSImage imageNamed:@"Pente_Blank_Bump.png"]];
 }
 
-#pragma mark Keegan
+/* Keegan's code */
 
 
 -(NSDragOperation)draggingEntered:(id<NSDraggingInfo>)sender
 {
     NSDragOperation desiredAction = [sender draggingSourceOperationMask];
-    
+    NSString* theColor = [self draggedColor:sender];
+
     if((desiredAction & NSDragOperationCopy) == NSDragOperationNone)
     {
         return NSDragOperationNone;
     }
+
+    NSLog(@"Processing %@ drag into bump %@", theColor, self);
+    //TODO: Check legality
+    //Ask host board if the the dragged color would be allowed for this bump
+    //If not: return NSDragOperationNone
+    //If so, do the following code
     
     [self setImageFrameStyle:NSImageFrameGrayBezel];
     return NSDragOperationCopy;
@@ -67,37 +77,18 @@
 -(BOOL)performDragOperation:(id<NSDraggingInfo>)sender
 {
     NSString* theColor = [self draggedColor:sender];
+    BOOL dropAccepted = YES;
+
+    NSLog(@"Processing %@ drop into bump %@", theColor, self);
+    //TODO: Initiate move
+    //Assumption: If you're able to make a drop, it was already cleared as legal
+    //Notify host board that dragged color has been dropped on this bump
+    //Don't need to update color - board's drawrect will be responsible for that
     
-    BOOL dropAccepted = NO;
-    
-    if(theColor)
-    {
-        dropAccepted = YES;
-        if([theColor isEqualToString:@"white"])
-        {
-            [self setToWhite];
-        }
-        else if([theColor isEqualToString:@"black"])
-        {
-            [self setToBlack];
-        }
-        else
-        {
-            [self setToBump];
-            NSLog(@"Oh noes! I dunno how to handle '%@' data", theColor);
-            dropAccepted=NO;
-        }
-    }
-    
-    if(dropAccepted)
-    {
-        [self setNeedsDisplay];
-    }
+    [self setNeedsDisplay];
     [self setImageFrameStyle:NSImageFrameNone];
     return dropAccepted;
 }
-
-#pragma mark Adams
 
 -(NSString*) draggedColor:(id<NSDraggingInfo>) sender
 {
@@ -110,6 +101,15 @@
     } else {
         return nil;
     }
+}
+
+- (id)initWithFrame:(NSRect)frameRect
+            andHost:(id <CSPBumpHost>)hostingBoard
+{
+    @throw [NSException exceptionWithName:@"Unimplemented Method"
+                                   reason:NSStringFromSelector(_cmd)
+                                 userInfo:nil];
+    return nil;
 }
 
 @end

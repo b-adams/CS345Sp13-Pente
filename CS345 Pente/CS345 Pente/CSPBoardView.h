@@ -7,10 +7,17 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "CSPBumpHost.h"
+#import "CSPCoordinateInterface.h"
 
-@interface CSPBoardView : NSImageView{
-    NSRect JPBRect;
-    NSPoint location;
-   }
+@interface CSPBoardView : NSImageView <CSPBumpHost>
+-(void) drawGrid;
+-(void)refreshBumpColors;
+
+-(CSPBump*) bumpAtLocation:(id<CSPCoordinateInterface>) where;
+-(id<CSPCoordinateInterface>) locationOfBump:(CSPBump*) whichBump;
+
+-(void)setBump:(CSPBump*) bumpObject
+       toColor:(NSString*) colorString;
 
 @end

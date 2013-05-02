@@ -128,6 +128,8 @@
 		E9834D7C16F3877700DC7E56 /* CS345_PenteTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CS345_PenteTests.m; sourceTree = "<group>"; };
 		E9834D8616F3879700DC7E56 /* OCHamcrest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCHamcrest.framework; sourceTree = "<group>"; };
 		E9834D8716F3879700DC7E56 /* OCMockito.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCMockito.framework; sourceTree = "<group>"; };
+		E99F855A1732143E009C3FE7 /* CSPBumpHost.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CSPBumpHost.h; sourceTree = "<group>"; };
+		E99F855B17321489009C3FE7 /* CSPBoardViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CSPBoardViewDelegate.h; sourceTree = "<group>"; };
 		E9F55BBB172720B200400D58 /* CSPBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPBoardView.h; sourceTree = "<group>"; };
 		E9F55BBC172720B200400D58 /* CSPBoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPBoardView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,6 +160,7 @@
 		E966657E16F3891D00F9EC96 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E99F855B17321489009C3FE7 /* CSPBoardViewDelegate.h */,
 				E9834D6116F3877700DC7E56 /* CSPDocument.h */,
 				E9834D6216F3877700DC7E56 /* CSPDocument.m */,
 			);
@@ -168,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				65A00A0E1725704E00D736DA /* CSPBump.h */,
+				E99F855A1732143E009C3FE7 /* CSPBumpHost.h */,
 				2AC7C49F1728063C00B82D43 /* CSPBowlView.h */,
 				2AC7C4A01728063C00B82D43 /* CSPBowlView.m */,
 				2AC7C4A21728066200B82D43 /* CSPBowlViewBlack.h */,

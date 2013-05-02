@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <Cocoa/Cocoa.h>
+#import "CSPBumpHost.h"
 
 @interface CSPBump : NSImageView
 
@@ -15,4 +16,7 @@
 -(void)setToBlack;
 -(void)setToWhite;
 -(void)setToBump;
+
+-(id)initWithFrame:(NSRect)frameRect
+           andHost:(id<CSPBumpHost>) hostingBoard;
 @end
