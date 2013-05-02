@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "CSPBoardViewDelegate.h"
-@class CSPBoardView;
+#import "CSPBoardView.h"
 
 @interface CSPDocument : NSDocument <CSPBoardViewDelegate>
 

@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "CSPBumpHost.h"
 #import "CSPCoordinateInterface.h"
+#import "CSPBoardViewDelegate.h"
 
 @interface CSPBoardView : NSImageView <CSPBumpHost>
 -(void) drawGrid;
@@ -20,4 +21,5 @@
 -(void)setBump:(CSPBump*) bumpObject
        toColor:(NSString*) colorString;
 
+@property (readwrite, weak) IBOutlet id<CSPBoardViewDelegate> dataSource;
 @end
