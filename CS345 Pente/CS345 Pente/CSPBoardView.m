@@ -134,14 +134,25 @@ const int GRID_SIZE = BOARD_SIZE/(GRID_SQUARES+1);
 {
     if ((whichColor = @"white")) {
         
-    
+        return true;
+    }
+    if ((whichColor = @"black"))
+    {
+        
+        return true; 
+    }
+    else{
+        return NO;
+    }
     //TODO: Implement this method
     /*@throw [NSException exceptionWithName:@"Unimplemented Method"
                                    reason:NSStringFromSelector(_cmd)
-                                userInfo:nil];*/
+                                userInfo:nil];
+     input color string @"black", @"white", other
+      a bump object translating CSPPlayer ID white or black, a location x, y data*/
     }
-    return NO;
-}
+
+
 
 - (void)dropColor:(NSString *)whichColor
          ontoBump:(CSPBump *)whichBump
