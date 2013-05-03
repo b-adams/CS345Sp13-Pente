@@ -57,6 +57,12 @@ const int GRID_SIZE = BOARD_SIZE/(GRID_SQUARES+1);
     
     [super drawRect:dirtyRect];
     
+    
+}
+
+- (void)drawGrid
+{
+    //TODO: Implement this method
     //TODO: factor grid-drawing code out into -drawGrid method
     NSPoint startPoint;
     NSPoint endPoint;
@@ -83,20 +89,11 @@ const int GRID_SIZE = BOARD_SIZE/(GRID_SQUARES+1);
     [[NSColor blackColor] set];
     [path setLineWidth: 2];
     [path stroke];
-
+    
     //TODO: Use refreshBumpColors method (and implement it)
     //Method should loop through all bumps and, for each bump,
-    //ask the datasource for the correct color and set the bump to that color
+    //ask the datasource for the correct color and set the bump to that color}
 }
-
-- (void)drawGrid
-{
-    //TODO: Implement this method
-    @throw [NSException exceptionWithName:@"Unimplemented Method"
-                                   reason:NSStringFromSelector(_cmd)
-                                 userInfo:nil];
-}
-
 - (void)refreshBumpColors
 {
     //TODO: Implement this method
@@ -135,10 +132,14 @@ const int GRID_SIZE = BOARD_SIZE/(GRID_SQUARES+1);
 - (BOOL)isColor:(NSString *)whichColor
     legalAtBump:(CSPBump *)whichBump
 {
+    if ((whichColor = @"white")) {
+        
+    
     //TODO: Implement this method
-    @throw [NSException exceptionWithName:@"Unimplemented Method"
+    /*@throw [NSException exceptionWithName:@"Unimplemented Method"
                                    reason:NSStringFromSelector(_cmd)
-                                 userInfo:nil];
+                                userInfo:nil];*/
+    }
     return NO;
 }
 

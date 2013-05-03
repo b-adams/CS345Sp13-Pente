@@ -9,7 +9,10 @@
 #import "CSPBump.h"
 
 @implementation CSPBump
-
+- (id)initWithFrame:(NSRect)frameRect andHost:(id<CSPBumpHost>)hostingBoard
+{
+      
+}
 //TODO: Implement initWithFrame:andHost: method to allow bumps to know who their board is
 //TODO: Make a _myHost or _myBoard ivar for use by above method
 
