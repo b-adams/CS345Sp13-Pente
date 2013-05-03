@@ -8,6 +8,7 @@
 
 #import "CSPBoardView.h"
 #import "CSPBump.h"
+#import "CSPLocation.h"
 
 const int BOARD_SIZE = 500;
 const int GRID_SQUARES = 19;
@@ -15,32 +16,54 @@ const int GRID_SIZE = BOARD_SIZE/(GRID_SQUARES+1);
 
 @implementation CSPBoardView
 //TODO: Declare ivars for maptable and 2D array
-int xCoordinate;
-int yCoordinate;
+NSMapTable* ourMapTable = nil;
+
+NSMutableArray* twoDArray = nil;
+
+//-(void)setUpTableAndArray
+//{
+//    CSPLocation* tempLocation;
+//    
+//    NSMutableArray* tempRowArray = nil;
+//    for(int i=0; i<10; i++)
+//    {
+//        tempRowArray = [NSMutableArray array];
+//        // Josh has a loop that already sets up grid
+//        for(int y=0; x<10; x++)
+//        {
+//            [tempRowArray addOnject:someBUMP];
+//            tempLocation = [CSPLocation locationWithX: and Y:];
+//            [table setObject: forKey:someBUMP];
+//        }
+//        [twoDArray addObject: tempRowArray];
+//    }
+//    
+//    
+//}
 
 - (id)initWithFrame:(NSRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        //TODO: Initialize maptable
-        //TODO: Initialize 2D array
+        ourMapTable = [NSMapTable mapTableWithKeyOptions:NSPointerFunctionsStrongMemory valueOptions:NSPointerFunctionsStrongMemory];
+        twoDArray = [NSMutableArray array];
+        //TODO: Initialize maptable DONE
+        //TODO: Initialize 2D array DONE
         
         NSMapTable *ourMapTable;
         [NSMapTable
          mapTableWithKeyOptions:NSMapTableCopyIn
          valueOptions:NSMapTableStrongMemory];
         
-        NSArray *multiArray = [NSArray arrayWithObjects:
-                               [NSMutableArray array],
-                               [NSMutableArray array],
-                               [NSMutableArray array],
-                               [NSMutableArray array], nil];
         
         [self setImage:[NSImage imageNamed:@"Pente_Board_2.png"]];
 
         NSRect vJPBRect;
         CSPBump* tempBump;
         NSPoint location;
+    
+        
+        CSPLocation* tempLocation;
         
         
         int offset = GRID_SIZE/2;
@@ -48,6 +71,8 @@ int yCoordinate;
         
         for (int x=0; x<numPlaces; x+=1)
         {
+            NSMutableArray* tempRowArray = nil;
+            tempRowArray = [NSMutableArray array];
             for (int y=0; y<numPlaces; y+=1)
             {
                 location.x = x*GRID_SIZE+offset;
@@ -56,11 +81,14 @@ int yCoordinate;
                 tempBump = [[CSPBump alloc] initWithFrame:vJPBRect];
                 //TODO: Initialize bumps with a reference to their host board (this one - self)
                 [self addSubview:tempBump];
-                [multiArray ;
-                
+                [tempRowArray addObject: tempBump];
+                tempLocation = [self locationOfBump:tempBump];
+                [ourMapTable setObject: tempLocation forKey:tempBump];
+
                 //TODO: Add bumps to appropriate X,Y coordinate in XY->Bump 2D array
                 //TODO: Add key:bump->object:location in Bump->XY maptable
             }
+            [twoDArray addObject: tempRowArray];
         }
     }
     return self;
@@ -72,7 +100,13 @@ int yCoordinate;
 {
     
     [super drawRect:dirtyRect];
-    
+    //TODO: Use refreshBumpColors method (and implement it)
+    //Method should loop through all bumps and, for each bump,
+    //ask the datasource for the correct color and set the bump to that color
+}
+
+- (void)drawGrid
+{
     //TODO: factor grid-drawing code out into -drawGrid method
     NSPoint startPoint;
     NSPoint endPoint;
@@ -100,17 +134,6 @@ int yCoordinate;
     [path setLineWidth: 2];
     [path stroke];
 
-    //TODO: Use refreshBumpColors method (and implement it)
-    //Method should loop through all bumps and, for each bump,
-    //ask the datasource for the correct color and set the bump to that color
-}
-
-- (void)drawGrid
-{
-    //TODO: Implement this method
-    @throw [NSException exceptionWithName:@"Unimplemented Method"
-                                   reason:NSStringFromSelector(_cmd)
-                                 userInfo:nil];
 }
 
 - (void)refreshBumpColors

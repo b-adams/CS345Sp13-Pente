@@ -7,26 +7,26 @@
 //
 
 #import "CSPDocument.h"
-
+#import "CSPPenteGameModelInterface.h"
 
 @implementation CSPDocument
 //TODO: Create an ivar of type id<CSPPenteGameModelInterface> named  _myModel
+{
+    id<CSPPenteGameModelInterface> _myModel;
+}
 - (id)init
 {
     self = [super init];
     if (self) {
 //TODO: Initialize _myModel with a new GollumInTheCloset instance
 //******************TODO: (KVO) Register to Key-Value-Observe _myModel's gamoeOverState
-         //Don't know if I should do this!
+        _myModel = [[CSPBoardView alloc] init];
         
-        id _myModel = [[CSPBoardView alloc] init];
-
-        
-        [self addObserver: _myModel
-                            forKeyPath:@"gameOverState"
-                     options:(NSKeyValueObservingOptionNew |
-                              NSKeyValueObservingOptionOld)
-                    context:NULL];
+        [(id)_myModel addObserver: self
+                   forKeyPath:@"gameOverState"
+                      options:(NSKeyValueObservingOptionNew |
+                               NSKeyValueObservingOptionOld)
+                      context:NULL];
     }
     return self;
 }
@@ -62,13 +62,34 @@
 
 //TODO: (KVO) When a gameOverState change happens, pop up an alert
 
+-(void)observeValueForKeyPath:(NSString *)keyPath
+                     ofObject:(id)object
+                       change:(NSDictionary *)change
+                      context:(void *)context
+{
+    //1 - figure out winner
+    NSString *tempWinner;
+    tempWinner = @"%@",[_myModel gameOverState];
+
+    //2 -translate that and pop up
+    [self popupGameOverAlertWithWinner:tempWinner];
+    
+    [self close];
+}
+
 - (void)popupGameOverAlertWithWinner:(NSString *)winnerName
 {
     //TODO: Implement this method. Should close the window after showing the alert.
+    NSAlert* alert = [[NSAlert alloc]init];
+    [alert addButtonWithTitle:@"End Game"];
+    [alert addButtonWithTitle:@"Press 'CMD N' for New Game."];
+    [alert setMessageText:@"Game Over. %@ Won!", winnerName];
+    [alert setAlertStyle:NSWarningAlertStyle];
+    [alert runModal];
     
-    @throw [NSException exceptionWithName:@"Unimplemented Method"
-                                   reason:NSStringFromSelector(_cmd)
-                                 userInfo:nil];
+//    @throw [NSException exceptionWithName:@"Unimplemented Method"
+//                                   reason:NSStringFromSelector(_cmd)
+//                                 userInfo:nil];
 }
 
 - (BOOL)isLegalFor:(NSString *)playerColor
@@ -89,6 +110,7 @@
     //TODO: Implement this method (it should delegate work to the model)
     //Also  send the view a -needsDisplay message
     //Also update the whiteCounter and the blackCounter contents
+    
     @throw [NSException exceptionWithName:@"Unimplemented Method"
                                    reason:NSStringFromSelector(_cmd)
                                  userInfo:nil];
