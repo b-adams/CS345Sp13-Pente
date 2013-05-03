@@ -16,7 +16,17 @@
     self = [super init];
     if (self) {
 //TODO: Initialize _myModel with a new GollumInTheCloset instance
-//TODO: (KVO) Register to Key-Value-Observe _myModel's gamoeOverState
+//******************TODO: (KVO) Register to Key-Value-Observe _myModel's gamoeOverState
+         //Don't know if I should do this!
+        
+        id _myModel = [[CSPBoardView alloc] init];
+
+        
+        [self addObserver: _myModel
+                            forKeyPath:@"gameOverState"
+                     options:(NSKeyValueObservingOptionNew |
+                              NSKeyValueObservingOptionOld)
+                    context:NULL];
     }
     return self;
 }
@@ -55,6 +65,7 @@
 - (void)popupGameOverAlertWithWinner:(NSString *)winnerName
 {
     //TODO: Implement this method. Should close the window after showing the alert.
+    
     @throw [NSException exceptionWithName:@"Unimplemented Method"
                                    reason:NSStringFromSelector(_cmd)
                                  userInfo:nil];

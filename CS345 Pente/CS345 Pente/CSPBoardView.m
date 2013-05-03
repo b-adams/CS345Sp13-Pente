@@ -15,6 +15,8 @@ const int GRID_SIZE = BOARD_SIZE/(GRID_SQUARES+1);
 
 @implementation CSPBoardView
 //TODO: Declare ivars for maptable and 2D array
+int xCoordinate;
+int yCoordinate;
 
 - (id)initWithFrame:(NSRect)frame
 {
@@ -22,6 +24,18 @@ const int GRID_SIZE = BOARD_SIZE/(GRID_SQUARES+1);
     if (self) {
         //TODO: Initialize maptable
         //TODO: Initialize 2D array
+        
+        NSMapTable *ourMapTable;
+        [NSMapTable
+         mapTableWithKeyOptions:NSMapTableCopyIn
+         valueOptions:NSMapTableStrongMemory];
+        
+        NSArray *multiArray = [NSArray arrayWithObjects:
+                               [NSMutableArray array],
+                               [NSMutableArray array],
+                               [NSMutableArray array],
+                               [NSMutableArray array], nil];
+        
         [self setImage:[NSImage imageNamed:@"Pente_Board_2.png"]];
 
         NSRect vJPBRect;
@@ -42,6 +56,8 @@ const int GRID_SIZE = BOARD_SIZE/(GRID_SQUARES+1);
                 tempBump = [[CSPBump alloc] initWithFrame:vJPBRect];
                 //TODO: Initialize bumps with a reference to their host board (this one - self)
                 [self addSubview:tempBump];
+                [multiArray ;
+                
                 //TODO: Add bumps to appropriate X,Y coordinate in XY->Bump 2D array
                 //TODO: Add key:bump->object:location in Bump->XY maptable
             }
