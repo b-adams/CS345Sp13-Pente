@@ -23,7 +23,7 @@ NSMutableArray* twoDArray = nil;
 //-(void)setUpTableAndArray
 //{
 //    CSPLocation* tempLocation;
-//    
+//
 //    NSMutableArray* tempRowArray = nil;
 //    for(int i=0; i<10; i++)
 //    {
@@ -37,8 +37,8 @@ NSMutableArray* twoDArray = nil;
 //        }
 //        [twoDArray addObject: tempRowArray];
 //    }
-//    
-//    
+//
+//
 //}
 
 - (id)initWithFrame:(NSRect)frame
@@ -57,11 +57,11 @@ NSMutableArray* twoDArray = nil;
         
         
         [self setImage:[NSImage imageNamed:@"Pente_Board_2.png"]];
-
+        
         NSRect vJPBRect;
         CSPBump* tempBump;
         NSPoint location;
-    
+        
         
         CSPLocation* tempLocation;
         
@@ -84,7 +84,7 @@ NSMutableArray* twoDArray = nil;
                 [tempRowArray addObject: tempBump];
                 tempLocation = [self locationOfBump:tempBump];
                 [ourMapTable setObject: tempLocation forKey:tempBump];
-
+                
                 //TODO: Add bumps to appropriate X,Y coordinate in XY->Bump 2D array
                 //TODO: Add key:bump->object:location in Bump->XY maptable
             }
@@ -184,18 +184,18 @@ NSMutableArray* twoDArray = nil;
     if ((whichColor = @"black"))
     {
         
-        return true; 
+        return true;
     }
     else{
         return NO;
     }
     //TODO: Implement this method
     /*@throw [NSException exceptionWithName:@"Unimplemented Method"
-                                   reason:NSStringFromSelector(_cmd)
-                                userInfo:nil];
+     reason:NSStringFromSelector(_cmd)
+     userInfo:nil];
      input color string @"black", @"white", other
-      a bump object translating CSPPlayer ID white or black, a location x, y data*/
-    }
+     a bump object translating CSPPlayer ID white or black, a location x, y data*/
+}
 
 
 

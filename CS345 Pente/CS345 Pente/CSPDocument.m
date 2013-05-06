@@ -18,15 +18,15 @@
 {
     self = [super init];
     if (self) {
-//TODO: Initialize _myModel with a new GollumInTheCloset instance
-//******************TODO: (KVO) Register to Key-Value-Observe _myModel's gamoeOverState
+        //TODO: Initialize _myModel with a new GollumInTheCloset instance
+        //******************TODO: (KVO) Register to Key-Value-Observe _myModel's gamoeOverState
         _myModel = [[CSPBoardView alloc] init];
         
         [(id)_myModel addObserver: self
-                   forKeyPath:@"gameOverState"
-                      options:(NSKeyValueObservingOptionNew |
-                               NSKeyValueObservingOptionOld)
-                      context:NULL];
+                       forKeyPath:@"gameOverState"
+                          options:(NSKeyValueObservingOptionNew |
+                                   NSKeyValueObservingOptionOld)
+                          context:NULL];
     }
     return self;
 }
@@ -70,7 +70,7 @@
     //1 - figure out winner
     NSString *tempWinner;
     tempWinner = @"%@",[_myModel gameOverState];
-
+    
     //2 -translate that and pop up
     [self popupGameOverAlertWithWinner:tempWinner];
     
@@ -87,9 +87,9 @@
     [alert setAlertStyle:NSWarningAlertStyle];
     [alert runModal];
     
-//    @throw [NSException exceptionWithName:@"Unimplemented Method"
-//                                   reason:NSStringFromSelector(_cmd)
-//                                 userInfo:nil];
+    //    @throw [NSException exceptionWithName:@"Unimplemented Method"
+    //                                   reason:NSStringFromSelector(_cmd)
+    //                                 userInfo:nil];
 }
 
 - (BOOL)isLegalFor:(NSString *)playerColor

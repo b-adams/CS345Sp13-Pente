@@ -10,7 +10,7 @@
 
 @implementation CSPBump
 {
-    id<CSPBumpHost> _myboard; 
+    id<CSPBumpHost> _myboard;
 }
 
 //TODO: Implement initWithFrame:andHost: method to allow bumps to know who their board is
@@ -20,8 +20,8 @@
 {
     //TODO: Make initWithFrame:andBoard: be the designated initializer (initWithFrame: will just pass the buck to it)
     return[self initWithFrame:frame andHost:nil];
-
-    }
+    
+}
 
 
 
@@ -53,12 +53,12 @@
 {
     NSDragOperation desiredAction = [sender draggingSourceOperationMask];
     NSString* theColor = [self draggedColor:sender];
-
+    
     if((desiredAction & NSDragOperationCopy) == NSDragOperationNone)
     {
         return NSDragOperationNone;
     }
-
+    
     NSLog(@"Processing %@ drag into bump %@", theColor, self);
     //TODO: Check legality
     //Ask host board if the the dragged color would be allowed for this bump
@@ -77,7 +77,7 @@
 {
     NSString* theColor = [self draggedColor:sender];
     BOOL dropAccepted = YES;
-
+    
     NSLog(@"Processing %@ drop into bump %@", theColor, self);
     //TODO: Initiate move
     //Assumption: If you're able to make a drop, it was already cleared as legal
@@ -106,10 +106,10 @@
 {
     self = [super initWithFrame:frameRect];
     if (self) {
-        _myboard = hostingBoard; 
+        _myboard = hostingBoard;
         [self setToBump];
         NSArray* acceptedTypes = @[NSPasteboardTypeString];
         [self registerForDraggedTypes:acceptedTypes];
     }
-
-@end
+    
+    @end
