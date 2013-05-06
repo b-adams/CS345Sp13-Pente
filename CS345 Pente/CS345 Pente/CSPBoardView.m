@@ -100,9 +100,8 @@ NSMutableArray* twoDArray = nil;
 {
     
     [super drawRect:dirtyRect];
-    //TODO: Use refreshBumpColors method (and implement it)
-    //Method should loop through all bumps and, for each bump,
-    //ask the datasource for the correct color and set the bump to that color
+    [self drawGrid];
+    [self refreshBumpColors];
 }
 
 - (void)drawGrid
@@ -141,37 +140,41 @@ NSMutableArray* twoDArray = nil;
 }
 - (void)refreshBumpColors
 {
-    //TODO: Implement this method
-    @throw [NSException exceptionWithName:@"Unimplemented Method"
-                                   reason:NSStringFromSelector(_cmd)
-                                 userInfo:nil];
+    id<CSPCoordinateInterface> where = nil;
+    NSString* color;
+    for(CSPBump* aBump in [_bumpsToLocations keyEnumerator])
+    {
+        where = [_bumpsToLocations objectForKey:aBump];
+        color = [[self dataSource] getPlayerColorAtX:[where x]
+                                                andY:[where y]];
+        [self setBump:aBump
+              toColor:color];
+    }
 }
 
 - (CSPBump *)bumpAtLocation:(id <CSPCoordinateInterface>)where
 {
-    //TODO: Implement this method
-    @throw [NSException exceptionWithName:@"Unimplemented Method"
-                                   reason:NSStringFromSelector(_cmd)
-                                 userInfo:nil];
-    return nil;
+    return [[_indicesToBumps objectAtIndex:[where x]] objectAtIndex:[where y]];
 }
 
 - (id <CSPCoordinateInterface>)locationOfBump:(CSPBump *)whichBump
 {
-    //TODO: Implement this method
-    @throw [NSException exceptionWithName:@"Unimplemented Method"
-                                   reason:NSStringFromSelector(_cmd)
-                                 userInfo:nil];
-    return nil;
+    return [_bumpsToLocations objectForKey:whichBump];
 }
 
 - (void)setBump:(CSPBump *)bumpObject
         toColor:(NSString *)colorString
 {
-    //TODO: Implement this method
-    @throw [NSException exceptionWithName:@"Unimplemented Method"
-                                   reason:NSStringFromSelector(_cmd)
-                                 userInfo:nil];
+    if([colorString isEqualToString:@"black"])
+    {
+        [bumpObject setToBlack];
+    } else if([colorString isEqualToString:@"white"]) {
+        [bumpObject setToWhite];
+    } else if([colorString isEqualToString:@"empty"]) {
+        [bumpObject setToBump];
+    } else {
+        NSLog(@"Error, bad color %@ for bump", colorString);
+    }
 }
 
 - (BOOL)isColor:(NSString *)whichColor
@@ -202,10 +205,10 @@ NSMutableArray* twoDArray = nil;
 - (void)dropColor:(NSString *)whichColor
          ontoBump:(CSPBump *)whichBump
 {
-    //TODO: Implement this method
-    @throw [NSException exceptionWithName:@"Unimplemented Method"
-                                   reason:NSStringFromSelector(_cmd)
-                                 userInfo:nil];
+    id<CSPCoordinateInterface> where = [self locationOfBump:whichBump];
+    return [[self dataSource] executeMoveBy:whichColor
+                                        atX:[where x]
+                                       andY:[where y]];
 }
 
 @end

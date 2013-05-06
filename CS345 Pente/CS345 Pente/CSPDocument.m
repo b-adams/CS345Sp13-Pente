@@ -96,34 +96,63 @@
          toMoveAtX:(NSUInteger)x
               andY:(NSUInteger)y
 {
-    //TODO: Implement this method (it should delegate work to the model)
-    @throw [NSException exceptionWithName:@"Unimplemented Method"
-                                   reason:NSStringFromSelector(_cmd)
-                                 userInfo:nil];
-    return NO;
+    CSPPlayerID thePlayer;
+    
+    if([playerColor isEqualToString:@"white"])
+        thePlayer = CSPID_PlayerWhite;
+    else if([playerColor isEqualToString:@"black"])
+        thePlayer = CSPID_PlayerBlack;
+    else
+        thePlayer = CSPID_NOBODY;
+    
+    return [_myModel isLegalMove:[CSPMove moveWithPlayer:thePlayer
+                                                     atX:x andY:y]];
 }
 
 - (void)executeMoveBy:(NSString *)playerColor
                   atX:(NSUInteger)x
                  andY:(NSUInteger)y
 {
-    //TODO: Implement this method (it should delegate work to the model)
-    //Also  send the view a -needsDisplay message
-    //Also update the whiteCounter and the blackCounter contents
+    CSPPlayerID thePlayer;
     
-    @throw [NSException exceptionWithName:@"Unimplemented Method"
-                                   reason:NSStringFromSelector(_cmd)
-                                 userInfo:nil];
+    if([playerColor isEqualToString:@"white"])
+        thePlayer = CSPID_PlayerWhite;
+    else if([playerColor isEqualToString:@"black"])
+        thePlayer = CSPID_PlayerBlack;
+    else
+        thePlayer = CSPID_NOBODY;
+    
+    [_myModel makeMove:[CSPMove moveWithPlayer:thePlayer
+                                           atX:x andY:y]];
+    
+    
+    [[self penteBoard] needsDisplay];
+    
+    NSUInteger captures;
+    NSString* capString = nil;
+    
+    captures = [_myModel capturesByPlayer:CSPID_PlayerWhite];
+    capString = [NSString stringWithFormat:@"%ld", captures];
+    [[self whiteCounter] setStringValue:capString];
+    
+    captures = [_myModel capturesByPlayer:CSPID_PlayerBlack];
+    capString = [NSString stringWithFormat:@"%ld", captures];
+    [[self blackCounter] setStringValue:capString];
 }
+
 
 - (NSString *)getPlayerColorAtX:(NSUInteger)x
                            andY:(NSUInteger)y
 {
-    //TODO: Implement this method (it should delegate work to the model)
-    @throw [NSException exceptionWithName:@"Unimplemented Method"
-                                   reason:NSStringFromSelector(_cmd)
-                                 userInfo:nil];
-    return nil;
+    CSPPlayerID pieceCode;
+    pieceCode = [_myModel whosePieceIsAt:[[CSPLocation alloc] initWithX:x
+                                                                   andY:y]];
+    switch(pieceCode)
+    {
+        case CSPID_PlayerBlack: return @"black";
+        case CSPID_PlayerWhite: return @"white";
+        case CSPID_NOBODY: return @"empty";
+    }
 }
 
 @end

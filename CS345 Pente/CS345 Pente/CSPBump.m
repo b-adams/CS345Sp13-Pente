@@ -60,13 +60,14 @@
     }
     
     NSLog(@"Processing %@ drag into bump %@", theColor, self);
-    //TODO: Check legality
-    //Ask host board if the the dragged color would be allowed for this bump
-    //If not: return NSDragOperationNone
-    //If so, do the following code
-    
-    [self setImageFrameStyle:NSImageFrameGrayBezel];
-    return NSDragOperationCopy;
+    if([_myBoard isColor:theColor
+             legalAtBump:self])
+    {
+        [self setImageFrameStyle:NSImageFrameGrayBezel];
+        return NSDragOperationCopy;
+    } else {
+        return NSDragOperationNone;
+    }
 }
 -(void)draggingExited:(id<NSDraggingInfo>)sender
 {
@@ -79,10 +80,9 @@
     BOOL dropAccepted = YES;
     
     NSLog(@"Processing %@ drop into bump %@", theColor, self);
-    //TODO: Initiate move
-    //Assumption: If you're able to make a drop, it was already cleared as legal
-    //Notify host board that dragged color has been dropped on this bump
-    //Don't need to update color - board's drawrect will be responsible for that
+    
+    [_myBoard dropColor:theColor
+               ontoBump:self];
     
     [self setNeedsDisplay];
     [self setImageFrameStyle:NSImageFrameNone];
