@@ -10,7 +10,7 @@
 
 @implementation CSPBump
 {
-    id<CSPBumpHost> _myboard;
+    id<CSPBumpHost> _myBoard;
 }
 
 //TODO: Implement initWithFrame:andHost: method to allow bumps to know who their board is
@@ -106,10 +106,12 @@
 {
     self = [super initWithFrame:frameRect];
     if (self) {
-        _myboard = hostingBoard;
+        _myBoard = hostingBoard;
         [self setToBump];
         NSArray* acceptedTypes = @[NSPasteboardTypeString];
         [self registerForDraggedTypes:acceptedTypes];
     }
-    
+    return self;
+}
+
     @end

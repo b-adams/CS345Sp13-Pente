@@ -8,9 +8,10 @@
 
 #import "CSPDocument.h"
 #import "CSPPenteGameModelInterface.h"
+#import "CSPGollumInTheCloset.h"
+#import "CSPMove.h"
 
 @implementation CSPDocument
-//TODO: Create an ivar of type id<CSPPenteGameModelInterface> named  _myModel
 {
     id<CSPPenteGameModelInterface> _myModel;
 }
@@ -18,9 +19,7 @@
 {
     self = [super init];
     if (self) {
-        //TODO: Initialize _myModel with a new GollumInTheCloset instance
-        //******************TODO: (KVO) Register to Key-Value-Observe _myModel's gamoeOverState
-        _myModel = [[CSPBoardView alloc] init];
+        _myModel = [[CSPGollumInTheCloset alloc] init];
         
         [(id)_myModel addObserver: self
                        forKeyPath:@"gameOverState"
@@ -69,27 +68,27 @@
 {
     //1 - figure out winner
     NSString *tempWinner;
-    tempWinner = @"%@",[_myModel gameOverState];
+    switch([_myModel gameOverState])
+    {
+        case CSPGO_BlackWins: tempWinner = @"Black"; break;
+        case CSPGO_WhiteWins: tempWinner = @"White"; break;
+        case CSPGO_GameNotOver: break;
+    }
     
     //2 -translate that and pop up
     [self popupGameOverAlertWithWinner:tempWinner];
     
-    [self close];
 }
 
 - (void)popupGameOverAlertWithWinner:(NSString *)winnerName
 {
-    //TODO: Implement this method. Should close the window after showing the alert.
     NSAlert* alert = [[NSAlert alloc]init];
     [alert addButtonWithTitle:@"End Game"];
     [alert addButtonWithTitle:@"Press 'CMD N' for New Game."];
-    [alert setMessageText:@"Game Over. %@ Won!", winnerName];
+    [alert setMessageText:[NSString stringWithFormat:@"Game Over. %@ Won!", winnerName]];
     [alert setAlertStyle:NSWarningAlertStyle];
     [alert runModal];
-    
-    //    @throw [NSException exceptionWithName:@"Unimplemented Method"
-    //                                   reason:NSStringFromSelector(_cmd)
-    //                                 userInfo:nil];
+    [self close];
 }
 
 - (BOOL)isLegalFor:(NSString *)playerColor
