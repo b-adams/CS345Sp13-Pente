@@ -23,6 +23,11 @@ const NSUInteger BOARD_WIDTH = 19;
     NSDictionary* _captures;
 }
 
+-(NSString*) description
+{
+    return [NSString stringWithFormat:@"%@\nTurn: %ld\tPieces: %ld\tCaptures: %@\n",
+            _theBoard, (unsigned long)[self turnNumber], [_theBoard count], _captures];
+}
 - (id)init
 {
     self = [super init];
@@ -35,6 +40,7 @@ const NSUInteger BOARD_WIDTH = 19;
     }
     return self;
 }
+//TODO: Switch this from BOOL to an enum for different violation types
 - (BOOL)isLegalMove:(id<CSPMoveInterface>)aMove
 {
     if([self turnNumber]==2 &&

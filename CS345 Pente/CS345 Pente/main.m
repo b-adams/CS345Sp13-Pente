@@ -7,8 +7,10 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "testCLI.h"
 
 int main(int argc, char *argv[])
 {
+    //runCLI();
     return NSApplicationMain(argc, (const char **)argv);
 }

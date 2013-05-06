@@ -43,6 +43,7 @@
 		E9834D8916F3879700DC7E56 /* OCMockito.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9834D8716F3879700DC7E56 /* OCMockito.framework */; };
 		E9834D8B16F387BA00DC7E56 /* OCHamcrest.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E9834D8616F3879700DC7E56 /* OCHamcrest.framework */; };
 		E9834D8C16F387BA00DC7E56 /* OCMockito.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E9834D8716F3879700DC7E56 /* OCMockito.framework */; };
+		E9B9011917376840007644C2 /* testCLI.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B9011817376840007644C2 /* testCLI.m */; };
 		E9F55BBD172720B200400D58 /* CSPBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F55BBC172720B200400D58 /* CSPBoardView.m */; };
 /* End PBXBuildFile section */
 
@@ -130,6 +131,8 @@
 		E9834D8716F3879700DC7E56 /* OCMockito.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCMockito.framework; sourceTree = "<group>"; };
 		E99F855A1732143E009C3FE7 /* CSPBumpHost.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CSPBumpHost.h; sourceTree = "<group>"; };
 		E99F855B17321489009C3FE7 /* CSPBoardViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CSPBoardViewDelegate.h; sourceTree = "<group>"; };
+		E9B9011717376840007644C2 /* testCLI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testCLI.h; sourceTree = "<group>"; };
+		E9B9011817376840007644C2 /* testCLI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testCLI.m; sourceTree = "<group>"; };
 		E9F55BBB172720B200400D58 /* CSPBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPBoardView.h; sourceTree = "<group>"; };
 		E9F55BBC172720B200400D58 /* CSPBoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPBoardView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -266,6 +269,8 @@
 		E9834D5616F3877700DC7E56 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E9B9011717376840007644C2 /* testCLI.h */,
+				E9B9011817376840007644C2 /* testCLI.m */,
 				65A00A151725712F00D736DA /* Pente_White_Stone.png */,
 				65A00A131725712900D736DA /* Pente_Blank_Bump.png */,
 				2A2E095117281D86000FCD2B /* Pente_White_Stone_Bowl.png */,
@@ -434,6 +439,7 @@
 				2AC7C4A71728067600B82D43 /* CSPBowlViewWhite.m in Sources */,
 				2A2E094B17281C90000FCD2B /* CSPWhiteStoneBowl.m in Sources */,
 				2A2E094E17281CAD000FCD2B /* CSPBlackStoneBowl.m in Sources */,
+				E9B9011917376840007644C2 /* testCLI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
