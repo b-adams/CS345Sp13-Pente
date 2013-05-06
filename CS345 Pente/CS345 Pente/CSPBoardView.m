@@ -107,6 +107,7 @@ NSMutableArray* twoDArray = nil;
 
 - (void)drawGrid
 {
+    //TODO: Implement this method
     //TODO: factor grid-drawing code out into -drawGrid method
     NSPoint startPoint;
     NSPoint endPoint;
@@ -133,9 +134,11 @@ NSMutableArray* twoDArray = nil;
     [[NSColor blackColor] set];
     [path setLineWidth: 2];
     [path stroke];
-
+    
+    //TODO: Use refreshBumpColors method (and implement it)
+    //Method should loop through all bumps and, for each bump,
+    //ask the datasource for the correct color and set the bump to that color}
 }
-
 - (void)refreshBumpColors
 {
     //TODO: Implement this method
@@ -174,12 +177,27 @@ NSMutableArray* twoDArray = nil;
 - (BOOL)isColor:(NSString *)whichColor
     legalAtBump:(CSPBump *)whichBump
 {
+    if ((whichColor = @"white")) {
+        
+        return true;
+    }
+    if ((whichColor = @"black"))
+    {
+        
+        return true; 
+    }
+    else{
+        return NO;
+    }
     //TODO: Implement this method
-    @throw [NSException exceptionWithName:@"Unimplemented Method"
+    /*@throw [NSException exceptionWithName:@"Unimplemented Method"
                                    reason:NSStringFromSelector(_cmd)
-                                 userInfo:nil];
-    return NO;
-}
+                                userInfo:nil];
+     input color string @"black", @"white", other
+      a bump object translating CSPPlayer ID white or black, a location x, y data*/
+    }
+
+
 
 - (void)dropColor:(NSString *)whichColor
          ontoBump:(CSPBump *)whichBump

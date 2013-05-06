@@ -9,6 +9,9 @@
 #import "CSPBump.h"
 
 @implementation CSPBump
+{
+    id<CSPBumpHost> _myboard; 
+}
 
 //TODO: Implement initWithFrame:andHost: method to allow bumps to know who their board is
 //TODO: Make a _myHost or _myBoard ivar for use by above method
@@ -16,15 +19,11 @@
 - (id)initWithFrame:(NSRect)frame
 {
     //TODO: Make initWithFrame:andBoard: be the designated initializer (initWithFrame: will just pass the buck to it)
-    self = [super initWithFrame:frame];
-    if (self) {
-        [self setToBump];
-        NSArray* acceptedTypes = @[NSPasteboardTypeString];
-        [self registerForDraggedTypes:acceptedTypes];
+    return[self initWithFrame:frame andHost:nil];
 
     }
-    return self;
-}
+
+
 
 /* Kyle's code */
 
@@ -103,13 +102,14 @@
     }
 }
 
-- (id)initWithFrame:(NSRect)frameRect
-            andHost:(id <CSPBumpHost>)hostingBoard
+- (id)initWithFrame:(NSRect)frameRect andHost:(id <CSPBumpHost>)hostingBoard
 {
-    @throw [NSException exceptionWithName:@"Unimplemented Method"
-                                   reason:NSStringFromSelector(_cmd)
-                                 userInfo:nil];
-    return nil;
-}
+    self = [super initWithFrame:frameRect];
+    if (self) {
+        _myboard = hostingBoard; 
+        [self setToBump];
+        NSArray* acceptedTypes = @[NSPasteboardTypeString];
+        [self registerForDraggedTypes:acceptedTypes];
+    }
 
 @end
