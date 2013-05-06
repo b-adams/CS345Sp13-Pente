@@ -124,17 +124,31 @@ const NSUInteger BOARD_WIDTH = 19;
 
 - (CSPPlayerID)whoIsWinner
 {
-    return CSPID_PlayerWhite;
+    switch([self gameOverState])
+    {
+        case CSPGO_BlackWins: return CSPID_PlayerBlack; break;
+        case CSPGO_WhiteWins: return CSPID_PlayerWhite; break;
+        case CSPGO_GameNotOver:
+        default:
+            return CSPID_NOBODY;
+    }
 }
 
 - (CSPPlayerID)whoseTurnIsIt
 {
-    return CSPID_PlayerWhite;
+    switch([self turnNumber]%2)
+    {
+        case 0: return CSPID_PlayerWhite; break;
+        case 1: return CSPID_PlayerBlack; break;
+        default: return CSPID_NOBODY;
+    }
 }
 
 - (CSPPlayerID)whosePieceIsAt:(id<CSPCoordinateInterface>)aLocation
 {
-    return CSPID_PlayerWhite;
+    CSPStone* thePiece = nil;
+    thePiece = [_theBoard objectAtCoordinate:aLocation];
+    return [[thePiece placement] player];
 }
 
 - (NSUInteger)boardWidth

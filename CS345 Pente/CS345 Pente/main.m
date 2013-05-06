@@ -11,6 +11,6 @@
 
 int main(int argc, char *argv[])
 {
-    runCLI();
+    //runCLI();
     return NSApplicationMain(argc, (const char **)argv);
 }

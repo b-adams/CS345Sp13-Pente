@@ -7,7 +7,14 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "CSPBoardViewDelegate.h"
+#import "CSPBoardView.h"
 
-@interface CSPDocument : NSDocument
+@interface CSPDocument : NSDocument <CSPBoardViewDelegate>
 
+@property (weak) IBOutlet NSTextField *whiteCounter;
+@property (weak) IBOutlet NSTextField *blackCounter;
+@property (weak) IBOutlet CSPBoardView *penteBoard;
+
+-(void)popupGameOverAlertWithWinner:(NSString*) winnerName;
 @end

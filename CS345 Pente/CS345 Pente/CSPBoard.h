@@ -11,6 +11,8 @@
 
 // TODO: Add fast enumeration and other collection protocols?
 @interface CSPBoard : NSObject //<NSCopying, NSMutableCopying, NSFastEnumeration>
+
+//NSImageView *CSPBoard;
 @property (assign) NSUInteger width;
 -initWithWidth:(NSUInteger) theWidth;
 +boardWithWidth:(NSUInteger) theWidth;

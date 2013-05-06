@@ -7,29 +7,37 @@
 //
 
 #import "CSPDocument.h"
+#import "CSPPenteGameModelInterface.h"
+#import "CSPGollumInTheCloset.h"
+#import "CSPMove.h"
 
 @implementation CSPDocument
-
+{
+    id<CSPPenteGameModelInterface> _myModel;
+}
 - (id)init
 {
     self = [super init];
     if (self) {
-        // Add your subclass-specific initialization here.
+        _myModel = [[CSPGollumInTheCloset alloc] init];
+        
+        [(id)_myModel addObserver: self
+                       forKeyPath:@"gameOverState"
+                          options:(NSKeyValueObservingOptionNew |
+                                   NSKeyValueObservingOptionOld)
+                          context:NULL];
     }
     return self;
 }
 
 - (NSString *)windowNibName
 {
-    // Override returning the nib file name of the document
-    // If you need to use a subclass of NSWindowController or if your document supports multiple NSWindowControllers, you should remove this method and override -makeWindowControllers instead.
     return @"CSPDocument";
 }
 
 - (void)windowControllerDidLoadNib:(NSWindowController *)aController
 {
     [super windowControllerDidLoadNib:aController];
-    // Add any code here that needs to be executed once the windowController has loaded the document's window.
 }
 
 + (BOOL)autosavesInPlace
@@ -39,8 +47,6 @@
 
 - (NSData *)dataOfType:(NSString *)typeName error:(NSError **)outError
 {
-    // Insert code here to write your document to data of the specified type. If outError != NULL, ensure that you create and set an appropriate error when returning nil.
-    // You can also choose to override -fileWrapperOfType:error:, -writeToURL:ofType:error:, or -writeToURL:ofType:forSaveOperation:originalContentsURL:error: instead.
     NSException *exception = [NSException exceptionWithName:@"UnimplementedMethod" reason:[NSString stringWithFormat:@"%@ is unimplemented", NSStringFromSelector(_cmd)] userInfo:nil];
     @throw exception;
     return nil;
@@ -48,12 +54,104 @@
 
 - (BOOL)readFromData:(NSData *)data ofType:(NSString *)typeName error:(NSError **)outError
 {
-    // Insert code here to read your document from the given data of the specified type. If outError != NULL, ensure that you create and set an appropriate error when returning NO.
-    // You can also choose to override -readFromFileWrapper:ofType:error: or -readFromURL:ofType:error: instead.
-    // If you override either of these, you should also override -isEntireFileLoaded to return NO if the contents are lazily loaded.
     NSException *exception = [NSException exceptionWithName:@"UnimplementedMethod" reason:[NSString stringWithFormat:@"%@ is unimplemented", NSStringFromSelector(_cmd)] userInfo:nil];
     @throw exception;
     return YES;
+}
+
+//TODO: (KVO) When a gameOverState change happens, pop up an alert
+
+-(void)observeValueForKeyPath:(NSString *)keyPath
+                     ofObject:(id)object
+                       change:(NSDictionary *)change
+                      context:(void *)context
+{
+    //1 - figure out winner
+    NSString *tempWinner;
+    switch([_myModel gameOverState])
+    {
+        case CSPGO_BlackWins: tempWinner = @"Black"; break;
+        case CSPGO_WhiteWins: tempWinner = @"White"; break;
+        case CSPGO_GameNotOver: break;
+    }
+    
+    //2 -translate that and pop up
+    [self popupGameOverAlertWithWinner:tempWinner];
+    
+}
+
+- (void)popupGameOverAlertWithWinner:(NSString *)winnerName
+{
+    NSAlert* alert = [[NSAlert alloc]init];
+    [alert addButtonWithTitle:@"End Game"];
+    [alert addButtonWithTitle:@"Press 'CMD N' for New Game."];
+    [alert setMessageText:[NSString stringWithFormat:@"Game Over. %@ Won!", winnerName]];
+    [alert setAlertStyle:NSWarningAlertStyle];
+    [alert runModal];
+    [self close];
+}
+
+- (BOOL)isLegalFor:(NSString *)playerColor
+         toMoveAtX:(NSUInteger)x
+              andY:(NSUInteger)y
+{
+    CSPPlayerID thePlayer;
+    
+    if([playerColor isEqualToString:@"white"])
+        thePlayer = CSPID_PlayerWhite;
+    else if([playerColor isEqualToString:@"black"])
+        thePlayer = CSPID_PlayerBlack;
+    else
+        thePlayer = CSPID_NOBODY;
+    
+    return [_myModel isLegalMove:[CSPMove moveWithPlayer:thePlayer
+                                                     atX:x andY:y]];
+}
+
+- (void)executeMoveBy:(NSString *)playerColor
+                  atX:(NSUInteger)x
+                 andY:(NSUInteger)y
+{
+    CSPPlayerID thePlayer;
+    
+    if([playerColor isEqualToString:@"white"])
+        thePlayer = CSPID_PlayerWhite;
+    else if([playerColor isEqualToString:@"black"])
+        thePlayer = CSPID_PlayerBlack;
+    else
+        thePlayer = CSPID_NOBODY;
+    
+    [_myModel makeMove:[CSPMove moveWithPlayer:thePlayer
+                                           atX:x andY:y]];
+    
+    
+    [[self penteBoard] needsDisplay];
+    
+    NSUInteger captures;
+    NSString* capString = nil;
+    
+    captures = [_myModel capturesByPlayer:CSPID_PlayerWhite];
+    capString = [NSString stringWithFormat:@"%ld", captures];
+    [[self whiteCounter] setStringValue:capString];
+    
+    captures = [_myModel capturesByPlayer:CSPID_PlayerBlack];
+    capString = [NSString stringWithFormat:@"%ld", captures];
+    [[self blackCounter] setStringValue:capString];
+}
+
+
+- (NSString *)getPlayerColorAtX:(NSUInteger)x
+                           andY:(NSUInteger)y
+{
+    CSPPlayerID pieceCode;
+    pieceCode = [_myModel whosePieceIsAt:[[CSPLocation alloc] initWithX:x
+                                                                   andY:y]];
+    switch(pieceCode)
+    {
+        case CSPID_PlayerBlack: return @"black";
+        case CSPID_PlayerWhite: return @"white";
+        case CSPID_NOBODY: return @"empty";
+    }
 }
 
 @end
